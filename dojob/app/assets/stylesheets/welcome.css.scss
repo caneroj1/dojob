@@ -1,0 +1,51 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.top-splash {
+  margin-top: 40px;
+}
+
+.catchphrase {
+  color: $dojob-color;
+  font-size: $dojob-title1;
+  font-family: 'Indie Flower', cursive;
+}
+
+.working-on {
+  color: $dojob-color;
+  font-size: $dojob-title2;
+  font-family: 'Indie Flower', cursive;
+}
+
+.signup-header {
+  margin-top: 40px;
+}
+
+.login-header {
+  margin-top:10px;
+}
+
+.contact {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.login-container {
+  margin-top: 40px;
+}
+
+.pad {
+  margin-top: 150px;
+}
+
+.how-it-works {
+  background-color: rgb(220, 220, 220);
+  padding-bottom: 30px;
+}
+
+.explain {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

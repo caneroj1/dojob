@@ -1,0 +1,41 @@
+.container-fluid
+  .row
+    .col-md-4.col-md-offset-2
+      .top-splash.text-center
+        = image_tag("dojob2.png")
+      %h1.catchphrase.text-center
+        What's your time worth?
+      %h3.working-on.text-center
+        People are working on...
+    .col-md-4.col-md-offset-1
+      .login-container
+        .well
+          %form
+            .form-group
+              %label Email Address
+              %input.form-control{ type: :email, placeholder: "Enter email" }
+            .form-group
+              %label Password
+              %input.form-control{ type: :password }
+          %button.btn.btn-primary.btn-lg.btn-block Login
+          %h3.signup-header Don't have an account?
+          %p Get involved with DoJob and begin helping the community.
+          %button.btn.btn-primary.btn-lg.btn-block Sign Up
+  .row.pad.how-it-works
+    .col-md-12.text-center.explain
+      %h1 How It Works
+    .col-md-3.col-md-offset-1.text-center
+      = image_tag("clock.png")
+      %h3 Time
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt finibus quam, vel finibus enim suscipit sed. Cras fermentum velit ac ornare interdum. Cras tristique tortor mi, ac venenatis massa tincidunt nec. Quisque dignissim mollis orci vel sollicitudin.
+    .col-md-4.text-center
+      = image_tag("money.png")
+      %h3 Money
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt finibus quam, vel finibus enim suscipit sed. Cras fermentum velit ac ornare interdum. Cras tristique tortor mi, ac venenatis massa tincidunt nec. Quisque dignissim mollis orci vel sollicitudin.
+    .col-md-3.text-center
+      = image_tag("stack.png")
+      %h3 Simplicity
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt finibus quam, vel finibus enim suscipit sed. Cras fermentum velit ac ornare interdum. Cras tristique tortor mi, ac venenatis massa tincidunt nec. Quisque dignissim mollis orci vel sollicitudin. 
+  .row
+    .col-md-4.col-md-offset-4.contact
+      %button.btn.btn-primary.btn-lg.btn-block Contact Us
