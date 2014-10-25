@@ -7,6 +7,10 @@
   margin-top: 40px;
 }
 
+.left-words, .right-words {
+  display: inline-block;
+}
+
 .catchphrase {
   color: $dojob-color;
   font-size: $dojob-title1;
