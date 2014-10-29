@@ -19,10 +19,10 @@
             .form-group
               %label Password
               %input.form-control{ type: :password }
-          %button.btn.btn-primary.btn-lg.btn-block Login
+          = link_to("Log In", new_user_session_path, class: "btn btn-primary btn-lg btn-block")
           %h3.signup-header Don't have an account?
           %p Get involved with DoJob and begin helping the community.
-          %button.btn.btn-primary.btn-lg.btn-block Sign Up
+          = link_to("Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg btn-block")
   .row.pad.how-it-works
     .col-md-12.text-center.explain
       %h1 How It Works

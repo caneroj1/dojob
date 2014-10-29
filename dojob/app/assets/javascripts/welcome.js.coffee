@@ -4,7 +4,6 @@
 
 job_arr = [ 'petcare', 'tutoring', 'shopping', 'construction', 'babysitting', 'gardening', 'housework']
 change_words = ->
-  console.log('wtf')
   arr_size = job_arr.length
   counter = 0
 
