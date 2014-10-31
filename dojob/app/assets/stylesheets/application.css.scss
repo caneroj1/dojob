@@ -14,9 +14,21 @@
  */
 
 @import "bootstrap-sprockets";
+$brand-primary: #00cd25;
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 
 body {
   background-color: rgb(250, 250, 250);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+#error_explanation {
+  color: rgb(200, 0, 0);
+  li {
+    text-align: left;
+  }
 }
