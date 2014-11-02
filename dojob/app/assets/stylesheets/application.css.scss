@@ -14,7 +14,13 @@
  */
 
 @import "bootstrap-sprockets";
+
+/******************************************************/
+// change bootstrap colors here
 $brand-primary: #00cd25;
+
+/******************************************************/
+
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 
