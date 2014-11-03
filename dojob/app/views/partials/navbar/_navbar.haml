@@ -9,4 +9,9 @@
     - if alert
       %p.navbar-left.navbar-text.nav-vert= alert
     - if !user_signed_in?
-      = render partial: "partials/navbar/login"
+      - if params[:controller].eql?("registrations/registrations")
+        = render partial: "partials/navbar/login"
+      - if params[:controller].eql?("devise/sessions")
+        = render partial: "partials/navbar/signup"
+      - if params[:controller].eql?("devise/passwords")
+        = render partial: "partials/navbar/passwords"

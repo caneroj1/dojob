@@ -10,4 +10,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( welcome.css variables.css devise.css )
 
 # JS
-Rails.application.config.assets.precompile += %w( devise.js )
+Rails.application.config.assets.precompile += %w( devise.js navbar.js )
