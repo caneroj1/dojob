@@ -1,1 +1,1 @@
-$('.alert').fadeOut(3000)
+$('.nav-vert').fadeOut(3000)

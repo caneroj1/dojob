@@ -1,0 +1,12 @@
+%nav.navbar.navbar-default.navbar-fixed-top{ role: "navigation" }
+  .container-fluid
+    .navbar-header
+      = link_to "/", html: { class: "navbar-brand" } do
+        = image_tag "dojob2.png", class: "nav-img"
+      = link_to "DoJob", root_path, html: { class: "navbar-brand" }
+    - if notice
+      %p.navbar-left.navbar-text.nav-vert= notice
+    - if alert
+      %p.navbar-left.navbar-text.nav-vert= alert
+    - if !user_signed_in?
+      = render partial: "partials/navbar/login"

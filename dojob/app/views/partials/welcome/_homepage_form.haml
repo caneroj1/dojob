@@ -19,6 +19,6 @@
           = f.submit "Log In", class: "btn btn-primary btn-lg btn-block"
         %h3.signup-header Don't have an account?
         %p Get involved with DoJob and begin helping the community.
-        = link_to("Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg btn-block")
+        = link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg btn-block"
       - else
         = link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg btn-block"

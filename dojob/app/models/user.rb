@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :state, :city, :zip, :first_name, :last_name, :password, :address
+  attr_accessible :email, :state, :city, :zip, :first_name, :last_name, :password, :address, :remember_me
 
   # VALIDATIONS
   validates :state, presence: true
