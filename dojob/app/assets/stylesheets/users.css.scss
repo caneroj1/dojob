@@ -8,7 +8,6 @@
 }
 
 .side-bar {
-  // height: 100%;
   margin-bottom: 0;
   overflow: scroll;
   position: fixed !important;
@@ -25,4 +24,22 @@
 
 .right-content {
   margin-left: 320px;
+}
+
+li.active {
+  a {
+      background-color: rgba(140, 152, 200, 0.56) !important;
+  }
+}
+
+.buy {
+  background-color: rgba(140, 152, 200, 0.56) !important;
+}
+
+.title {
+  color: white;
+}
+
+.purchase {
+  width: 96px;
 }
