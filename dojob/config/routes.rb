@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   # RESTful routes for users
   resources :users
+  resource :jobs
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
