@@ -15,3 +15,5 @@
         = render partial: "partials/navbar/signup"
       - if params[:controller].eql?("devise/passwords")
         = render partial: "partials/navbar/passwords"
+    - else
+      = render partial: "partials/navbar/user_nav"

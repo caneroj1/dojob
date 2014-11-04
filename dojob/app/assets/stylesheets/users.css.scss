@@ -1,0 +1,23 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.side-nav, .nav-color {
+  font-size: 20px;
+  color: #56597f;
+}
+
+.side-bar {
+  height: 100%;
+  margin-bottom: 0;
+  overflow: scroll;
+}
+
+.nav-img-user {
+  width: 48px;
+}
+
+.nav-align {
+  width: 40%;
+  display:inline-block;
+}
