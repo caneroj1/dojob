@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_self
+ *= require jquery-ui
  */
 
 @import "bootstrap-sprockets";
@@ -65,6 +66,16 @@ body {
   display: none;
 }
 
+.nav-name {
+  margin: 0;
+}
+
+.nav-td {
+  padding-right: 10px;
+  color: $brand-primary;
+}
+
 .glyphicon {
   font-size: 30px;
+  color: $brand-primary
 }

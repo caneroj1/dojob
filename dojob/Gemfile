@@ -28,11 +28,15 @@ gem 'spring',        group: :development
 
 # bootstrap yay!
 gem 'bootstrap-sass', '~> 3.2.0'
+
 # for browsing vender prefixes
 gem 'autoprefixer-rails'
 
 # haml for markup instead of ERB
 gem 'haml-rails'
+
+# primarily for the datepicker
+gem 'jquery-ui-rails'
 
 # for fancy printing in the rails console
 gem 'awesome_print'
@@ -56,7 +60,7 @@ group :test do
 	gem 'capybara'
 	gem 'guard-rspec'
 	gem 'launchy'
-end 
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

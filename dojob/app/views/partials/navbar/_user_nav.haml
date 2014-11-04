@@ -1,7 +1,12 @@
 %ul.nav.navbar-nav.navbar-right
   %li
     %a{ href: user_path(current_user.id) }
-      %span.glyphicon.glyphicon-user
+      %table
+        %tr
+          %td.nav-td
+            %p.nav-name= "#{current_user.first_name} #{current_user.last_name}"
+          %td
+            %span.glyphicon.glyphicon-user
   %li
     %a
       %span.glyphicon.glyphicon-bell

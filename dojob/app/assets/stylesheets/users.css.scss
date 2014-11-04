@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "variables";
+
 .side-nav, .nav-color {
   font-size: 20px;
   color: #56597f;
@@ -28,18 +30,37 @@
 
 li.active {
   a {
-      background-color: rgba(140, 152, 200, 0.56) !important;
+      background-color: rgba(109, 200, 121, 0.4) !important;
   }
 }
 
 .buy {
-  background-color: rgba(140, 152, 200, 0.56) !important;
+  border-color: $brand-primary !important;
+  padding: 0 !important;
 }
 
-.title {
+.top-buy {
+  background-color: $brand-primary;
   color: white;
+  h1 {
+    margin-bottom: 20px;
+    font-size: 45px;
+  }
+}
+
+.buy-text {
+  margin-bottom: 90px;
+}
+
+#upgrade_form {
+  margin-bottom: 0;
 }
 
 .purchase {
   width: 96px;
+}
+
+.btn-buy {
+  width: 80% !important;
+  margin-bottom: 20px !important;
 }

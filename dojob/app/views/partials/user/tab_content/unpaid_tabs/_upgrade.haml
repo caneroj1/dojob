@@ -2,13 +2,16 @@
 %hr
   .col-md-6.col-md-offset-3
     .well.buy
-      = image_tag "circle_10.png", class: "purchase"
-      %hr
-      %h3.title Basic Account
-      .well
-        %p.text-justified.text-muted
+      -# = image_tag "circle_10.png", class: "purchase"
+      .col-md-12.top-buy
+        %h1 $10
+      .col-md-12
+        %h3.title Basic Account
+        %hr
+      .col-md-12.content
+        %p.text-justified.text-muted.buy-text
           This account is basic. Lorem ipsum dolor semet. This account is basic. Lorem ipsum dolor semet. This account is basic. Lorem ipsum dolor semet.
           This is a recurring subscription.
       = form_for(current_user, url: user_path, method: :patch, html: { id: "upgrade_form" } ) do |f|
         = f.check_box :paid, hidden: true, id: "check_it_off"
-        = f.submit "Upgrade", class: "btn btn-default btn-block btn-lg"
+        = f.submit "Upgrade", class: "btn btn-default btn-lg btn-buy"
