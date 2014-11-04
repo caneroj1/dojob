@@ -1,0 +1,8 @@
+.col-md-3.well.side-bar
+  %h3.text-center.nav-color Navigation
+  %hr
+  %ul.nav.nav-pills.nav-stacked.text-center{ role: "tablist" }
+    - if current_user.paid
+      = render partial: "partials/user/paid_sidebar"
+    - else
+      = render partial: "partials/user/unpaid_sidebar"
