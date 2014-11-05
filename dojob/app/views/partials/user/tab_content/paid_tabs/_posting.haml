@@ -1,0 +1,74 @@
+%h1= "Post a Job Listing"
+%hr
+.col-md-8.col-md-offset-2.text-center
+  = form_for(current_user.jobs.new, url: jobs_path, method: :post, html: { class: "form-horizontal" } ) do |f|
+    .form-group
+      = f.label :title, class: "control-label col-sm-2"
+      .col-sm-10
+        = f.text_field :title, class: "form-control"
+    = f.text_field :tags, hidden: true
+    .form-group
+      .col-sm-2
+        %label.control-label Location
+      .col-sm-10.radios
+        %label.radio-inline
+          = f.radio_button(:where, "My House")
+          My House
+        %label.radio-inline
+          = f.radio_button(:where, "Remote")
+          Remote
+        %label.radio-inline
+          = f.radio_button(:where, "Errand/Other")
+          Errand/Other
+    .form-group
+      .col-sm-2
+        %label.control-label Frequency
+      .col-sm-10.radios
+        %label.radio-inline
+          = f.radio_button(:frequency, "One Time")
+          One Time
+        %label.radio-inline
+          = f.radio_button(:frequency, "Weekly")
+          Weekly
+        %label.radio-inline
+          = f.radio_button(:frequency, "As Needed")
+          As Needed
+    .form-group#deadline
+      = f.label :deadline, class: "control-label col-sm-2"
+      .col-sm-10
+        = f.text_field :deadline, class: "form-control", id: "datepicker", disabled: true, placeholder: "Click to pick a date"
+    .form-group
+      .col-sm-2
+        %label.control-label Description
+      .col-sm-10
+        = f.text_area(:description, class: "form-control", id: "job-description", rows: 5, placeholder: "Please be as descriptive as possible so the doer knows what to expect.")
+    .form-group
+      .col-sm-12
+        .col-sm-12#tags-header
+          %h2 Add Tags
+          Select at least one
+        .col-sm-12#tags-body
+          .col-sm-6.text-left
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Pet Care" } Pet Care
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Tutoring" } Tutoring
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Shopping" } Shopping
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Construction" } Construction
+          .col-sm-6.text-left
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Babysitting" } Babysitting
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Gardening" } Gardening
+            .checkbox
+              %label
+                %input{ type: "checkbox", value: "Housework" } Housework
+    = f.submit "Post", class: "btn btn-primary btn-lg btn-block"

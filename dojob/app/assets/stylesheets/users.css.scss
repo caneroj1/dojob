@@ -64,3 +64,33 @@ li.active {
   width: 80% !important;
   margin-bottom: 20px !important;
 }
+
+#deadline {
+  margin-top: 20px;
+}
+
+#tags-header {
+  color: white;
+  background-color: $brand-primary;
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.radios {
+  text-align: left;
+}
+
+#tags-body {
+    border: 1px solid $brand-primary;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#job-description {
+  resize: none;
+}
+
+.control-label {
+  text-align: left !important;
+}
