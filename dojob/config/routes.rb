@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # RESTful routes for users
   resources :users
-  resource :jobs
+  resources :jobs
 
 
   # Example of regular route:

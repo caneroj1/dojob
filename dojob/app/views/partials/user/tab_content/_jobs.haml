@@ -1,0 +1,12 @@
+%table.table-striped.table
+  %thead
+    %tr
+      %th Job Title
+      %th Date Posted
+      %th Link to Posting
+  %tbody
+    - current_user.jobs.each do |j|
+      %tr
+        %td= j.title
+        %td= j.created_at.strftime("%-m/%d/%Y")
+        %td= link_to "See Job", job_path(j)

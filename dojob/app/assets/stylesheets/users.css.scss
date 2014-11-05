@@ -69,7 +69,7 @@ li.active {
   margin-top: 20px;
 }
 
-#tags-header {
+#tags-header, .my-jobs {
   color: white;
   background-color: $brand-primary;
   h2 {
@@ -81,7 +81,7 @@ li.active {
   text-align: left;
 }
 
-#tags-body {
+#tags-body, .jobs-table {
     border: 1px solid $brand-primary;
     padding-top: 15px;
     padding-bottom: 15px;

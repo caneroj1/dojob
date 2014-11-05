@@ -10,30 +10,31 @@ upgrade_form = ->
 display_deadline = ->
   $('#job_frequency_one_time').change ->
     if($('#job_frequency_one_time').prop('checked'))
-      # $('#deadline').slideDown(500)
       $('#datepicker').prop('disabled', false)
 
 hide_deadline = ->
   $('#job_frequency_weekly').change ->
     if($('#job_frequency_weekly').prop('checked'))
       if($('deadline').css('display') != 'none')
-        # $('#deadline').slideUp(500)
-        # $('#datepicker').text('')
         $('#datepicker').prop('disabled', true)
-
-
   $('#job_frequency_as_needed').change ->
     if($('#job_frequency_as_needed').prop('checked'))
       if($('deadline').css('display') != 'none')
-        # $('#deadline').slideUp(500)
-        # $('#datepicker').text('')
         $('#deadline').prop('disabled', true)
 
 datepicker_for_posting = ->
   $('#datepicker').datepicker({minDate: '-0d'})
+
+prepare_posting_for_submit = ->
+  $('#post-job').on 'submit', ->
+    if($('#datepicker').val() != '')
+      date_arr = $('#datepicker').val().split("/")
+      date = new Date(date_arr[0], date_arr[1], date_arr[2])
+      $('#datepicker').val(date.toUTCString())
 
 $ ->
   do upgrade_form
   do display_deadline
   do hide_deadline
   do datepicker_for_posting
+  do prepare_posting_for_submit

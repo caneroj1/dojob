@@ -1,7 +1,7 @@
 %h1= "Post a Job Listing"
 %hr
 .col-md-8.col-md-offset-2.text-center
-  = form_for(current_user.jobs.new, url: jobs_path, method: :post, html: { class: "form-horizontal" } ) do |f|
+  = form_for(current_user.jobs.new, url: jobs_path, method: :post, html: { class: "form-horizontal", id: "post-job" } ) do |f|
     .form-group
       = f.label :title, class: "control-label col-sm-2"
       .col-sm-10
