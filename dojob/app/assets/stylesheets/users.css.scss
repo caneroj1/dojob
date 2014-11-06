@@ -91,6 +91,19 @@ li.active {
   resize: none;
 }
 
+.remove-job {
+  float: right;
+}
+
 .control-label {
   text-align: left !important;
+}
+
+#header-error {
+  display:none;
+}
+
+.tags-error {
+  display:none;
+  padding-bottom: 15px;
 }

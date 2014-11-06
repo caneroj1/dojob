@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104230953) do
+ActiveRecord::Schema.define(version: 20141106033820) do
 
   create_table "jobs", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.string   "tags"
+    t.text     "tags",        limit: 255
     t.string   "frequency"
     t.datetime "deadline"
     t.string   "where"

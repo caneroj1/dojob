@@ -11,6 +11,8 @@ display_deadline = ->
   $('#job_frequency_one_time').change ->
     if($('#job_frequency_one_time').prop('checked'))
       $('#datepicker').prop('disabled', false)
+      d = new Date()
+      $('#datepicker').val((d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear())
 
 hide_deadline = ->
   $('#job_frequency_weekly').change ->
@@ -23,10 +25,47 @@ hide_deadline = ->
         $('#deadline').prop('disabled', true)
 
 datepicker_for_posting = ->
-  $('#datepicker').datepicker({minDate: '-0d'})
+  $('#datepicker').datepicker({minDate: '-0d', defaultDate: +0} )
 
 prepare_posting_for_submit = ->
   $('#post-job').on 'submit', ->
+    submit = true
+    # WHEN THE FORM IS SUBMITED, CLEAR ANY ERROR COLORS
+    $('.inner-label').removeClass('text-danger')
+    $('.tags-error').css('display', 'none')
+
+    # CHECK IF THE REQUIRED FIELDS HAVE BEEN INPUT
+    # if not, mark the ones as unfilled and change color
+    if($('#job_title').val() == "")
+      $('#title-label').addClass('text-danger')
+      submit = false
+    if( !$('#job_where_my_house').prop('checked') && !$('#job_where_remote').prop('checked') && !$('#job_where_errandother').prop('checked'))
+      $('#location-label').addClass('text-danger')
+      submit = false
+    if( !$('#job_frequency_one_time').prop('checked') && !$('#job_frequency_weekly').prop('checked') && !$('#job_frequency_as_needed').prop('checked'))
+      $('#frequency-label').addClass('text-danger')
+      submit = false
+    if($('#job-description').val() == "")
+      $('#description-label').addClass('text-danger')
+      submit = false
+
+    at_least_one_checked = false
+    tags_str = ""
+    $(':checkbox').each ->
+      at_least_one_checked |= $(this).prop('checked')
+      if($(this).prop('checked'))
+        tags_str += $(this).val() + "."
+    if(at_least_one_checked)
+      $('#job_tags').val(tags_str)
+    else
+      $('.tags-error').css('display', 'block')
+      submit = false
+
+    if(submit == false)
+      $('html, body').animate({scrollTop : 0},800);
+      $('#header-error').fadeIn(900)
+      return false
+
     if($('#datepicker').val() != '')
       date_arr = $('#datepicker').val().split("/")
       date = new Date(date_arr[0], date_arr[1], date_arr[2])

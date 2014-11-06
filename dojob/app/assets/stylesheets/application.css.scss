@@ -75,7 +75,9 @@ body {
   color: $brand-primary;
 }
 
-.glyphicon {
-  font-size: 30px;
-  color: $brand-primary
+.nav {
+  .glyphicon {
+    font-size: 30px;
+    color: $brand-primary
+  }
 }

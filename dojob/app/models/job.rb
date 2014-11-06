@@ -1,6 +1,8 @@
 class Job < ActiveRecord::Base
   attr_accessible :title, :tags, :frequency, :deadline, :where, :description
 
+  serialize :tags, Array
+
   validates :title, presence: true
   validates :frequency, presence: true
   validates :where, presence: true

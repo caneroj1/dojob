@@ -3,13 +3,15 @@
 .col-md-8.col-md-offset-2.text-center
   = form_for(current_user.jobs.new, url: jobs_path, method: :post, html: { class: "form-horizontal", id: "post-job" } ) do |f|
     .form-group
-      = f.label :title, class: "control-label col-sm-2"
+      %label.text-danger#header-error Labels in red are required
+    .form-group
+      = f.label :title, class: "control-label col-sm-2 inner-label", id: "title-label"
       .col-sm-10
         = f.text_field :title, class: "form-control"
     = f.text_field :tags, hidden: true
     .form-group
       .col-sm-2
-        %label.control-label Location
+        %label.control-label#location-label.inner-label Location
       .col-sm-10.radios
         %label.radio-inline
           = f.radio_button(:where, "My House")
@@ -22,7 +24,7 @@
           Errand/Other
     .form-group
       .col-sm-2
-        %label.control-label Frequency
+        %label.control-label#frequency-label.inner-label Frequency
       .col-sm-10.radios
         %label.radio-inline
           = f.radio_button(:frequency, "One Time")
@@ -39,7 +41,7 @@
         = f.text_field :deadline, class: "form-control", id: "datepicker", disabled: true, placeholder: "Click to pick a date"
     .form-group
       .col-sm-2
-        %label.control-label Description
+        %label.control-label#description-label.inner-label Description
       .col-sm-10
         = f.text_area(:description, class: "form-control", id: "job-description", rows: 5, placeholder: "Please be as descriptive as possible so the doer knows what to expect.")
     .form-group
@@ -48,6 +50,8 @@
           %h2 Add Tags
           Select at least one
         .col-sm-12#tags-body
+          .col-sm-12.tags-error.text-danger
+            Select at least one tag
           .col-sm-6.text-left
             .checkbox
               %label
