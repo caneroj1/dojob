@@ -4,13 +4,15 @@ class JobsController < ApplicationController
     job = Job.new(params[:job])
     job.tags = parse_tags(tags)
     current_user.jobs << job
-    # job.save
     redirect_to user_path(current_user)
   end
 
+  def show
+    @job = Job.find(params[:id])
+  end
+
   def destroy
-    job = Job.find(params[:id])
-    job.delete
+    Job.find(params[:id]).delete
     redirect_to user_path(current_user)
   end
 
