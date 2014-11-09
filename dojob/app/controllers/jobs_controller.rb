@@ -1,4 +1,8 @@
 class JobsController < ApplicationController
+  def index
+    @jobs = Job.all
+  end
+
   def create
     tags = params[:job].delete(:tags)
     job = Job.new(params[:job])
@@ -14,6 +18,18 @@ class JobsController < ApplicationController
   def destroy
     Job.find(params[:id]).delete
     redirect_to user_path(current_user)
+  end
+
+  def search
+    if params[:query].nil?
+      @jobs = []
+    else
+      @jobs = Job.search(params[:query])
+    end
+
+    respond_to do |format|
+      format.html { render action: :index }
+    end
   end
 
   protected

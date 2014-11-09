@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-md-12.text-center
+      %h1 Search for Jobs
+    .col-md-3.job-tags
+      %h3 Filter by Tags
+      %hr
+      %ul.nav.nav-pills.nav-stacked
+        %li
+          %a Gardening
+        %li
+          %a Construction
+        %li
+          %a Tutoring
+        %li
+          %a Petcare
+        %li
+          %a Landscaping
+        %li
+          %a Miscellaneous
+    .col-md-6.text-center.search-body
+      .col-md-12
+        %hr
+        = form_tag(search_jobs_path, method: :post) do |f|
+          .input-group
+            = text_field_tag :query, params[:query], class: "form-control", placeholder: "Search"
+            %span.input-group-btn
+              = submit_tag "Go", class: "btn btn-primary"
+      .col-md-12.text-center
+        = render partial: "partials/jobs/job_list"
+        -# .col.md-12.search-results
+        -#   %h2 Jobs
+        -# = render partial: "partials/jobs/job_list", locals: @jobs

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   # RESTful routes for users
   resources :users
-  resources :jobs
+  resources :jobs do
+    collection do
+      post :search
+    end
+  end
 
 
   # Example of regular route:

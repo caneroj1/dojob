@@ -1,4 +1,7 @@
 class Job < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   attr_accessible :title, :tags, :frequency, :deadline, :where, :description
 
   serialize :tags, Array
@@ -15,3 +18,4 @@ class Job < ActiveRecord::Base
     frequency.eql?("One Time")
   end
 end
+Job.import # for auto sync model with elasticsearch

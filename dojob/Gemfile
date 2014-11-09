@@ -47,6 +47,10 @@ gem 'protected_attributes'
 # for authentication
 gem 'devise'
 
+# searching
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'

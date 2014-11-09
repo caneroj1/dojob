@@ -2,6 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "variables";
+
 .content {
   font-weight: 200;
+}
+
+.search-results, .result-title {
+  background-color: $brand-primary;
+  color: white;
+  padding: 10px 0px 10px 0px;
+}
+
+.result {
+  padding: 0 !important;
+  height: 250px;
+}
+
+.description {
+  padding: 0 !important;
+  height: 90px;
+}
+
+.border {
+  padding: 10px 10px 10px 10px;
+  border: 1px solid $brand-primary;
+  height: 194px;
+}
+
+.bottom-date {
+  padding: 0 !important;
+  padding-top: 5px;
+}
+
+.btn-bottom {
+  padding-top: 5px;
+}
+
+.padding-between, .no-results {
+  padding: 20px;
+}
+
+.job-tags {
+  position: fixed !important;
+}
+
+.search-body {
+  margin-left: 310px;
+}
+
+.title-row {
+  margin:2px;
+}
+
+.desc-title {
+  padding: 0 !important;
 }
