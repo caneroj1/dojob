@@ -22,6 +22,7 @@
 .description {
   padding: 0 !important;
   height: 90px;
+  overflow-wrap: break-word;
 }
 
 .border {
@@ -41,6 +42,10 @@
 
 .padding-between, .no-results {
   padding: 20px;
+}
+
+.no-results {
+  font-weight: 200;
 }
 
 .job-tags {

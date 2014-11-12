@@ -11,13 +11,21 @@ module JobsHelper
   end
 
   def format_tags(tag_arr)
-    str = tag_arr.join(', ')
+    inner_li = content_tag(:div, "")
+    tag_arr.each do |tag|
+      inner_li.concat content_tag(:li) { link_to tag.tag_name, search_jobs_path(:tag => tag.tag_name), method: :post }
+    end
+    content_tag(:ul, "", class: "list-unstyled") { inner_li }
   end
 
   def format_description(desc)
     res = desc.split(" ")
-    str = " "
-    (0...12).each { |i| str << res[i] << " " }
-    str << "..."
+    if res.count < 12
+      desc[0..26] << "..."
+    else
+      str = ""
+      (0...12).each { |i| str << res[i] << " " }
+      str << "..."
+    end
   end
 end

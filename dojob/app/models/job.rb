@@ -2,9 +2,7 @@ class Job < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-  attr_accessible :title, :tags, :frequency, :deadline, :where, :description
-
-  serialize :tags, Array
+  attr_accessible :title, :frequency, :deadline, :where, :description
 
   validates :title, presence: true
   validates :frequency, presence: true
@@ -13,6 +11,7 @@ class Job < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 30, maximum: 500, message: "is not the appropriate length" }
 
   belongs_to :user
+  has_and_belongs_to_many :tags
 
   def one_time_job?
     frequency.eql?("One Time")

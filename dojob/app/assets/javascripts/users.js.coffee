@@ -22,7 +22,7 @@ hide_deadline = ->
   $('#job_frequency_as_needed').change ->
     if($('#job_frequency_as_needed').prop('checked'))
       if($('deadline').css('display') != 'none')
-        $('#deadline').prop('disabled', true)
+        $('#datepicker').prop('disabled', true)
 
 datepicker_for_posting = ->
   $('#datepicker').datepicker({minDate: '-0d', defaultDate: +0} )
@@ -67,8 +67,13 @@ prepare_posting_for_submit = ->
       return false
 
     if($('#datepicker').val() != '')
+      # split the date string
       date_arr = $('#datepicker').val().split("/")
-      date = new Date(date_arr[0], date_arr[1], date_arr[2])
+
+      # date_arr[2] has the year
+      # date_arr[0] contains the month. js starts january from 0
+      # date_arr[1] has the day
+      date = new Date(date_arr[2], date_arr[0] - 1, date_arr[1])
       $('#datepicker').val(date.toUTCString())
 
 $ ->

@@ -7,17 +7,21 @@
       %hr
       %ul.nav.nav-pills.nav-stacked
         %li
-          %a Gardening
+          = link_to "Gardening", search_jobs_path(tag: "Gardening"), method: :post
         %li
-          %a Construction
+          = link_to "Construction", search_jobs_path(tag: "Construction"), method: :post
         %li
-          %a Tutoring
+          = link_to "Tutoring", search_jobs_path(tag: "Tutoring"), method: :post
         %li
-          %a Petcare
+          = link_to "Pet Care", search_jobs_path(tag: "Pet Care"), method: :post
         %li
-          %a Landscaping
+          = link_to "Landscaping", search_jobs_path(tag: "Landscaping"), method: :post
         %li
-          %a Miscellaneous
+          = link_to "Shopping", search_jobs_path(tag: "Shopping"), method: :post
+        %li
+          = link_to "Babysitting", search_jobs_path(tag: "Babysitting"), method: :post
+        %li
+          = link_to "Housework", search_jobs_path(tag: "Housework"), method: :post
     .col-md-6.text-center.search-body
       .col-md-12
         %hr

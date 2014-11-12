@@ -6,7 +6,7 @@ class JobsController < ApplicationController
   def create
     tags = params[:job].delete(:tags)
     job = Job.new(params[:job])
-    job.tags = parse_tags(tags)
+    parse_tags(tags).each { |tag| job.tags << Tag.new(tag_name: tag) }
     current_user.jobs << job
     redirect_to user_path(current_user)
   end
@@ -21,8 +21,10 @@ class JobsController < ApplicationController
   end
 
   def search
-    if params[:query].nil?
+    if params[:query].nil? && params[:tag].nil?
       @jobs = []
+    elsif params[:query].nil? && params[:tag]
+      @jobs = Job.joins(:tags).where(tags: { tag_name: "#{params[:tag]}" } )
     else
       @jobs = Job.search(params[:query])
     end
