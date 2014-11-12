@@ -1,0 +1,29 @@
+// Place all the styles related to the childcare_surveys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bot-margin {
+  margin-bottom: 50px;
+}
+
+.title {
+  font-weight: 200;
+}
+
+.misc {
+  margin-top: 30px;
+  textarea {
+    resize: vertical;
+  }
+}
+
+#slider-range {
+  margin-top: 10px;
+}
+
+#amount {
+  text-align: center;
+  border: none;
+  background: none;
+  margin-top: 5px;
+}

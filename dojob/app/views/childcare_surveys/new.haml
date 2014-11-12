@@ -1,0 +1,69 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2.text-center
+      %h1.title Childcare Survey
+      %hr
+      .col-md-12
+        = form_tag(childcare_survey_path, method: :post) do
+          .form-group
+            .col-md-12.bot-margin
+              .col-sm-12
+                %label.control-label Describe the extent of your childcare experience
+              .col-sm-12.radios
+                %label.radio-inline
+                  = radio_button_tag(:experience, "under 1 year")
+                  under 1 year
+                %label.radio-inline
+                  = radio_button_tag(:experience, "1 - 2 years")
+                  1 - 2 years
+                %label.radio-inline
+                  = radio_button_tag(:experience, "3 - 4 years")
+                  3 - 4 years
+                %label.radio-inline
+                  = radio_button_tag(:experience, "5+ years")
+                  5+ years
+              .col-sm-12.misc
+                %label.control-label Share anything else you want about your experience
+                .col-sm-8.col-sm-offset-2
+                  = text_area_tag(:misc, "", class: "form-control")
+          %h4
+            References
+            %small Add up to 4
+          %hr
+            .form-group
+              .col-md-12.bot-margin
+                .col-sm-12.text-center
+                  %h5 Reference #1
+                .col-sm-4
+                  %label.control-label Name
+                  = text_field_tag(:ref_name_1, "", class: "form-control")
+                .col-sm-4
+                  %label.control-label Phone Number
+                  = telephone_field(:ref_phone_1, "", class: "form-control")
+                .col-sm-4
+                  %label.control-label Email
+                  = email_field(:ref_email_1, "", class: "form-control")
+          %h4
+            Certifications
+            %small Add up to 3
+          %hr
+            .form-group
+              .col-md-12.bot-margin
+                .col-sm-12.text-center
+                  %h5 Certificate #1
+                .col-sm-8
+                  %label.control-label Title
+                  = text_field(:cert_title_1, "", class: "form-control")
+                .col-sm-4
+                  %label.control-label Expires
+                  = datetime_field(:cert_exp_1, "", class: "form-control", id: "datepicker")
+          %h4 Other Information
+          %hr
+            .form-group
+              .col-sm-8.col-sm-offset-2
+                %label.control-label What ages will you babysit for?
+                #slider-range
+                = text_field_tag(:range, "4 - 14 years old", class: "form-control", id: "amount", readonly: true)
+              .col-sm-8.col-sm-offset-2.bot-margin
+                %label.control-label How many children are you comfortable supervising?
+                = select_tag(:count, "")

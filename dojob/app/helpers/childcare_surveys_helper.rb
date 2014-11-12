@@ -1,0 +1,2 @@
+module ChildcareSurveysHelper
+end

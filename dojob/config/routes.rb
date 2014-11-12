@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  resource :childcare_survey
+
   # RESTful routes for users
   resources :users
+
   resources :jobs do
     collection do
       post :search
