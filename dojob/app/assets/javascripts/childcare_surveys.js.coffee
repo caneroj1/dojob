@@ -3,6 +3,22 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 forms = 2
+change_color = ->
+  $('#misc').on 'input',  ->
+    if($('#misc').val().length >= 30)
+      $('#char-count').css('color', '#00cd25')
+    else
+      $('#char-count').css('color', '#d9534f')
+    $('#char-count').text($('#misc').val().length + "/" + "300")
+
+
+convert_dates = (num_forms) ->
+  while(num_forms > 0)
+    date_arr = $('#cert_exp_' + num_forms).val().split("/")
+    date = new Date(date_arr[2], date_arr[0] - 1, date_arr[1])
+    $('#cert_exp_' + num_forms).val(date.toUTCString())
+    num_forms -= 1
+
 prep_date_picker = ->
   $('#cert_exp_1').datepicker({minDate: '-0d', defaultDate: +0} )
 
@@ -54,9 +70,11 @@ check_form_func = ->
       $('html, body').animate({scrollTop : 0},800);
       $('#header-error').fadeIn(900)
       return false
+    do convert_dates(forms - 1)
 
 $ ->
   do prep_date_picker
   do check_form_func
   do slider_func
   do add_certs_func
+  do change_color

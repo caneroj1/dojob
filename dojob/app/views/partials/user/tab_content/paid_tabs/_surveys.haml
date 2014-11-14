@@ -7,6 +7,13 @@
     %tr
       %td Childcare
       %td
-        %a.btn.btn-primary{href: "#{new_childcare_survey_path}"}
-          Take Survey
-          %span.glyphicon.glyphicon-pencil
+        - if current_user.childcare_survey.nil?
+          %a.btn.btn-primary{href: "#{new_childcare_survey_path}"}
+            Take Survey
+            %span.glyphicon.glyphicon-pencil
+        - else
+          %a.btn.btn-info{href: "#{new_childcare_survey_path}"}
+            Edit Survey
+            %span.glyphicon.glyphicon-pencil
+          %a.btn.btn-primary
+            See Survey

@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :state, :city, :zip, :first_name, :last_name, :password, :address, :remember_me, :paid
 
   # for skill surveys
-  attr_accessible :childcare_survey
-  serialize :childcare_survey, Survey::ChildcareSurvey
+  # attr_accessible :childcare_survey
+  serialize(:childcare_survey, Survey::ChildcareSurvey)
 
   # VALIDATIONS
   validates :state, presence: true
