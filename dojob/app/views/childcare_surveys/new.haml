@@ -3,12 +3,14 @@
     .col-md-8.col-md-offset-2.text-center
       %h1.title Childcare Survey
       %hr
+      %p#header-error.text-danger Please fix the required fields
       .col-md-12
-        = form_tag(childcare_survey_path, method: :post) do
+        = form_tag(childcare_survey_path, method: :post, id: "ccs_form") do
+          = text_field_tag(:num_certs, "1", hidden: true)
           .form-group
             .col-md-12.bot-margin
               .col-sm-12
-                %label.control-label Describe the extent of your childcare experience
+                %label.control-label#exp-label.lab Describe the extent of your childcare experience
               .col-sm-12.radios
                 %label.radio-inline
                   = radio_button_tag(:experience, "under 1 year")
@@ -23,9 +25,10 @@
                   = radio_button_tag(:experience, "5+ years")
                   5+ years
               .col-sm-12.misc
-                %label.control-label Share anything else you want about your experience
+                %label.control-label#misc-label.lab Share anything else you want about your experience
+                %p#char-count 0/300 characters
                 .col-sm-8.col-sm-offset-2
-                  = text_area_tag(:misc, "", class: "form-control")
+                  = text_area_tag(:misc, "", class: "form-control", maxlength: 300)
           %h4
             References
             %small Add up to 4
@@ -50,20 +53,28 @@
             .form-group
               .col-md-12.bot-margin
                 .col-sm-12.text-center
-                  %h5 Certificate #1
+                  %h5#cert-1.lab Certificate #1
                 .col-sm-8
                   %label.control-label Title
-                  = text_field(:cert_title_1, "", class: "form-control")
+                  = text_field(:cert_title_1, "", class: "form-control", name: "cert_title_1", id: "cert_title_1")
                 .col-sm-4
                   %label.control-label Expires
-                  = datetime_field(:cert_exp_1, "", class: "form-control", id: "datepicker")
+                  = datetime_field(:cert_exp_1, "", class: "form-control", id: "datepicker", name: "cert_exp_1", id: "cert_exp_1", readonly: true)
+                .col-sm-12.text-left#add-above
+                  %a#add-certs
+                    %span.glyphicon.glyphicon-plus
+                    Add More
           %h4 Other Information
           %hr
             .form-group
-              .col-sm-8.col-sm-offset-2
-                %label.control-label What ages will you babysit for?
+              .col-sm-8.col-sm-offset-2.bot-margin
+                %label.control-label#age-label What ages will you babysit for?
                 #slider-range
                 = text_field_tag(:range, "4 - 14 years old", class: "form-control", id: "amount", readonly: true)
               .col-sm-8.col-sm-offset-2.bot-margin
-                %label.control-label How many children are you comfortable supervising?
-                = select_tag(:count, "")
+                %label.control-label#child-label How many children are you comfortable supervising?
+                = select_tag(:count, "<option selected='true'>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>".html_safe)
+
+
+            .col-md-6.col-md-offset-3.bot-margin
+              = submit_tag "Finish", class: "btn btn-primary btn-block"

@@ -2,6 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+change_count_color = ->
+  $('#job-description').on 'input',  ->
+    if($('#job-description').val().length >= 30)
+      $('#char-count').css('color', '#00cd25')
+    else
+      $('#char-count').css('color', '#d9534f')
+    $('#char-count').text($('#job-description').val().length + "/" + "500")
+
 upgrade_form = ->
   $('#upgrade_form').on 'submit', ->
     $('#check_it_off').prop('checked', true)
@@ -11,6 +19,7 @@ display_deadline = ->
   $('#job_frequency_one_time').change ->
     if($('#job_frequency_one_time').prop('checked'))
       $('#datepicker').prop('disabled', false)
+      $('#datepicker').css('background-color', 'white')
       d = new Date()
       $('#datepicker').val((d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear())
 
@@ -19,10 +28,14 @@ hide_deadline = ->
     if($('#job_frequency_weekly').prop('checked'))
       if($('deadline').css('display') != 'none')
         $('#datepicker').prop('disabled', true)
+        $('#datepicker').css('background-color', '#eeeeee')
+
   $('#job_frequency_as_needed').change ->
     if($('#job_frequency_as_needed').prop('checked'))
       if($('deadline').css('display') != 'none')
         $('#datepicker').prop('disabled', true)
+        $('#datepicker').css('background-color', '#eeeeee')
+
 
 datepicker_for_posting = ->
   $('#datepicker').datepicker({minDate: '-0d', defaultDate: +0} )
@@ -45,7 +58,7 @@ prepare_posting_for_submit = ->
     if( !$('#job_frequency_one_time').prop('checked') && !$('#job_frequency_weekly').prop('checked') && !$('#job_frequency_as_needed').prop('checked'))
       $('#frequency-label').addClass('text-danger')
       submit = false
-    if($('#job-description').val() == "")
+    if(($('#job-description').val() == "") || $('#job-description').val().length < 30)
       $('#description-label').addClass('text-danger')
       submit = false
 
@@ -82,3 +95,4 @@ $ ->
   do hide_deadline
   do datepicker_for_posting
   do prepare_posting_for_submit
+  do change_count_color

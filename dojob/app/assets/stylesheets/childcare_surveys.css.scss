@@ -27,3 +27,20 @@
   background: none;
   margin-top: 5px;
 }
+
+#add-above, .add-margin {
+  margin-top: 10px;
+}
+
+#add-certs {
+  cursor: pointer;
+}
+
+#header-error {
+  display: none;
+}
+
+.form-control[readonly] {
+  background-color: white !important;
+  cursor: pointer !important;
+}

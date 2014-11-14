@@ -10,41 +10,6 @@
         = f.text_field :title, class: "form-control"
     = f.text_field :tags, hidden: true
     .form-group
-      .col-sm-2
-        %label.control-label#location-label.inner-label Location
-      .col-sm-10.radios
-        %label.radio-inline
-          = f.radio_button(:where, "My House")
-          My House
-        %label.radio-inline
-          = f.radio_button(:where, "Remote")
-          Remote
-        %label.radio-inline
-          = f.radio_button(:where, "Errand/Other")
-          Errand/Other
-    .form-group
-      .col-sm-2
-        %label.control-label#frequency-label.inner-label Frequency
-      .col-sm-10.radios
-        %label.radio-inline
-          = f.radio_button(:frequency, "One Time")
-          One Time
-        %label.radio-inline
-          = f.radio_button(:frequency, "Weekly")
-          Weekly
-        %label.radio-inline
-          = f.radio_button(:frequency, "As Needed")
-          As Needed
-    .form-group#deadline
-      = f.label :deadline, class: "control-label col-sm-2"
-      .col-sm-10
-        = f.text_field :deadline, class: "form-control", id: "datepicker", disabled: true, placeholder: "Click to pick a date"
-    .form-group
-      .col-sm-2
-        %label.control-label#description-label.inner-label Description
-      .col-sm-10
-        = f.text_area(:description, class: "form-control", id: "job-description", rows: 5, placeholder: "Please be as descriptive as possible so the doer knows what to expect.")
-    .form-group
       .col-sm-12
         .col-sm-12#tags-header
           %h2 Add Tags
@@ -75,4 +40,40 @@
             .checkbox
               %label
                 %input{ type: "checkbox", value: "Housework" } Housework
+    .form-group
+      .col-sm-2
+        %label.control-label#location-label.inner-label Location
+      .col-sm-10.radios
+        %label.radio-inline
+          = f.radio_button(:where, "My House")
+          My House
+        %label.radio-inline
+          = f.radio_button(:where, "Remote")
+          Remote
+        %label.radio-inline
+          = f.radio_button(:where, "Errand/Other")
+          Errand/Other
+    .form-group
+      .col-sm-2
+        %label.control-label#frequency-label.inner-label Frequency
+      .col-sm-10.radios
+        %label.radio-inline
+          = f.radio_button(:frequency, "One Time")
+          One Time
+        %label.radio-inline
+          = f.radio_button(:frequency, "Weekly")
+          Weekly
+        %label.radio-inline
+          = f.radio_button(:frequency, "As Needed")
+          As Needed
+    .form-group#deadline
+      = f.label :deadline, class: "control-label col-sm-2"
+      .col-sm-10
+        = f.text_field :deadline, class: "form-control", id: "datepicker", disabled: true, placeholder: "Click to pick a date", readonly: true
+    .form-group
+      .col-sm-2
+        %label.control-label#description-label.inner-label Description
+        %p#char-count.control-label 0/500
+      .col-sm-10
+        = f.text_area(:description, class: "form-control", id: "job-description", rows: 5, placeholder: "Please be as descriptive as possible so the doer knows what to expect.")
     = f.submit "Post", class: "btn btn-primary btn-lg btn-block"

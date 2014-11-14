@@ -107,3 +107,12 @@ li.active {
   display:none;
   padding-bottom: 15px;
 }
+
+#char-count {
+  font-weight: 200;
+  color: #d9534f;
+}
+
+.form-control[readonly] {
+  cursor: pointer !important;
+}
