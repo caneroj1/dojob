@@ -1,0 +1,35 @@
+.col-md-12.text-center
+  %h1
+    = "#{current_user.first_name} #{current_user.last_name}'s Skill:"
+    %small Childcare
+  %hr
+.col-md-6.text-center.col-md-offset-3
+  - if @ccs
+    %table.table.table-striped
+      %thead
+        %tr
+          %h3 Survey Details
+      %tbody
+        %tr
+          %td
+            %strong Years of Experience
+          %td= @ccs.experience
+        %tr
+          %td
+            %strong Desired Number of Children
+          %td= format_number_kids(@ccs.number_kids)
+        %tr
+          %td
+            %strong Desired Age Range
+          %td= @ccs.age_range
+
+    %h3 Other Information
+    %hr
+    %h5= @ccs.misc
+
+    = render partial: "partials/childcare_surveys/existing_certs", locals: { button: false }
+
+  - else
+    %p.bg-danger#not-taken
+      You have not taken our childcare survey.
+    %a.btn.btn-primary{href: "#{new_childcare_survey_path}"} Take the survey now!

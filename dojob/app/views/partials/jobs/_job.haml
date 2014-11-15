@@ -4,6 +4,11 @@
       .col-md-12.result-title
         %h5= slice[0].title
       .col-md-12.border
+        .col-md-12.text-left.tags
+          %strong Tags
+          %hr.tag-row
+        .col-md-12.text-left.all-tags
+          = format_tags(slice[0])
         .col-md-12.text-left.desc-title
           %strong About this Job
           %hr.title-row
@@ -18,6 +23,11 @@
       .col-md-12.result-title
         %h5= slice[1].title
       .col-md-12.border
+        .col-md-12.text-left.tags
+          %strong Tags
+          %hr.tag-row
+        .col-md-12.text-left.all-tags
+          = format_tags(slice[1])
         .col-md-12.text-left.desc-title
           %strong About this Job
           %hr.title-row

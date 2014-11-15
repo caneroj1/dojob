@@ -10,7 +10,7 @@ module JobsHelper
     end
   end
 
-  def format_tags(tag_arr)
+  def format_tags_show(tag_arr)
     inner_li = content_tag(:div, "")
     tag_arr.each do |tag|
       inner_li.concat content_tag(:li) { link_to tag.tag_name, search_jobs_path(:tag => tag.tag_name), method: :post }
@@ -27,5 +27,12 @@ module JobsHelper
       (0...12).each { |i| str << res[i] << " " }
       str << "..."
     end
+  end
+
+  def format_tags(job)
+    all_tags = job.tags
+    inner_li = content_tag(:div, "")
+    all_tags.each { |tag| inner_li.concat link_to "##{tag.tag_name}", search_jobs_path(:tag => tag.tag_name), method: :post, class: "tag-link" }
+    content_tag(:div, "") { inner_li }
   end
 end

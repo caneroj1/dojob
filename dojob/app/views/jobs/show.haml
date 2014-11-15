@@ -19,13 +19,13 @@
           .col-md-3.col-md-offset-3.text-center
             %h4 Tags
           .col-md-3.text-left
-            %h4.content= format_tags(@job.tags)
+            %h4.content= format_tags_show(@job.tags)
         .row
           %hr
           .col-md-12.text-center
             %h4 Job Description
           .col-md-8.col-md-offset-2
-            .well
+            .well#desc
               = @job.description
         .row
           .col-md-offset-4.col-md-4.text-center

@@ -16,19 +16,17 @@
 
 .result {
   padding: 0 !important;
-  height: 250px;
 }
 
-.description {
+.description, .all-tags {
+  margin-bottom: 10px;
   padding: 0 !important;
-  height: 90px;
   overflow-wrap: break-word;
 }
 
 .border {
   padding: 10px 10px 10px 10px;
   border: 1px solid $brand-primary;
-  height: 194px;
 }
 
 .bottom-date {
@@ -56,10 +54,18 @@
   margin-left: 310px;
 }
 
-.title-row {
+.title-row, .tag-row {
   margin:2px;
 }
 
-.desc-title {
+.desc-title, .tags {
   padding: 0 !important;
+}
+
+.tag-link {
+  margin-right: 5px;
+}
+
+#desc {
+  overflow-wrap: break-word;
 }

@@ -6,8 +6,13 @@
   margin-bottom: 50px;
 }
 
-.title {
+.title, #not-taken {
   font-weight: 200;
+}
+
+#not-taken {
+  padding: 15px;
+  font-size: 36px;
 }
 
 .misc {
@@ -43,4 +48,9 @@
 .form-control[readonly] {
   background-color: white !important;
   cursor: pointer !important;
+}
+
+#char-count {
+  color: #d9534f;
+  font-weight: 200;
 }
