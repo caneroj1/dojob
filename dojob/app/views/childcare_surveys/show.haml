@@ -27,7 +27,7 @@
     %hr
     %h5= @ccs.misc
 
-    = render partial: "partials/childcare_surveys/existing_certs", locals: { button: false }
+    = render partial: "partials/childcare_surveys/existing_certs", locals: { button: false, obj: @ccs }
 
   - else
     %p.bg-danger#not-taken

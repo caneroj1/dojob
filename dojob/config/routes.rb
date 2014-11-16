@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  # route for surveys
+  # each user gets their own survey
   resource :childcare_survey
+  resource :petcare_survey
 
   # RESTful routes for users
   resources :users

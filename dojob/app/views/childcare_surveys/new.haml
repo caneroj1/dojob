@@ -30,9 +30,10 @@
             Certifications
             %small Add up to 3
           %hr
+            #exist.hide= !@ccs.nil?
             - if @ccs
-              = render partial: "partials/childcare_surveys/existing_certs", locals: { button: true}
-            = render partial: "partials/childcare_surveys/add_certs"
+              = render partial: "partials/childcare_surveys/existing_certs", locals: { button: true, obj: @ccs}
+            = render partial: "partials/childcare_surveys/add_certs", locals: { button: !@ccs.nil? }
           %h4 Other Information
           %hr
             = render partial: "partials/childcare_surveys/other_info"

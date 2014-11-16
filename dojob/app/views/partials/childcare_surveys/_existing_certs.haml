@@ -8,8 +8,8 @@
         %td
           %strong Expires
     %tbody
-      - @ccs.certifications.sort { |c1, c2| c1.expiration <=> c2.expiration }
-      - @ccs.certifications.each do |cert|
+      - obj.certifications.sort { |c1, c2| c1.expiration <=> c2.expiration }
+      - obj.certifications.each do |cert|
         %tr
           %td=cert.title
           %td=cert.expiration.strftime("%-m/%d/%Y")

@@ -25,7 +25,7 @@ class ChildcareSurveysController < ApplicationController
     if !params[:num_certs].eql?("no")
       params[:num_certs].to_i.times { |cert| ccs.certifications << Certification::Certification.new(params["cert_title_#{cert + 1}"], params["cert_exp_#{cert + 1}"]) }
     end
-    old_certs.each { |cert| ccs.certifications << cert }
+    old_certs.each { |cert| ccs.certifications << cert } if !old_certs.nil?
     ccs
   end
 

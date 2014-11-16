@@ -16,7 +16,7 @@
           = format_description(slice[0].description)
         .col-md-12.bottom-date.text-left
           %strong= "Posted: #{slice[0].created_at.to_datetime.strftime("%-m/%d/%Y")}"
-        .col-md-12.btn-bottom
+        .col-md-12.btn-bottom.btn-margin-top
           = link_to "See Job", job_path(slice[0].id), class: "btn btn-primary btn-block"
   - if !slice[1].nil?
     .col-md-offset-2.col-md-5.result
@@ -35,6 +35,6 @@
           = format_description(slice[1].description)
         .col-md-12.bottom-date.text-left
           %strong= "Posted: #{slice[1].created_at.to_datetime.strftime("%-m/%d/%Y")}"
-        .col-md-12.btn-bottom
+        .col-md-12.btn-bottom.btn-margin-top
           = link_to "See Job", job_path(slice[1].id), class: "btn btn-primary btn-block"
   .col-md-12.padding-between

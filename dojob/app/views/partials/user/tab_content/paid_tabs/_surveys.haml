@@ -17,3 +17,16 @@
             %span.glyphicon.glyphicon-pencil
           %a.btn.btn-primary.button-right{href: "#{childcare_survey_path}"}
             See Survey
+    %tr
+      %td Petcare
+      %td
+        - if current_user.petcare_survey.nil?
+          %a.btn.btn-primary{href: "#{new_petcare_survey_path}"}
+            Take Survey
+            %span.glyphicon.glyphicon-pencil
+        - else
+          %a.btn.btn-info{href: "#{new_petcare_survey_path}"}
+            Edit Survey
+            %span.glyphicon.glyphicon-pencil
+          %a.btn.btn-primary.button-right{href: "#{petcare_survey_path}"}
+            See Survey

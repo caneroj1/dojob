@@ -5,7 +5,7 @@
 forms = 2
 check_certs = true
 existing_certs = ->
-  if $('#existing-certs')
+  if $('#exist').text() != "false"
     check_certs = false
     $('#certs').css('display', 'none')
 
@@ -104,7 +104,7 @@ check_form_func = ->
     if check_certs
       do convert_dates(forms - 1)
 
-$ ->
+$(document).ready ->
   do existing_certs
   do show_certs
   do hide_certs

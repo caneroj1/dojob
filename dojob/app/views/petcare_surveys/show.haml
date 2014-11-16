@@ -1,0 +1,31 @@
+.col-md-12.text-center
+  %h1
+    = "#{current_user.first_name} #{current_user.last_name}'s Skill"
+    %small Childcare
+  %hr
+.col-md-6.text-center.col-md-offset-3
+  - if @pcs
+    %table.table.table-striped
+      %thead
+        %tr
+          %h3 Survey Details
+      %tbody
+        %tr
+          %td
+            %strong Years of Experience
+          %td= @pcs.experience
+        %tr
+          %td
+            %strong Desired Animals
+          %td= format_pets(@pcs.pets)
+
+    %h3 Other Information
+    %hr
+    %h5= @pcs.misc
+
+    = render partial: "partials/childcare_surveys/existing_certs", locals: { button: false, obj: @pcs }
+
+  - else
+    %p.bg-danger#not-taken
+      You have not taken our petcare survey
+    %a.btn.btn-primary{href: "#{new_petcare_survey_path}"} Take the survey now!

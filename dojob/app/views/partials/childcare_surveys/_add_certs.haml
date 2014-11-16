@@ -12,5 +12,6 @@
       %a#add-certs
         %span.glyphicon.glyphicon-plus
         Add More
-    .col-md-12
-      %a.btn.btn-warning#cert-close Cancel
+    - if button
+      .col-md-12
+        %a.btn.btn-warning#cert-close Cancel
