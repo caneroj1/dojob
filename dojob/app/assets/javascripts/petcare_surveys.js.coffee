@@ -29,18 +29,19 @@ pets_array = ->
   if $('#cats').prop('checked')
     pets_str += "Cats,"
   if $('#fish').prop('checked')
-    pets_str += "Fish"
+    pets_str += "Fish,"
   if $('#reptiles').prop('checked')
-    pets_str += "Reptiles"
+    pets_str += "Reptiles,"
   if $('#birds').prop('checked')
-    pets_str += "Birds"
+    pets_str += "Birds,"
   if $('#mams').prop('checked')
-    pets_str += "Small Mammals"
+    pets_str += "Small Mammals,"
   if $('#exo').prop('checked')
-    pets_str += "Exotic/Other"
+    pets_str += "Exotic/Other,"
   $('#pets-hidden').val(pets_str)
 
-dates = (num_forms) ->
+dates_func = ->
+  num_forms = forms - 1
   while(num_forms > 0)
     date_arr = $('#cert_exp_' + num_forms).val().split("/")
     date = new Date(date_arr[2], date_arr[0] - 1, date_arr[1])
@@ -81,7 +82,7 @@ check_form_func = ->
       $('#header-error').fadeIn(900)
       return false
     if check_certs
-      do dates(forms - 1)
+      do dates_func
     do pets_array
 
 $ ->
