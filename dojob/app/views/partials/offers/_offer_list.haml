@@ -10,6 +10,6 @@
     - @my_offers.each do |o|
       %tr
         %td
-          %a= Job.select(:title).find(o.job_id).title
+          = link_to Job.select(:title).find(o.job_id).title, new_comment_path(user_id: current_user.id, offer_id: o.id), remote: true
         %td
           %p= o.created_at.strftime("%-m/%d/%Y")
