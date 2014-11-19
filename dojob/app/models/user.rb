@@ -19,5 +19,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :address, presence: true
 
-  has_many :jobs
+  has_many :offers, dependent: :delete_all
+  has_many :jobs, dependent: :delete_all
+  has_many :comments
 end

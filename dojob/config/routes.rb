@@ -16,10 +16,16 @@ Rails.application.routes.draw do
   resources :users
 
   resources :jobs do
+    member do
+      post :create_offer, to: "jobs#create_offer"
+    end
     collection do
       post :search
     end
   end
+
+  resources :offers, only: [:index]
+  resources :comments, only: [:new, :create]
 
 
   # Example of regular route:

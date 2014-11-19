@@ -34,6 +34,19 @@ class JobsController < ApplicationController
     end
   end
 
+  def create_offer
+    job = Job.find(params[:id])
+    offer = Offer.create(user_id: current_user.id, job_id: job.id)
+    offer.comments << Comment.create(body: params[:body], user_id: current_user.id, job_id: job.id)
+    job.offers << offer
+    respond_to do |format|
+      if job.save
+        format.js { render layout: false }
+        format.json { render json: job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   protected
   # splits tags by '.' and stores them in the job's tag arr
   def parse_tags(tag_str)
