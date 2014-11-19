@@ -1,0 +1,7 @@
+- if @job.user_id.eql?(current_user.id)
+  %button.btn.btn-info.btn-block Edit Job
+- else
+  - if !@job.offers.where("user_id = #{current_user.id}").empty?
+    %button.btn.btn-primary.btn-block#make-offer-btn{ disabled: true } Offer Created!
+  - else
+    %button.btn.btn-primary.btn-block#make-offer-btn{ data: { target: '#offerModal', toggle: 'modal'} } Make Offer

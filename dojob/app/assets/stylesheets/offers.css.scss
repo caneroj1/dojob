@@ -1,0 +1,31 @@
+// Place all the styles related to the offers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.offers {
+  margin-left: 0 !important;
+  margin-top: -3px !important;
+}
+
+.left-column {
+  padding: 0 !important;
+}
+
+#offers-container {
+  margin-bottom: 0 !important;
+  overflow: scroll !important;
+  height: 100% !important;
+}
+
+.nav-titles {
+  font-weight: 200;
+}
+
+#offers-table {
+  margin-top:20px;
+}
+
+.offer-alert {
+  font-weight: 200;
+  margin-top: 20px;
+}
