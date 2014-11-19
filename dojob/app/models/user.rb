@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
   has_many :offers, dependent: :delete_all
   has_many :jobs, dependent: :delete_all
   has_many :comments
+
+  def my_name
+    "#{first_name} #{last_name}"
+  end
 end

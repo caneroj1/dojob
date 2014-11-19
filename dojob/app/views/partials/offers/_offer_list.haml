@@ -1,15 +1,15 @@
 - if @my_offers.empty?
-  .alert.alert-info You have made no offers.
+  .alert.alert-info.offer-alert You have made no offers.
 - else
-%table.table.table-striped#offers-table
-  %thead
-    %tr
-      %td Job Title
-      %td Posting Date
-  %tbody
-    - @my_offers.each do |o|
+  %table.table.table-striped#offers-table
+    %thead
       %tr
-        %td
-          = link_to Job.select(:title).find(o.job_id).title, new_comment_path(user_id: current_user.id, offer_id: o.id), remote: true
-        %td
-          %p= o.created_at.strftime("%-m/%d/%Y")
+        %td Job Title
+        %td Posting Date
+    %tbody
+      - @my_offers.each do |o|
+        %tr
+          %td
+            = format_offer_name(o)
+          %td
+            %p= o.created_at.strftime("%-m/%d/%Y")

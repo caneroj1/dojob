@@ -17,8 +17,12 @@
   height: 100% !important;
 }
 
-.nav-titles {
+.nav-titles, .comment-header {
   font-weight: 200;
+}
+
+.right-column {
+  height: 100%;
 }
 
 #offers-table {
@@ -28,4 +32,50 @@
 .offer-alert {
   font-weight: 200;
   margin-top: 20px;
+}
+
+.comment-pic {
+  width: 64px;
+}
+
+.comment-box {
+  resize:none;
+}
+
+.comments-header, .comments-area {
+  padding: 25px 15px 15px 15px;
+}
+
+.comments-area {
+  height: 305px;
+  overflow: scroll;
+}
+
+.comment-table {
+  width: 100%;
+}
+
+.left-td {
+  .media-body {
+    margin-left: 20px;
+  }
+}
+
+.right-td {
+  .media-body {
+    margin-right: 20px;
+    text-align: right;
+  }
+}
+
+.comment-body {
+  font-weight: 200;
+}
+
+.comment-date {
+  font-size: 12px;
+}
+
+.post-comment {
+  margin: 0;
 }

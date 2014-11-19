@@ -1,0 +1,7 @@
+%li.media
+  %table.comment-table
+    %tr
+      - if @comment.user_id.eql?(current_user.id)
+        = render partial: "partials/comments/my_comment", locals: { c: @comment }
+      - else
+        = render partial: "partials/comments/user_comment", locals: { c: @comment }

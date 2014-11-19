@@ -1,3 +1,17 @@
-%ul.list-unstyled
-  - @comments.each do |c|
-    %li= c.body
+- c_id = current_user.id
+.col-md-10.col-md-offset-1.text-center.comments-header
+  %h3.comment-header
+    Comments on
+    = link_to job_title, job_path(job_id)
+  %p.text-muted= between(offer_user, job_id)
+  %hr
+.col-md-10.col-md-offset-1.comments-area
+  %ul.media-list#comment-list
+    - @comments.each do |c|
+      %li.media
+        %table.comment-table
+          %tr
+            - if c.user_id.eql?(c_id)
+              = render partial: "partials/comments/my_comment", locals: { c: c }
+            - else
+              = render partial: "partials/comments/user_comment", locals: { c: c }

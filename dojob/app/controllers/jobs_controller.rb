@@ -37,7 +37,7 @@ class JobsController < ApplicationController
   def create_offer
     job = Job.find(params[:id])
     offer = Offer.create(user_id: current_user.id, job_id: job.id)
-    offer.comments << Comment.create(body: params[:body], user_id: current_user.id, job_id: job.id)
+    offer.comments << Comment.create(body: params[:body], user_id: current_user.id, job_id: job.id, username: params[:username])
     job.offers << offer
     respond_to do |format|
       if job.save

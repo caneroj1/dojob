@@ -1,0 +1,5 @@
+<% if !@comment.new_record? %>
+  $('#comment-list').append("<%= escape_javascript(render partial: 'partials/comments/created_comment') %>");
+  $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
+  $('.comment-box').val('');
+<% end %>

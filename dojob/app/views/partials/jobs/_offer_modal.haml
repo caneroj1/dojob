@@ -9,6 +9,7 @@
       .modal-body
         = form_tag(create_offer_job_path(@job), remote: true, id: "offer-form") do
           .col-md-8.col-md-offset-2.text-center#offer-body-section
+            = text_field_tag(:username, current_user.my_name, hidden: true)
             = label_tag(:body, "Why do you want this job?", class: "control-label")
             %p#char-count 0/1000
             = text_area_tag(:body, "", class: "form-control", id: "offer-body", rows: 3)

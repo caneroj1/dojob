@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :body, :offer_id, :user_id
+  attr_accessible :body, :offer_id, :user_id, :username
 
   validates :body, presence: :required, length: { maximum: 1000 }
 

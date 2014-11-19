@@ -1,12 +1,12 @@
 %ul.nav.nav-pills.nav-justified.text-center{ role: "tablist" }
-  %li
+  %li.active
     %a{href: "#offers", data: { toggle: :tab } }
       %h4.nav-titles My Offers
   %li
     %a{href: "#jobs", data: { toggle: :tab } }
       %h4.nav-titles Offers for Me
 .tab-content
-  .tab-pane#offers
+  .tab-pane#offers.active
     = render partial: "partials/offers/offer_list"
   .tab-pane#jobs
     = render partial: "partials/offers/job_list"

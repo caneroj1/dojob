@@ -1,0 +1,8 @@
+%td.right-td
+  .media-body
+    %h4.media-heading= c.username
+    %p.text-muted.comment-body.comment-date= format_date(c.created_at)
+    %p.comment-body= c.body
+%td.comment-pic
+  %a.media-right.media-middle{ href: "#" }
+    = image_tag("money.png", class: "comment-pic")

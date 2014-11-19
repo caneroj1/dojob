@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-    @comments = Comment.order('created_at DESC').where("offer_id = ?", params[:offer_id])
+    @comments = Comment.order('created_at ASC').where("offer_id = ?", params[:offer_id])
     respond_to do |format|
       format.js { render layout: false }
     end
@@ -14,8 +14,7 @@ class CommentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.js
+      format.js { render layout: false }
     end
-
   end
 end
