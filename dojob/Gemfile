@@ -51,6 +51,10 @@ gem 'devise'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+# for real-time messaging
+gem 'faye-rails', '~> 2.0'
+gem 'thin'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'

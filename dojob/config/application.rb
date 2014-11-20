@@ -22,6 +22,9 @@ module Dojob
 
     config.autoload_paths << Rails.root.join('lib')
 
+    config.middleware.delete Rack::Lock
+    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
+
     config.generators do |g|
         g.test_framework :rspec,
             :fixtures => true,

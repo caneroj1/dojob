@@ -1,3 +1,20 @@
 $("#comments").html("<%= escape_javascript(render partial: 'partials/comments/all_comments', locals: { offer_user: params[:offer_user], job_id: params[:job_id], job_title: params[:job_title] } ) %>");
 $("#comments").append("<%= escape_javascript(render partial: 'partials/comments/comment', locals: { offer_id: params[:offer_id], user_id: params[:user_id] }) %>");
 $(".comments-area").animate({ scrollTop: $('.comments-area')[0].scrollHeight}, 300);
+
+window.client = new Faye.Client('/faye');
+var uid = $('#uid').text();
+
+jQuery(function() {
+  return client.subscribe('/comments' + $('#offerid').text(), function(payload) {
+    if (payload.message) {
+      if (uid === payload.current_user_id) {
+        $('#comments').find('#comment-list').append(payload.my_message);
+      }
+      else {
+        $('#comments').find('#comment-list').append(payload.user_message);
+      }
+      $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
+    }
+  });
+});

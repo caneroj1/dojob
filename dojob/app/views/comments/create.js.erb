@@ -1,5 +1,18 @@
-<% if !@comment.new_record? %>
-  $('#comment-list').append("<%= escape_javascript(render partial: 'partials/comments/created_comment') %>");
+var publisher;
+var uid = $('#uid').text();
+publisher = client.publish('/comments' + $('#offerid').text(), {
+  message: true,
+  my_message: "<%= j render partial: 'partials/comments/my_created_comment' %>",
+  user_message: "<%= j render partial: 'partials/comments/user_created_comment' %>",
+  current_user_id: uid
+});
+
+publisher.callback(function() {
+  $('#comment_body').val('');
+  $('#new_comment').find("input[type='submit']").val('Submit').prop('disabled', false)
   $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
-  $('.comment-box').val('');
-<% end %>
+});
+
+$('#new_comment').submit(function() {
+  return $(this).find("input[type='submit']").val('Sending...').prop('disabled', true);
+});

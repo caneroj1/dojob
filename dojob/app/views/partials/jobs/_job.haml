@@ -8,7 +8,7 @@
           %strong Tags
           %hr.tag-row
         .col-md-12.text-left.all-tags
-          = format_tags(slice[0])
+          = format_tags(get_tags(slice[0].id))
         .col-md-12.text-left.desc-title
           %strong About this Job
           %hr.title-row
@@ -27,7 +27,7 @@
           %strong Tags
           %hr.tag-row
         .col-md-12.text-left.all-tags
-          = format_tags(slice[1])
+          = format_tags(get_tags(slice[1].id))
         .col-md-12.text-left.desc-title
           %strong About this Job
           %hr.title-row

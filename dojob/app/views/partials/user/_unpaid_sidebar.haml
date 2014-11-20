@@ -11,6 +11,12 @@
     .nav-align
       Post Job
 %li
+  %a.side-nav{ href: "#{offers_path}" }
+    .nav-align
+      = image_tag "offers.png", class: "nav-img-user"
+    .nav-align
+      Offers
+%li
   %a.side-nav{ href: "#contacts", data: { toggle: :tab } }
     .nav-align
       = image_tag "contacts.png", class: "nav-img-user"
