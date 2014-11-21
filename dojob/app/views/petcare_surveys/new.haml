@@ -9,13 +9,13 @@
           = text_field_tag(:num_certs, "1", hidden: true)
           = text_field_tag(:pets, "", hidden: true, id: "pets-hidden")
           = render partial: "partials/petcare_surveys/basic_form"
-          %h4
-            Certifications
-            %small Add up to 3
-          %hr
-            #exist.hide= !@pcs.nil?
-            - if !@pcs.nil?
-              = render partial: "partials/childcare_surveys/existing_certs", locals: { button: true, obj: @pcs }
-            = render partial: "partials/childcare_surveys/add_certs", locals: { button: !@pcs.nil? }
+          -# %h4
+          -#   Certifications
+          -#   %small Add up to 3
+          -# %hr
+          -#   #exist.hide= !@ts.nil?
+          -#   - if !@ts.nil?
+          -#     = render partial: "partials/childcare_surveys/existing_certs", locals: { button: true, obj: @ts }
+          -#   = render partial: "partials/childcare_surveys/add_certs", locals: { button: !@ts.nil? }
           .col-md-6.col-md-offset-3.bot-margin
             = submit_tag "Finish", class: "btn btn-primary btn-block"

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # for skill surveys
   serialize(:childcare_survey, Survey::ChildcareSurvey)
   serialize(:petcare_survey, Survey::PetcareSurvey)
+  serialize(:tutoring_survey, Survey::TutoringSurvey)
 
   # VALIDATIONS
   validates :state, presence: true

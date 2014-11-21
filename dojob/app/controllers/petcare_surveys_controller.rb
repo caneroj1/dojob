@@ -1,10 +1,10 @@
 class PetcareSurveysController < ApplicationController
   def new
-    @pcs = current_user.petcare_survey
+    @ts = current_user.petcare_survey
   end
 
   def show
-    @pcs = current_user.petcare_survey
+    @ts = current_user.petcare_survey
   end
 
   def create

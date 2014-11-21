@@ -4,7 +4,7 @@
     %small Childcare
   %hr
 .col-md-6.text-center.col-md-offset-3
-  - if @pcs
+  - if @ts
     %table.table.table-striped
       %thead
         %tr
@@ -13,17 +13,17 @@
         %tr
           %td
             %strong Years of Experience
-          %td= @pcs.experience
+          %td= @ts.experience
         %tr
           %td
             %strong Desired Animals
-          %td= format_pets(@pcs.pets)
+          %td= format_pets(@ts.pets)
 
     %h3 Other Information
     %hr
-    %h5= @pcs.misc
+    %h5= @ts.misc
 
-    = render partial: "partials/childcare_surveys/existing_certs", locals: { button: false, obj: @pcs }
+    -# = render partial: "partials/childcare_surveys/existing_certs", locals: { button: false, obj: @ts }
 
   - else
     %p.bg-danger#not-taken

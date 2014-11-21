@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119171148) do
+ActiveRecord::Schema.define(version: 20141121032217) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20141119171148) do
     t.boolean  "paid",                   default: false
     t.text     "childcare_survey"
     t.text     "petcare_survey"
+    t.text     "tutoring_survey"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

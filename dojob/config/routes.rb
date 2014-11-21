@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   # route for surveys
   # each user gets their own survey
-  resource :childcare_survey
-  resource :petcare_survey
+  resource :childcare_survey, only: [:new, :create, :show]
+  resource :petcare_survey, only: [:new, :create, :show]
+  resource :tutoring_survey, only: [:new, :create, :show]
 
   # RESTful routes for users
   resources :users

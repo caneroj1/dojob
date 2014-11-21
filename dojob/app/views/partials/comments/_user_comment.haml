@@ -4,4 +4,5 @@
 %td.left-td
   .media-body
     %h4.media-heading= c.username
+    %p.text-muted.comment-body.comment-date= format_date(c.created_at)
     %p.comment-body= c.body

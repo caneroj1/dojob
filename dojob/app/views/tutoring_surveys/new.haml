@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2.text-center
+      %h1.title Tutoring Survey
+      %hr
+      %p#header-error-tutor.text-danger Please fix the required fields
+      .col-md-12
+        = form_tag(tutoring_survey_path, method: :post, id: "ts_form") do
+          = text_field_tag :mus_hidden, "", hidden: true
+          = text_field_tag :math_hidden, "", hidden: true
+          = text_field_tag :sci_hidden, "", hidden: true
+          = text_field_tag :lang_hidden, "", hidden: true
+          = render partial: "partials/tutoring_surveys/experience"
+          = render partial: "partials/tutoring_surveys/radio_buttons"
+          = render partial: "partials/tutoring_surveys/subjects"
+
+          %hr
+            .col-md-6.col-md-offset-3.bot-margin#finish
+              = submit_tag "Finish", class: "btn btn-primary btn-block"

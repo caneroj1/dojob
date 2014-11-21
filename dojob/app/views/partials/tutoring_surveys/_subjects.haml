@@ -1,0 +1,88 @@
+.form-group
+  .col-md-12.bot-margin
+    .col-sm-12
+      %h3.control-label#sub-label.lab Subjects Taught
+    .col-sm-12
+      %label.control-label Science
+    .col-sm-12
+      %label.checkbox-inline
+        = check_box_tag(:science, "Biology", @ts ? @ts.science.include?("Biology") ? "checked: true" : false : false, id: "bio")
+        Biology
+      %label.checkbox-inline
+        = check_box_tag(:science, "Chemisty", @ts ? @ts.science.include?("Chemistry") ? "checked: true" : false : false, id: "chem")
+        Chemistry
+      %label.checkbox-inline
+        = check_box_tag(:science, "Physics", @ts ? @ts.science.include?("Physics") ? "checked: true" : false : false, id: "phys")
+        Physics
+      %label.checkbox-inline
+        = check_box_tag(:science, "Computer Science", @ts ? @ts.science.include?("Computer Science") ? "checked: true" : false : false, id: "prog")
+        Computer Science
+    .col-sm-12
+      %label.control-label.sub Mathematics
+    .col-sm-12
+      %label.checkbox-inline
+        = check_box_tag(:math, "Algebra", @ts ? @ts.math.include?("Algebra") ? "checked: true" : false : false, id: "alg")
+        Algebra
+      %label.checkbox-inline
+        = check_box_tag(:math, "Geometry", @ts ? @ts.math.include?("Geometry") ? "checked: true" : false : false, id: "geo")
+        Geometry
+      %label.checkbox-inline
+        = check_box_tag(:math, "Trigonometry", @ts ? @ts.math.include?("Trigonometry") ? "checked: true" : false : false, id: "trig")
+        Trigonometry
+      %label.checkbox-inline
+        = check_box_tag(:math, "Precalculus", @ts ? @ts.math.include?("Precalculus") ? "checked: true" : false : false, id: "precalc")
+        Precalculus
+      %label.checkbox-inline
+        = check_box_tag(:math, "Calculus", @ts ? @ts.math.include?("Calculus") ? "checked: true" : false : false, id: "calc")
+        Calculus
+    .col-sm-12
+      %label.control-label.sub English
+    .col-sm-12
+      %label.checkbox-inline
+        = check_box_tag(:english, "English", @ts ? @ts.english.include?("English") ? "checked: true" : false : false, id: "eng")
+        English
+    .col-sm-12
+      %label.control-label.sub Languages
+    .col-sm-12
+      %label.checkbox-inline
+        = check_box_tag(:languages, "Spanish", @ts ? @ts.languages.include?("Spanish") ? "checked: true" : false : false, id: "span")
+        Spanish
+      %label.checkbox-inline
+        = check_box_tag(:languages, "French", @ts ? @ts.languages.include?("French") ? "checked: true" : false : false, id: "fre")
+        French
+      %label.checkbox-inline
+        = check_box_tag(:languages, "Chinese", @ts ? @ts.languages.include?("Chinese") ? "checked: true" : false : false, id: "chi")
+        Chinese
+      %label.checkbox-inline
+        = check_box_tag(:languages, "German", @ts ? @ts.languages.include?("German") ? "checked: true" : false : false, id: "ger")
+        German
+      %label.checkbox-inline
+        = check_box_tag(:languages, "Italian", @ts ? @ts.languages.include?("Italian") ? "checked: true" : false : false, id: "ita")
+        Italian
+      %label.checkbox-inline
+        = check_box_tag(:languages, "Latin", @ts ? @ts.languages.include?("Latin") ? "checked: true" : false : false, id: "lat")
+        Latin
+    .col-sm-12
+      %label.control-label.sub History
+    .col-sm-12
+      %label.checkbox-inline
+        = check_box_tag(:history, "History", @ts ? @ts.history.include?("History") ? "checked: true" : false : false, id: "his")
+        History
+    .col-sm-12
+      %label.control-label.sub Music
+    .col-sm-12
+      %label.checkbox-inline
+        = check_box_tag(:music, "Piano", @ts ? @ts.music.include?("Piano") ? "checked: true" : false : false, id: "pia")
+        Piano
+      %label.checkbox-inline
+        = check_box_tag(:music, "Guitar", @ts ? @ts.music.include?("Guitar") ? "checked: true" : false : false, id: "gui")
+        Guitar
+      %label.checkbox-inline
+        = check_box_tag(:music, "Woodwind", @ts ? @ts.music.include?("Woodwind") ? "checked: true" : false : false, id: "wood")
+        Woodwind
+      %label.checkbox-inline
+        = check_box_tag(:music, "Brass", @ts ? @ts.music.include?("Brass") ? "checked: true" : false : false, id: "bra")
+        Brass
+      %label.checkbox-inline
+        = check_box_tag(:music, "Percussion", @ts ? @ts.music.include?("Percussion") ? "checked: true" : false : false, id: "perc")
+        Percussion
