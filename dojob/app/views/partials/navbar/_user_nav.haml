@@ -11,10 +11,13 @@
     %a
       %span.glyphicon.glyphicon-bell
   %li
-    %a
+    %a{ href: offers_path }
       %span.glyphicon.glyphicon-envelope
 
 = form_tag(search_jobs_path, method: :post, class: "navbar-form navbar-right") do
+  .form-group
+    %a.btn.btn-primary{ href: "#{jobs_path}"}
+      See All Jobs
   .form-group
     = text_field_tag :query, "", class: "form-control", placeholder: "Search for jobs"
   = submit_tag "Search", class: "btn btn-primary"
