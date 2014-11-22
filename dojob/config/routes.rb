@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit] do
     member do
       post :mark_availability, to: "profiles#mark_availability"
+      post :submit_availability, to: "profiles#submit_availability"
     end
   end
 
