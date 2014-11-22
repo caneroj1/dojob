@@ -26,6 +26,14 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def clear_availability
+    current_user.availability = {}
+    current_user.save
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
   protected
   def convert_to_key(hour)
     case

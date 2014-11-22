@@ -87,7 +87,8 @@
 }
 
 .day-form-cont {
-  border: solid 1px $brand-primary
+  border: solid 1px $brand-primary;
+  border-bottom: 0px;
 }
 
 .day-btn {
@@ -108,4 +109,9 @@
 
 #hours-slider {
   margin-top: 7px;
+}
+
+#clear {
+  width: 100% !important;
+  border-radius: 0;
 }
