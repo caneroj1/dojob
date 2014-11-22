@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-10.col-md-offset-1
+      .col-md-10.col-md-offset-1.text-center
+        %h1 Availability
+        %hr
+      .col-md-10.col-md-offset-1.text-center#avail{ data: { page: "show" } }
+        = render partial: "partials/profiles/availability_table"

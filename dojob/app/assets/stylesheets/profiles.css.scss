@@ -1,0 +1,56 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-hours {
+  background-color: #00cd25;
+}
+
+.availability-table {
+  border: 1px solid #00cd25;
+  color: white;
+  margin:auto;
+  td {
+    border: 1px solid #00cd25;
+    color: white;
+  }
+  h1 {
+    font-weight: 200;
+  }
+}
+
+.day {
+  height: 30px;
+  width: 40px;
+  text-align: center;
+}
+
+.slot {
+  height: 30px;
+  width: 40px;
+}
+
+.end {
+  text-align: center;
+  width: 90px;
+  background-color: #00cd25;
+  color: white;
+  font-weight: 200;
+}
+
+#clock {
+  text-align: center;
+}
+
+.header, thead {
+  background-color: #00cd25;
+  color: white;
+}
+
+.clock_availability {
+  width: 64px;
+}
+
+.unavailable {
+  background-color: #AAA;
+}

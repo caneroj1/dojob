@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 
   # RESTful routes for users
   resources :users
+  resources :profiles, only: [:show, :edit] do
+    member do
+      post :mark_availability, to: "profiles#mark_availability"
+    end
+  end
 
   resources :jobs do
     member do
