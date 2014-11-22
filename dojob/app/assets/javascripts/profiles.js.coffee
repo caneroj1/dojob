@@ -29,6 +29,7 @@ hours_slider_func = ->
   $('#hours-inp').val($('#slider-hours').slider("values", 0) + "," + $('#slider-hours').slider("values", 1))
 
 toggle_availability = ->
+  $('.slot').addClass('can-click')
   $('.slot').on 'click', ->
     data = ""
     name = ""
