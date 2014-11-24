@@ -94,3 +94,76 @@
 #bot-text {
   font-weight: 200;
 }
+
+#header-error {
+  font-weight: 200;
+  color: $danger-color;
+  display: none;
+}
+
+#title-label, #location-label, #frequency-label, #deadline-label, #description-label {
+  font-size: 22px;
+  font-weight: 200;
+}
+
+#edit-title {
+  font-weight: 200;
+}
+
+#title-label {
+  padding: 0;
+  vertical-align: middle;
+}
+
+#deadline-label {
+  margin-bottom: 10px;
+}
+
+#tags-header {
+  color: white;
+  font-size: 20px;
+  background-color: $brand-primary;
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+
+#tags-body {
+  border: 1px solid $brand-primary;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.tags-error {
+  display:none;
+  padding-bottom: 15px;
+}
+
+.checkbox {
+  label {
+    font-size:16px;
+    font-weight: 200 !important;
+  }
+}
+
+.radio-inline {
+  font-size: 16px;
+}
+
+.radios {
+  text-align: left;
+}
+
+#char-count {
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-control[readonly] {
+  cursor: pointer !important;
+}

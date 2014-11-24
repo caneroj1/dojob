@@ -17,6 +17,13 @@ on_form_submit = ->
       return false
     $('#offerModal').modal('hide')
 
+init_edit_form = ->
+  $('#char-count').text($('#job-description').val().length + "/500")
+  $('#char-count').css('color', '#00cd25')
+  if $('#job_frequency_one_time').prop('checked')
+    $('#datepicker').prop('disabled', false).css('background-color', 'white')
+
 $ ->
   do char_count_func
   do on_form_submit
+  do init_edit_form

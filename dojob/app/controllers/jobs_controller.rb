@@ -11,6 +11,19 @@ class JobsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def edit
+    @job = Job.find(params[:id])
+    @tag_arr = @job.tags.select(:tag_name).map { |tag| tag = tag.tag_name }
+  end
+
+  def update
+    job = Job.find(params[:id])
+    job.tags = []
+    parse_tags(params[:job].delete(:tags)).each { |tag| job.tags << Tag.new(tag_name: tag) }
+    job.update(params[:job])
+    redirect_to job_path(job)
+  end
+
   def show
     @job = Job.find(params[:id])
   end
