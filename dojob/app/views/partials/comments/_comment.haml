@@ -1,12 +1,14 @@
-.well
+%div
   #offerid.hide= params[:offer_id]
   = form_for(@comment, url: comments_path, remote: true, method: :post, class: "post-comment") do |f|
-    .form-group
-      = f.text_field :offer_id, hidden: true, value: params[:offer_id]
-      = f.text_field :user_id, hidden: true, value: params[:user_id]
-      = f.text_field :username, hidden: true, value: current_user.my_name
-      = f.label :body, 'Enter your comment:'
-      = f.text_area :body, rows: 3, class: "form-control comment-box", required: true, maxlength: 1000
-      %p.help-block Cannot be blank or contain more than 1000 symbols.
-
-    = f.submit "Comment", class: "btn btn-primary"
+    .col-md-12
+      .form-group.comment-group
+        = f.text_field :offer_id, hidden: true, value: params[:offer_id]
+        = f.text_field :user_id, hidden: true, value: params[:user_id]
+        = f.text_field :username, hidden: true, value: current_user.my_name
+        = f.label :body, 'Enter your comment:'
+        = f.text_area :body, rows: 3, class: "form-control comment-box", required: true, maxlength: 1000
+        -# %p.help-block Cannot be blank or contain more than 1000 symbols.
+    .col-md-12.text-right
+      %button.btn.btn-info.comment-btn Make Offer
+      = f.submit "Comment", class: "btn btn-primary comment-btn"
