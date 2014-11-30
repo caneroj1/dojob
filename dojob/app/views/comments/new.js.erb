@@ -1,5 +1,6 @@
 $("#comments").html("<%= escape_javascript(render partial: 'partials/comments/all_comments', locals: { offer_user: params[:offer_user], job_id: params[:job_id], job_title: params[:job_title] } ) %>");
-$("#comments").append("<%= escape_javascript(render partial: 'partials/comments/comment', locals: { offer_id: params[:offer_id], user_id: params[:user_id] }) %>");
+$("#comments").append("<%= escape_javascript(render partial: 'partials/comments/comment', locals: { offer_id: params[:offer_id], user_id: params[:user_id], job_title: params[:job_title] }) %>");
+$('#datepicker').datepicker()
 $(".comments-area").animate({ scrollTop: $('.comments-area')[0].scrollHeight}, 300);
 
 window.client = new Faye.Client('/faye');

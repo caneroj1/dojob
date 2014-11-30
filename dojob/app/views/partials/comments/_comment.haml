@@ -8,7 +8,11 @@
         = f.text_field :username, hidden: true, value: current_user.my_name
         = f.label :body, 'Enter your comment:'
         = f.text_area :body, rows: 3, class: "form-control comment-box", required: true, maxlength: 1000
-        -# %p.help-block Cannot be blank or contain more than 1000 symbols.
     .col-md-12.text-right
-      %button.btn.btn-info.comment-btn Make Offer
-      = f.submit "Comment", class: "btn btn-primary comment-btn"
+      .col-md-8.text-left.nopad
+        %p.help-block Cannot be blank or contain more than 1000 symbols.
+      .col-md-4.nopad
+        %button.btn.btn-info.comment-btn{ data: { toggle: :modal, target: "#hardOffer" } } Make Offer
+        = f.submit "Comment", class: "btn btn-primary comment-btn"
+
+= render partial: "partials/comments/hard_offer_modal", locals: { job_title: job_title }
