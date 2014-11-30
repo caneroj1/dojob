@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   end
 
   resources :offers, only: [:index]
+
+  # for when users make offers on jobs
+  resource  :hard_offers, only: [:create, :show]
   resources :comments, only: [:new, :create]
 
 

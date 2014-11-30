@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121194000) do
+ActiveRecord::Schema.define(version: 20141130181612) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20141121194000) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "username"
+  end
+
+  create_table "hard_offers", force: true do |t|
+    t.integer  "job_id"
+    t.integer  "user_id"
+    t.datetime "date_of_job"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "jobs", force: true do |t|
