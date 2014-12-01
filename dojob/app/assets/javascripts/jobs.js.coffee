@@ -26,4 +26,5 @@ init_edit_form = ->
 $ ->
   do char_count_func
   do on_form_submit
-  do init_edit_form
+  if $('#job-description').length
+    do init_edit_form

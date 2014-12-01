@@ -8,8 +8,10 @@
         %h2 Make an Offer
         %h4= job_title
       .modal-body
-        = form_tag(hard_offers_path, method: :post, class: "hard-offer-form") do
+        = form_tag(hard_offers_path, method: :post, class: "hard-offer-form", id: "hard_offer_form", remote: true) do
           .col-sm-8.col-sm-offset-2.field
+            = text_field_tag(:id, current_user.id, hidden: true)
+            = text_field_tag(:job_id, job_id, hidden: true)
             .form-group
               .col-sm-4.text-center
                 = label_tag(:price, "Price", class: "form-label")
@@ -23,6 +25,7 @@
                 = label_tag(:date, "Date", class: "form-label")
               .col-sm-8
                 = text_field_tag(:date, "", class: "form-control", readonly: true, id: "datepicker", required: true)
+          .col-sm-8.col-sm-offset-2.field.text-center
+            %button.btn.btn-warning{ data: { dismiss: :modal } } Cancel
+            = submit_tag "Make Offer", class: "btn btn-primary"
       .modal-footer
-        %button.btn.btn-warning{ data: { dismiss: :modal } } Cancel
-        %button.btn.btn-primary Make Offer

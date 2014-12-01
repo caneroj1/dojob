@@ -15,4 +15,4 @@
         %button.btn.btn-info.comment-btn{ data: { toggle: :modal, target: "#hardOffer" } } Make Offer
         = f.submit "Comment", class: "btn btn-primary comment-btn"
 
-= render partial: "partials/comments/hard_offer_modal", locals: { job_title: job_title }
+= render partial: "partials/comments/hard_offer_modal", locals: { job_title: job_title, job_id: job_id }
