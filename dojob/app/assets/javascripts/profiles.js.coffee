@@ -50,6 +50,8 @@ toggle_availability = ->
     }
 
 $ ->
+  jQuery(".best_in_place").best_in_place();
   if ($('#avail').data('page') == 'edit')
+    $('[data-toggle="tooltip"]').tooltip()
     do toggle_availability
   do hours_slider_func

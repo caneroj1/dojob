@@ -24,7 +24,7 @@ class TutoringSurveysController < ApplicationController
                      english: params[:english] || "n",
                      history: params[:history] || "n" }
 
-    ts = Survey::TutoringSurvey.new(results_hash)
+    Survey::TutoringSurvey.new(results_hash)
   end
 
 end

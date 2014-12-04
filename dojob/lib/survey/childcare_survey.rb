@@ -14,13 +14,8 @@ module Survey
                          misc: json["misc"],
                          age_range: json["age_range"],
                          number_kids: json["number_kids"] }
-        ccs = self.new(results_hash)
-        ccs.certifications = []
-        if json["certifications"]
-          json["certifications"].each { |el| ccs.certifications << Certification::Certification.new(el["title"], Time.parse(el["expiration"]).getutc) }
-          ccs.certifications.sort! { |c1, c2| c1.expiration <=> c2.expiration }
-        end
-        ccs
+                         
+        self.new(results_hash)
       end
     end
 

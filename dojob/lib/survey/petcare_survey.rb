@@ -13,13 +13,7 @@ module Survey
                          misc: json["misc"],
                          pets: json["pets"] }
 
-        pcs = self.new(results_hash)
-        pcs.certifications = []
-        if json["certifications"]
-          json["certifications"].each { |el| pcs.certifications << Certification::Certification.new(el["title"], Time.parse(el["expiration"]).getutc) }
-          pcs.certifications.sort! { |c1, c2| c1.expiration <=> c2.expiration }
-        end
-        pcs
+        self.new(results_hash)
       end
     end
 

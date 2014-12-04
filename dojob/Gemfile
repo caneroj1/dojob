@@ -55,6 +55,9 @@ gem 'elasticsearch-rails'
 gem 'faye-rails', '~> 2.0'
 gem 'thin'
 
+# for in-place editing of model attributes
+gem 'best_in_place'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'

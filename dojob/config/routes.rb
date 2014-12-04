@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   end
 
   resources :offers, only: [:index]
+  resources :references
 
   # for when users make offers on jobs
   resource  :hard_offers, only: [:create, :show]

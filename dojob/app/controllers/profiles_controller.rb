@@ -1,10 +1,13 @@
 class ProfilesController < ApplicationController
   def show
-    @availability = User.find(params[:id]).availability
+    user = User.find(params[:id])
+    @references = user.references
+    @availability = user.availability
   end
 
   def edit
-    @availability = User.find(current_user.id).availability
+    @availability = current_user.availability
+    @references = current_user.references
   end
 
   def mark_availability

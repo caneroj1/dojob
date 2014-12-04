@@ -1,14 +1,5 @@
 .container
   .row
     .col-md-10.col-md-offset-1
-      .col-md-10.col-md-offset-1.text-center
-        %h1 Availability
-        %hr
-      .col-md-10.col-md-offset-1.text-center#avail{ data: { page: "show" } }
-        .col-md-3
-          %table
-            %tr
-              %td.grey-block
-              %td.legend Unavailable
-        .col-md-6
-          = render partial: "partials/profiles/availability_table"
+      = render partial: "partials/profiles/references", locals: { action: "show"}
+      = render partial: "partials/profiles/availability", locals: { action: "show" }

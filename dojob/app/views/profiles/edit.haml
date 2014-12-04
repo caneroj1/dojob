@@ -1,21 +1,5 @@
 .container
   .row
     .col-md-10.col-md-offset-1
-      .col-md-10.col-md-offset-1.text-center
-        %h1 Availability
-        %hr
-      .col-md-10.col-md-offset-1.text-center#avail{ data: { page: "edit" } }
-        .col-md-3
-          %table
-            %tr
-              %td.grey-block
-              %td.legend Unavailable
-          %p.text-muted.text-left.instr Click on a box to mark as unavailable
-        .col-md-6
-          = render partial: "partials/profiles/availability_table"
-        .col-md-3
-          .col-md-12.day-form-header
-            %h3 Edit Hours
-          .col-md-12.day-form-cont
-            = render partial: "partials/profiles/availability_form"
-          = render partial: "partials/profiles/clear_all"
+      = render partial: "partials/profiles/references",   locals: { action: "edit" }
+      = render partial: "partials/profiles/availability", locals: { action: "edit" }

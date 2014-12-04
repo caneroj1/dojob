@@ -4,7 +4,7 @@ module Survey
     # refereces will be an array of reference objects
     # certifications will be an array of certificate objects
     # misc is string
-    attr_accessor :experience, :certifications, :misc
+    attr_accessor :experience, :misc
 
     def self.dump(obj)
       if obj.is_a?(self)

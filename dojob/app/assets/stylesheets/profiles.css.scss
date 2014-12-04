@@ -115,3 +115,37 @@
   width: 100% !important;
   border-radius: 0;
 }
+
+.reference-table {
+  background-color: #fafafa;
+  color: #333;
+}
+
+#reference-table, .ref-title, .control-label {
+  font-weight: 200;
+}
+
+#head-row {
+  background-color: #f8f8f8;
+}
+
+.ref-hr {
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+
+.ref-row {
+  height: 82px;
+}
+
+.first-field, .ref-row {
+  padding-left: 0 !important;
+}
+
+.best_in_place, .remove {
+  cursor: pointer;
+}
+
+.remove {
+  color: $danger-color;
+}
