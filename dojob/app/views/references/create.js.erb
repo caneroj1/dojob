@@ -1,0 +1,7 @@
+$('#first-name').val('')
+$('#last-name').val('')
+$('#email-field').val('')
+$('#phone-field').val('')
+
+$('.ref-div').last().append('<%=escape_javascript(render partial: "partials/references/show", locals: { data: params, number: params[:ref_num] } ) %>')
+$('#curnum').val(parseInt($('#curnum').val()) + 1)

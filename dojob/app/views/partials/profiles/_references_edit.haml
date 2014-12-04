@@ -1,12 +1,18 @@
-%p.text-muted.instr Click on a field you would like to edit. Changes are saved automatically.
+- if !@references.empty?
+  %p.text-muted.instr.text-left.left-pad Click on a field you would like to edit. Changes are saved automatically.
+- else
+  %p.text-muted.instr.text-left.left-pad You have no references. Add some below!
+
+- current_number = 0
 - @references.each_with_index do |reference, index|
-  %form{ id: "#{reference.id}" }
+  - current_number = index + 1
+  %div.ref-div{ id: "#{reference.id}", data: { index: index + 1 } }
     .col-md-12.text-left
       %h4.ref-title
         = link_to reference_path(reference.id), method: :delete, remote: true do
           %span.glyphicon.glyphicon-remove.remove{ title: true, data: { toggle: :tooltip, "original-title" => "Remove this reference. Cannot be undone." } }
         = "Reference ##{index + 1}"
-    .col-md-12.ref-row.text-left
+    .col-md-12.ref-row.text-left.ref-form
       .col-sm-3.first-field
         .form-group
           .col-sm-12
@@ -35,3 +41,38 @@
             %hr.ref-hr
           .col-sm-12
             = best_in_place reference, :contact_number, as: :input, place_holder: "1234567891", inner_class: "form-control", url: reference_path(reference.id)
+.col-md-12.text-left.top-marg
+  %h4.ref-title Add New Reference
+.col-md-12.ref-row.text-left
+  = form_tag(references_path, method: :post, remote: true) do
+    = text_field_tag(:ref_num, current_number + 1, hidden: true, id: "curnum")
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label First Name
+          %hr.ref-hr
+        .col-sm-12
+          = text_field_tag(:first_name, "", placeholder: "First name", class: "form-control", id: "first-name")
+    .col-sm-3
+      .form-group
+        .col-sm-12
+          %label.control-label Last Name
+          %hr.ref-hr
+        .col-sm-12
+          = text_field_tag(:last_name, "", placeholder: "Last name", class: "form-control", id: "last-name")
+    .col-sm-3
+      .form-group
+        .col-sm-12
+          %label.control-label Email
+          %hr.ref-hr
+        .col-sm-12
+          = text_field_tag(:contact_email, "", placeholder: "Email", class: "form-control", id: "email-field")
+    .col-sm-3
+      .form-group
+        .col-sm-12
+          %label.control-label Phone
+          %hr.ref-hr
+        .col-sm-12
+          = text_field_tag(:contact_number, "", placeholder: "1234567891", class: "form-control", id: "phone-field")
+    .col-sm-12.text-left.top-marg
+      = submit_tag "Add", class: "btn btn-primary"
