@@ -1,10 +1,10 @@
 - reference = Reference.find(data[:id])
-%div{ id: "#{data[:id]}", data: { index: number } }
+%div.ref-div{ id: "#{data[:id]}", data: { index: number } }
   .col-md-12.text-left
     %h4.ref-title
       = link_to reference_path(reference.id), method: :delete, remote: true do
         %span.glyphicon.glyphicon-remove.remove{ title: true, data: { toggle: :tooltip, "original-title" => "Remove this reference. Cannot be undone." } }
-      = "Reference ##{number}"
+      %span.reference-label= "Reference ##{number}"
   .col-md-12.ref-row.text-left.ref-form
     .col-sm-3.first-field
       .form-group

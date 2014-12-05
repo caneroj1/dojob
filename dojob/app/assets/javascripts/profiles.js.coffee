@@ -2,6 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+reference_form_check = ->
+    $('#new-ref-form').on 'submit', ->
+      emailRegex = /\b([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
+      numberRegex = /\b[0-9]{10}/
+      if $('#email-field').val() == '' && $('#phone-field').val() == ''
+        return false
+      else if $('#email-field').val() != '' && $('#phone-field').val() == ''
+        if !emailRegex.test($('#email-field').val())
+          alert('bad email')
+          return false
+      else if $('#email-field').val() == '' && $('#phone-field').val() != ''
+        if !numberRegex.test($('#phone-field').val())
+          alert('bad number')
+          return false
+      else
+        if !emailRegex.test($('#email-field').val()) && !numberRegex.test($('#phone-field').val())
+          return false
+      return true
+
 convert_time = (time) ->
   if(time == -4)
     return "8 am"
@@ -50,8 +69,9 @@ toggle_availability = ->
     }
 
 $ ->
-  jQuery(".best_in_place").best_in_place();
   if ($('#avail').data('page') == 'edit')
     $('[data-toggle="tooltip"]').tooltip()
+    jQuery(".best_in_place").best_in_place();
     do toggle_availability
+    do reference_form_check
   do hours_slider_func

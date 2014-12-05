@@ -3,5 +3,13 @@ $('#last-name').val('')
 $('#email-field').val('')
 $('#phone-field').val('')
 
-$('.ref-div').last().append('<%=escape_javascript(render partial: "partials/references/show", locals: { data: params, number: params[:ref_num] } ) %>')
+if ($('#no-refs').text() === 'You have no references. Add some below!') {
+  $('#no-refs').after('<p class = "text-muted instr text-left left-pad" id="has-refs">Click on a field you would like to edit. Changes are saved automatically.</p>');
+  $('#no-refs').fadeOut(0, function() {
+    return $('#no-refs').remove();
+  });
+}
+
+$('#reference_form').before('<%=escape_javascript(render partial: "partials/references/show", locals: { data: params, number: params[:ref_num] } ) %>')
 $('#curnum').val(parseInt($('#curnum').val()) + 1)
+$('[data-toggle="tooltip"]').tooltip()

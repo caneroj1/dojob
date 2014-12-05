@@ -10,10 +10,26 @@ class Reference < ActiveRecord::Base
   belongs_to :user
 
   def email_given?
-    contact_email
+    !contact_email.nil? && !contact_email.blank?
   end
 
   def number_given?
-    contact_number
+    !contact_number.nil? && !contact_number.blank?
+  end
+
+  def email_display
+    if contact_email.nil? || contact_email.blank?
+      "None given"
+    else
+      contact_email
+    end
+  end
+
+  def number_display
+    if contact_number.nil? || contact_number.blank?
+      "None given"
+    else
+      contact_number
+    end
   end
 end
