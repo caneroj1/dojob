@@ -10,14 +10,16 @@ reference_form_check = ->
         return false
       else if $('#email-field').val() != '' && $('#phone-field').val() == ''
         if !emailRegex.test($('#email-field').val())
-          alert('bad email')
+          $('#email-label').css('color', '#d9534f')
           return false
       else if $('#email-field').val() == '' && $('#phone-field').val() != ''
         if !numberRegex.test($('#phone-field').val())
-          alert('bad number')
+          $('#phone-label').css('color', '#d9534f')
           return false
       else
         if !emailRegex.test($('#email-field').val()) && !numberRegex.test($('#phone-field').val())
+          $('#phone-label').css('color', '#d9534f')
+          $('#email-label').css('color', '#d9534f')
           return false
       return true
 

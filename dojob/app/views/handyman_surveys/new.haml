@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2.text-center
+      %h1.title Handyman Survey
+      %hr
+      %p#header-error.text-danger Please fix the required fields.
+      .col-md-12
+        = form_tag(handyman_survey_path, method: :post, id: "hs_form") do
+          = render partial: "partials/handyman_surveys/basic_form"
+          .col-md-6.col-md-offset-3.bot-margin
+            = submit_tag "Finish", class: "btn btn-primary btn-block"

@@ -1,0 +1,39 @@
+.form-group
+  .col-md-12.bot-margin
+    .col-sm-12.checkboxes
+      %label.control-label#skill-label.lab What handyman experience do you have?
+    .col-sm-12.text-left
+      .col-sm-3.col-sm-offset-3
+        %label.checkbox-inline
+          = check_box_tag(:plumbing, "Plumbing", @hs ? @hs.plumbing.nil? ? "checked:true" : false : false)
+          Plumbing
+      .col-sm-6
+        = select_tag(:plumbing_expertise, options_for_select([['Novice', 'Novice'], ['Apprentice', 'Apprentice'], ['Expert', 'Expert'], ['Select Expertise', 'unselected']], 'unselected'))
+    .col-sm-12.text-left
+      .col-sm-3.col-sm-offset-3
+        %label.checkbox-inline
+          = check_box_tag(:electrical, "Electrical", @hs ? @hs.electrical.nil? ? "checked:true" : false : false)
+          Electrical
+      .col-sm-6
+        = select_tag(:electrical_expertise, options_for_select([['Novice', 'Novice'], ['Apprentice', 'Apprentice'], ['Expert', 'Expert'], ['Select Expertise', 'unselected']], 'unselected'))
+    .col-sm-12.text-left
+      .col-sm-3.col-sm-offset-3
+        %label.checkbox-inline
+          = check_box_tag(:carpentry, "Carpentry", @hs ? @hs.carpentry.nil? ? "checked:true" : false : false)
+          Carpentry
+      .col-sm-6
+        = select_tag(:carpentry_expertise, options_for_select([['Novice', 'Novice'], ['Apprentice', 'Apprentice'], ['Expert', 'Expert'], ['Select Expertise', 'unselected']], 'unselected'))
+    .col-sm-12.text-left
+      .col-sm-3.col-sm-offset-3
+        %label.checkbox-inline
+          = check_box_tag(:automotive, "Automotive", @hs ? @hs.automotive.nil? ? "checked:true" : false : false)
+          Automotive
+      .col-sm-6
+        = select_tag(:automotive_expertise, options_for_select([['Novice', 'Novice'], ['Apprentice', 'Apprentice'], ['Expert', 'Expert'], ['Select Expertise', 'unselected']], 'unselected'))
+    .col-sm-12.text-left
+      .col-sm-3.col-sm-offset-3
+        %label.checkbox-inline
+          = check_box_tag(:hvac, "HVAC", @hs ? @hs.hvac.nil? ? "checked:true" : false : false)
+          HVAC
+      .col-sm-6
+        = select_tag(:hvac_expertise, options_for_select([['Novice', 'Novice'], ['Apprentice', 'Apprentice'], ['Expert', 'Expert'], ['Select Expertise', 'unselected']], 'unselected'))

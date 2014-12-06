@@ -10,16 +10,17 @@ Rails.application.routes.draw do
   # route for surveys
   # each user gets their own survey
   resource :childcare_survey, only: [:new, :create, :show]
-  resource :petcare_survey, only: [:new, :create, :show]
-  resource :tutoring_survey, only: [:new, :create, :show]
+  resource :petcare_survey,   only: [:new, :create, :show]
+  resource :tutoring_survey,  only: [:new, :create, :show]
+  resource :handyman_survey,  only: [:new, :create, :show]
 
   # RESTful routes for users
   resources :users
   resources :profiles, only: [:show, :edit] do
     member do
-      post :mark_availability, to: "profiles#mark_availability"
-      post :submit_availability, to: "profiles#submit_availability"
-      post :clear_availability, to: "profiles#clear_availability"
+      post :mark_availability,    to: "profiles#mark_availability"
+      post :submit_availability,  to: "profiles#submit_availability"
+      post :clear_availability,   to: "profiles#clear_availability"
     end
   end
 
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
 
   # for when users make offers on jobs
   resource  :hard_offers, only: [:create, :show]
-  resources :comments, only: [:new, :create]
+  resources :comments,    only: [:new, :create]
 
 
   # Example of regular route:

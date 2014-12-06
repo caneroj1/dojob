@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   serialize(:childcare_survey, Survey::ChildcareSurvey)
   serialize(:petcare_survey, Survey::PetcareSurvey)
   serialize(:tutoring_survey, Survey::TutoringSurvey)
+  serialize(:handyman_survey, Survey::HandymanSurvey)
   serialize(:availability, Hash)
 
   # VALIDATIONS

@@ -63,14 +63,14 @@
     .col-sm-3
       .form-group
         .col-sm-12
-          %label.control-label Email
+          %label.control-label#email-label Email
           %hr.ref-hr
         .col-sm-12
           = text_field_tag(:contact_email, "", placeholder: "Email", class: "form-control", id: "email-field")
     .col-sm-3
       .form-group
         .col-sm-12
-          %label.control-label Phone
+          %label.control-label#phone-label Phone
           %hr.ref-hr
         .col-sm-12
           = text_field_tag(:contact_number, "", placeholder: "1234567891", class: "form-control", id: "phone-field")
