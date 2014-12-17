@@ -7,12 +7,15 @@
 .side-nav, .nav-color {
   font-size: 20px;
   color: #56597f;
+  font-weight: 200;
 }
 
 .side-bar {
   margin-bottom: 0;
   overflow: scroll;
   position: fixed !important;
+  height: 100%;
+  margin-top:-11px;
 }
 
 .nav-img-user {

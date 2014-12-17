@@ -7,8 +7,29 @@
   margin-top: -3px !important;
 }
 
+#comments {
+  float: right;
+  right: -70px;
+}
+
 .left-column {
   padding: 0 !important;
+  overflow: scroll;
+  position: fixed !important;
+  height: 100%;
+  margin-top: -11px;
+  z-index: 1;
+}
+
+.instructions {
+  height: 95%;
+  width: 100%;
+  text-align: center;
+}
+
+.choose {
+  font-weight: 200;
+  font-size: 25px;
 }
 
 #offers-container {

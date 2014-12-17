@@ -45,20 +45,16 @@
 }
 
 .pad {
-  margin-top: 150px;
+  margin-top: 75px;
 }
 
-.pad-half {
-  margin-top: 75px;
+.fix-pad {
+  margin-top: 65px;
 }
 
 .pad-q {
   margin-top: 30px;
   margin-bottom: 60px;
-}
-
-.top-hide {
-  margin-top: 40px;
 }
 
 .grey-bg {
@@ -69,4 +65,15 @@
 .explain {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.bot-margin {
+  margin-top: 0;
+  margin-bottom: 35px;
+}
+
+.steps-container {
+  overflow: auto;
+  padding-top: 65px;
+  padding-bottom: 20px;
 }
