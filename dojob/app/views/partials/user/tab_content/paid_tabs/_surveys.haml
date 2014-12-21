@@ -15,7 +15,7 @@
           %a.btn.btn-info{href: "#{new_childcare_survey_path}"}
             Edit Survey
             %span.glyphicon.glyphicon-pencil
-          %a.btn.btn-primary.button-right{href: "#{childcare_survey_path(user: current_user.my_name)}"}
+          %a.btn.btn-primary.button-right{href: "#{childcare_survey_path(user: current_user.my_name, id: current_user.id)}"}
             See Survey
     %tr
       %td Petcare
@@ -28,7 +28,7 @@
           %a.btn.btn-info{href: "#{new_petcare_survey_path}"}
             Edit Survey
             %span.glyphicon.glyphicon-pencil
-          %a.btn.btn-primary.button-right{href: "#{petcare_survey_path(user: current_user.my_name)}"}
+          %a.btn.btn-primary.button-right{href: "#{petcare_survey_path(user: current_user.my_name, id: current_user.id)}"}
             See Survey
     %tr
       %td Tutoring
@@ -41,7 +41,7 @@
           %a.btn.btn-info{href: "#{new_tutoring_survey_path}"}
             Edit Survey
             %span.glyphicon.glyphicon-pencil
-          %a.btn.btn-primary.button-right{href: "#{tutoring_survey_path(user: current_user.my_name)}"}
+          %a.btn.btn-primary.button-right{href: "#{tutoring_survey_path(user: current_user.my_name, id: current_user.id)}"}
             See Survey
     %tr
       %td Handyman
@@ -54,5 +54,5 @@
           %a.btn.btn-info{href: "#{new_handyman_survey_path}"}
             Edit Survey
             %span.glyphicon.glyphicon-pencil
-          %a.btn.btn-primary.button-right{href: "#{handyman_survey_path(user: current_user.my_name)}"}
+          %a.btn.btn-primary.button-right{href: "#{handyman_survey_path(user: current_user.my_name, id: current_user.id)}"}
             See Survey

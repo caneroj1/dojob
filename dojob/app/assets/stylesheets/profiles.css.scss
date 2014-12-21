@@ -178,3 +178,17 @@
 .profile-header-content, .profile-row {
   padding: 0 !important;
 }
+
+.header-no-top {
+  margin-top: 0;
+}
+
+#about_me {
+  resize: vertical;
+}
+
+#about_me_success {
+  color: $brand-primary;
+  font-weight: 200;
+  display: none;
+}

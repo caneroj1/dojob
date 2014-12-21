@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @availability = current_user.availability
     @references = current_user.references
   end
@@ -31,6 +32,14 @@ class ProfilesController < ApplicationController
 
   def clear_availability
     current_user.availability = {}
+    current_user.save
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def about_me
+    current_user.about_me = params[:about_me]
     current_user.save
     respond_to do |format|
       format.js { render layout: false }

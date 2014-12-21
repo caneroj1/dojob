@@ -1,5 +1,5 @@
 .col-md-10.col-md-offset-1.text-center.top
-  %h1 Availability
+  %h2 Availability
   %hr
 .col-md-10.col-md-offset-1.text-center#avail{ data: { page: action } }
   .col-md-3
@@ -7,7 +7,13 @@
       %tr
         %td.grey-block
         %td.legend Unavailable
-        %p.text-muted.text-left.instr Click on a box to mark as unavailable
+        - if action.eql?("edit")
+          %p.text-muted.text-left.instr Click on a box to mark as unavailable
+        - if action.eql?("show")
+          %p.text-muted.text-left.instr
+            This shows
+            = @user.my_name << '\'s'
+            weekly availability.
   .col-md-6
     = render partial: "partials/profiles/availability_table"
   - if action.eql?("edit")

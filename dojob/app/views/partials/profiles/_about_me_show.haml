@@ -1,0 +1,17 @@
+.col-md-6.text-left
+  %h3.header-no-top.no-bot Bio
+  - if !@user.about_me.nil? && !@user.about_me.blank?
+    = @user.about_me
+  - else
+    .alert-info None given.
+.col-md-6
+  %h3.header-no-top Skill Surveys Taken
+  - if any_surveys?(@user)
+    %table.table.table-striped
+      - collect_surveys(@user).each do |survey|
+        %tr
+          %td= survey.name
+          %td= link_to "See Survey", childcare_survey_path(user: @user.my_name, id: @user.id), class: "btn btn-primary"
+  - else
+    %hr
+    .alert-info="#{@user.my_name} has not taken any surveys."

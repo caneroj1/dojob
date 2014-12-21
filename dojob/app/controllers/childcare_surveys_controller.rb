@@ -4,7 +4,11 @@ class ChildcareSurveysController < ApplicationController
   end
 
   def show
-    @ccs = current_user.childcare_survey
+    if params[:id].eql?(current_user.id)
+      @ccs = current_user.childcare_survey
+    else
+      @ccs = User.find(params[:id]).childcare_survey
+    end
   end
 
   def create
