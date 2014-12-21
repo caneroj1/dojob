@@ -4,7 +4,7 @@ module Survey
                   :electrical,  :electrical_expertise,
                   :carpentry,   :carpentry_expertise,
                   :automotive,  :automotive_expertise,
-                  :hvac,        :hvac_expertise
+                  :hvac,        :hvac_expertise,
                   :equipment
 
     # for serialization in Active Record

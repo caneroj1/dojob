@@ -9,3 +9,4 @@
           = render partial: "partials/handyman_surveys/basic_form"
           .col-md-6.col-md-offset-3.bot-margin
             = submit_tag "Finish", class: "btn btn-primary btn-block"
+            = link_to "Go Back", user_path(current_user), class: "btn btn-danger btn-block"

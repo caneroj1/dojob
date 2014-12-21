@@ -9,34 +9,9 @@
         = form_tag(childcare_survey_path, method: :post, id: "ccs_form") do
           = text_field_tag(:num_certs, "1", hidden: true)
           = render partial: "partials/childcare_surveys/radio_buttons"
-          -# %h4
-          -#   References
-          -#   %small Add up to 4
-          -# %hr
-          -#   -# .form-group
-            -#   .col-md-12.bot-margin
-            -#     .col-sm-12.text-center
-            -#       %h5 Reference #1
-            -#     .col-sm-4
-            -#       %label.control-label Name
-            -#       = text_field_tag(:ref_name_1, "", class: "form-control")
-            -#     .col-sm-4
-            -#       %label.control-label Phone Number
-            -#       = telephone_field(:ref_phone_1, "", class: "form-control")
-            -#     .col-sm-4
-            -#       %label.control-label Email
-            -#       = email_field(:ref_email_1, "", class: "form-control")
-          -# %h4
-          -#   Certifications
-          -#   %small Add up to 3
-          -# %hr
-          -#   #exist.hide= !@ccs.nil?
-          -#   - if @ccs
-          -#     = render partial: "partials/childcare_surveys/existing_certs", locals: { button: true, obj: @ccs}
-          -#   = render partial: "partials/childcare_surveys/add_certs", locals: { button: !@ccs.nil? }
           %h4 Other Information
           %hr
             = render partial: "partials/childcare_surveys/other_info"
-
             .col-md-6.col-md-offset-3.bot-margin
               = submit_tag "Finish", class: "btn btn-primary btn-block"
+              = link_to "Go Back", user_path(current_user), class: "btn btn-danger btn-block"

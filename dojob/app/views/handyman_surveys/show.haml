@@ -1,0 +1,44 @@
+.col-md-12.text-center
+  %h1
+    = "#{params[:user]}'s Skill "
+    %small Handyman Work
+  %hr
+.col-md-6.text-center.col-md-offset-3
+  - if @hs
+    %table.table.table-striped
+      %thead
+        %tr
+          %h3 Survey Details
+        %tr
+          %th
+            Trade
+          %th
+            Skill Level
+      %tbody
+        - if !@hs.plumbing.nil?
+          %tr
+            %td Plumbing
+            %td= @hs.plumbing_expertise
+        - if !@hs.electrical.nil?
+          %tr
+            %td Electrical
+            %td= @hs.electrical_expertise
+        - if !@hs.carpentry.nil?
+          %tr
+            %td Carpentry
+            %td= @hs.carpentry_expertise
+        - if !@hs.automotive.nil?
+          %tr
+            %td Automotive
+            %td= @hs.automotive_expertise
+        - if !@hs.hvac.nil?
+          %td
+            %td HVAC
+            %td= @hs.hvac_expertise
+    %h3 Equipment
+    %hr
+    %p= @hs.equipment
+  - else
+    %p.bg-danger#not-taken
+      You have not taken our handyman survey.
+    %a.btn.btn-primary{href: "#{new_handyman_survey_path}"} Take the survey now!
