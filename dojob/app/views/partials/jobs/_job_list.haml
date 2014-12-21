@@ -1,5 +1,5 @@
 - if !@jobs.count.eql? 0
   = render partial: "partials/jobs/job"
 - else
-  %h3.bg-danger.no-results
+  .alert-danger
     We're sorry, no results were found.

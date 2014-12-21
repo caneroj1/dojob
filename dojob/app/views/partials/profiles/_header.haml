@@ -1,0 +1,12 @@
+.col-md-10.col-md-offset-1.text-center.profile-header
+  .col-md-4.profile-image
+    = image_tag('no-avatar.png', class: 'img-circle')
+  .col-md-8.profile-name
+    .col-md-10.col-md-offset-2.profile-header-content.text-left
+      %h2= "#{@user.my_name}'s Profile"
+    .col-md-12.profile-row
+      %hr
+    .col-md-8.col-md-offset-2.profile-header-content.text-left
+      %button.btn.btn-primary Add to Contacts
+      - if current_user.eql?(@user)
+        = link_to "Edit Profile", edit_profile_path(@user), class: "btn btn-info"

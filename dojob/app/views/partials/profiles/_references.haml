@@ -6,6 +6,6 @@
     = render partial: "partials/profiles/references_edit"
   - else
     - if @references.empty?
-      none
+      .alert-info No references have been uploaded.
     - else
       = render partial: "partials/profiles/references_display"

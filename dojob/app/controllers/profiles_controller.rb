@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
   def show
-    user = User.find(params[:id])
-    @references = user.references
-    @availability = user.availability
+    @user = User.find(params[:id])
+    @references = @user.references
+    @availability = @user.availability
   end
 
   def edit

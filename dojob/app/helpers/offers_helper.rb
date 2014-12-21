@@ -12,16 +12,9 @@ module OffersHelper
     # find the user_id associated with the job
     user_id = Job.select(:user_id).find(job_id)
 
-    # if the current user owns the job associated with the offer
-    if user_id.user_id.eql?(current_user.id)
-      other_name = User.find(offer_user).my_name
-      "#{current_user.my_name} and #{other_name}"
-
-    # if the current user owns the offer
-    else
-      other_name = User.find(Job.select(:user_id).find(job_id).user_id).my_name
-      "#{current_user.my_name} and #{other_name}"
-    end
+    # find the other user and then create the content
+    other_user = user_id.user_id.eql?(current_user.id) ? User.find(offer_user) : User.find(Job.select(:user_id).find(job_id).user_id)
+    content_tag(:span) { link_to("#{current_user.my_name}", profile_path(current_user)).concat(content_tag(:span, " and ")).concat(link_to("#{other_user.my_name}", profile_path(other_user))) }
   end
 
   def format_date(date)

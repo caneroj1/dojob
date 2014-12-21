@@ -125,10 +125,6 @@
   font-weight: 200;
 }
 
-#head-row {
-  background-color: #f8f8f8;
-}
-
 .ref-hr {
   margin-top: 1px;
   margin-bottom: 5px;
@@ -160,4 +156,25 @@
 
 .top {
   margin-top: 35px;
+}
+
+.profile-image {
+  width: 140px !important;
+  padding: 0;
+  img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.profile-name {
+  padding-left: 0px;
+}
+
+.profile-header {
+  margin-top: 30px;
+}
+
+.profile-header-content, .profile-row {
+  padding: 0 !important;
 }
