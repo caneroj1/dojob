@@ -60,4 +60,12 @@ module ProfilesHelper
     "Feel free to include information about the jobs you most enjoy doing" <<
     " and anything else you think people should know. Please keep this section as professional as possible."
   end
+
+  def user_avatar(user)
+    if user.avatar.blank?
+      image_tag('no-avatar.png', class: 'img-circle')
+    else
+      image_tag(user.avatar, class: 'img-circle')
+    end
+  end
 end

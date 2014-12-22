@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # basic user attributes
   attr_accessible :email, :state, :city, :zip, :first_name, :last_name, :password, :address, :remember_me, :paid
 
+  # for user avatar
+  mount_uploader :avatar, AvatarUploader
+
   # for skill surveys
   serialize(:childcare_survey, Survey::ChildcareSurvey)
   serialize(:petcare_survey, Survey::PetcareSurvey)

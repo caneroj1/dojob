@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       post :submit_availability,  to: "profiles#submit_availability"
       post :clear_availability,   to: "profiles#clear_availability"
       post :about_me,             to: "profiles#about_me"
+      post :avatar,               to: "profiles#avatar"
     end
   end
 

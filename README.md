@@ -7,7 +7,7 @@
 <li>Petcare</li>
 </ul>
 
-<p>It is written in Rails 4, and requires elasticsearch and faye to run successfully. Once an elasticsearch server is installed, you can run rake elasticsearch:start to start that and then you can run rake faye:start to run the faye server for real-time chat.</p>
+<p>It is written in Rails 4, and requires elasticsearch, imagemagick, and faye to run successfully. Once an elasticsearch server is installed, you can run rake elasticsearch:start to start that and then you can run rake faye:start to run the faye server for real-time chat. If imagemagick is not installed, run brew install imagemagick to install it on OS X.</p>
 
 <h2>Screenshots of Dojob</h2>
 <p>The following is a screenshot of the main page of the application.</p>

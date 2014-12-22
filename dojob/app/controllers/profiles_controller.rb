@@ -46,6 +46,14 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def avatar
+    current_user.avatar = params[:avatar]
+    current_user.save
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
   protected
   def convert_to_key(hour)
     case

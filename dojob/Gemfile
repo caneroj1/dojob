@@ -55,6 +55,12 @@ gem 'elasticsearch-rails'
 gem 'faye-rails', '~> 2.0'
 gem 'thin'
 
+# FILE ATTACHMENTS
+# user profile pictures
+gem 'carrierwave'
+gem 'rmagick', require: false
+gem 'remotipart', '~> 1.2' # asynchronous file uploads
+
 # for in-place editing of model attributes
 gem 'best_in_place'
 

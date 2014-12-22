@@ -2,6 +2,22 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+avatar_upload_check = ->
+  $('#avatar-file-field').change ->
+    if $('#avatar-file-field').val() != ''
+      $('#avatar-submit').removeAttr('disabled')
+      $('#upload-name').text($('#avatar-file-field').val().replace("C:\\fakepath\\", ""))
+
+avatar_form_submit = ->
+  $('#avatar-form').on 'submit', ->
+    files_regex = /(\.|\/)(jpe?g|png)$/i
+    filename = $('#avatar-file-field').val().replace("C:\\fakepath\\", "")
+    if files_regex.test(filename)
+      return true
+    else
+      $('#errors').css('display', 'block')
+      return false
+
 reference_form_check = ->
     $('#new-ref-form').on 'submit', ->
       emailRegex = /\b([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
@@ -77,3 +93,5 @@ $ ->
     do toggle_availability
     do reference_form_check
   do hours_slider_func
+  do avatar_upload_check
+  do avatar_form_submit

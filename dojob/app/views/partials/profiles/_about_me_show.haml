@@ -13,5 +13,4 @@
           %td= survey.name
           %td= link_to "See Survey", childcare_survey_path(user: @user.my_name, id: @user.id), class: "btn btn-primary"
   - else
-    %hr
     .alert-info="#{@user.my_name} has not taken any surveys."
