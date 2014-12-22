@@ -223,6 +223,13 @@
 
 #errors {
   color: $danger-color;
+}
+
+#avatar-success {
+  color: $brand-primary;
+}
+
+#avatar-success, #errors {
   font-weight: 200;
   display:none;
 }
