@@ -17,3 +17,6 @@
 
 # Ignore all avatar uploads
 /public/uploads
+
+# Ignore circle/icons
+../circle-icons/
