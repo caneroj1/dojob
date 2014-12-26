@@ -1,5 +1,6 @@
-$("#comments").html("<%= escape_javascript(render partial: 'partials/comments/all_comments', locals: { offer_user: params[:offer_user], job_id: params[:job_id], job_title: params[:job_title] } ) %>");
-$("#comments").append("<%= escape_javascript(render partial: 'partials/comments/comment', locals: { offer_id: params[:offer_id], user_id: params[:user_id], job_title: params[:job_title], job_id: params[:job_id] }) %>");
+$('#comments').html("<%= escape_javascript(render partial: 'partials/comments/all_comments', locals: { offer_user: params[:offer_user], job_id: params[:job_id], job_title: params[:job_title] } ) %>");
+$('#comments').append("<%= escape_javascript(render partial: 'partials/comments/comment', locals: { offer_id: params[:offer_id], user_id: params[:user_id], job_title: params[:job_title], job_id: params[:job_id] }) %>");
+
 $('#datepicker').datepicker({
   minDate: '-0d',
   defaultDate: +0
@@ -9,6 +10,17 @@ $('#hard_offer_form').on('submit', function() {
   return $('#hardOffer').modal('hide');
 });
 
+// disabled all accept offer buttons except for the last one
+$('.offer-accept').prop('disabled', true);
+$('.offer-accept').last().prop('disabled', false);
+
+// save the href for the last button
+// and remove all other hrefs
+var last_href = $('.offer-accept').attr('href');
+$('.offer-accept').removeAttr('href');
+$('.offer-accept').last().attr('href', last_href);
+
+// scroll to the bottom of the chat window
 $(".comments-area").animate({ scrollTop: $('.comments-area')[0].scrollHeight}, 300);
 
 window.client = new Faye.Client('/faye');
@@ -26,7 +38,7 @@ jQuery(function() {
       $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
     }
     else if (payload.hard_offer) {
-      console.log('HERE MAN!!');
+      $('.offer-accept').last().prop('disabled', true).removeAttr('href'); 
       $('#comments').find('#comment-list').append(payload.hard_offer_content);
       $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
     }
