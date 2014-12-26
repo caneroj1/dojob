@@ -1,0 +1,10 @@
+%td.right-td
+  .media-body
+    %h4.media-heading= "Offer by #{h.username}"
+    %p.text-muted.comment-body.comment-date= format_date(h.created_at)
+    %p= "Price: #{number_to_currency(h.price)}"
+    %p= "Date: #{h.date_of_job.strftime("%-m/%d/%Y")}"
+    %button.btn.btn-primary.offer-accept Accept Offer
+%td.comment-pic
+  %a.media-right.media-middle{ href: "#" }
+    = image_tag("money.png", class: "comment-pic")

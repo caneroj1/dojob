@@ -1,10 +1,12 @@
 class HardOffersController < ApplicationController
   def create
-    hard_offer = HardOffer.create(price: params[:price],
-                                  date_of_job: parse_date(params[:date]),
-                                  user_id: params[:id],
-                                  job_id: params[:job_id])
+    @hard_offer = HardOffer.create( price: params[:price],
+                                    date_of_job: parse_date(params[:date]),
+                                    user_id: params[:id],
+                                    job_id: params[:job_id],
+                                    username: current_user.my_name )
 
+    params[:id] = params[:id].to_i
     respond_to do |format|
       format.js { render layout: false }
     end

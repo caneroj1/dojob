@@ -25,5 +25,10 @@ jQuery(function() {
       }
       $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
     }
+    else if (payload.hard_offer) {
+      console.log('HERE MAN!!');
+      $('#comments').find('#comment-list').append(payload.hard_offer_content);
+      $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
+    }
   });
 });

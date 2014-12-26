@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
 
   belongs_to :offer
   belongs_to :user
+
+  def is_offer?
+    !(defined?(date_of_job).nil?)
+  end
 end
