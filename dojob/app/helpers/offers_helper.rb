@@ -1,11 +1,12 @@
 module OffersHelper
   def format_offer_name(o)
-    job = Job.select(:title).find(o.job_id)
+    job = Job.select(:title, :accepted).find(o.job_id)
     link_to job.title, new_comment_path(user_id: current_user.id,
                                         offer_id: o.id,
                                         job_id: o.job_id,
                                         job_title: job.title,
-                                        offer_user: o.user_id), remote: true
+                                        offer_user: o.user_id,
+                                        accepted: job.accepted), remote: true
   end
 
   def between(offer_user, job_id)

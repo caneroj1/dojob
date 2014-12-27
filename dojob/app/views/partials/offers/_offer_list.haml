@@ -12,4 +12,7 @@
           %td
             = format_offer_name(o)
           %td
-            %p= o.created_at.strftime("%-m/%d/%Y")
+            %p
+              = o.created_at.strftime("%-m/%d/%Y")
+              - if o.accepted
+                %span.glyphicon.glyphicon-ok.offer-accepted

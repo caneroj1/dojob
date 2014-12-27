@@ -12,7 +12,7 @@
       .col-md-8.text-left.nopad
         %p.help-block Cannot be blank or contain more than 1000 symbols.
       .col-md-4.nopad
-        %button.btn.btn-info.comment-btn{ data: { toggle: :modal, target: "#hardOffer" } } Make Offer
+        %button.btn.btn-info.comment-btn#offer-modal-button{ data: { toggle: :modal, target: "#hardOffer" }, disabled: job_accepted ? true : false } Make Offer
         = f.submit "Comment", class: "btn btn-primary comment-btn"
 
 = render partial: "partials/comments/hard_offer_modal", locals: { job_title: job_title, job_id: job_id }

@@ -3,7 +3,8 @@ class HardOffer < ActiveRecord::Base
                   :price,       # float
                   :user_id,     # int
                   :job_id,      # int
-                  :username     # username
+                  :username,    # string,
+                  :accepted     # boolean
 
 
   belongs_to :job
