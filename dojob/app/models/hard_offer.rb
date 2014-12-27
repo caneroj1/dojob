@@ -5,11 +5,13 @@ class HardOffer < ActiveRecord::Base
                   :job_id,      # int
                   :username,    # string,
                   :accepted,    # boolean
-                  :avatar       # string
+                  :avatar,      # string
+                  :offer_id     # int
 
 
   belongs_to :job
   belongs_to :user
+  belongs_to :offer
 
   def is_offer?
     true

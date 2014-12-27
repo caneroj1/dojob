@@ -13,6 +13,7 @@
             = text_field_tag(:id, current_user.id, hidden: true)
             = text_field_tag(:avatar, current_user.avatar, hidden: true)
             = text_field_tag(:job_id, job_id, hidden: true)
+            = text_field_tag(:offer_id, offer_id, hidden: true)
             .form-group
               .col-sm-4.text-center
                 = label_tag(:price, "Price", class: "form-label")

@@ -5,7 +5,8 @@ class HardOffersController < ApplicationController
                                     user_id: params[:id],
                                     job_id: params[:job_id],
                                     username: current_user.my_name,
-                                    avatar: params[:avatar] )
+                                    avatar: params[:avatar],
+                                    offer_id: params[:offer_id] )
 
     params[:id] = params[:id].to_i
     respond_to do |format|

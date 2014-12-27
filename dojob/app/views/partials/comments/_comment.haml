@@ -16,4 +16,4 @@
         %button.btn.btn-info.comment-btn#offer-modal-button{ data: { toggle: :modal, target: "#hardOffer" }, disabled: job_accepted ? true : false } Make Offer
         = f.submit "Comment", class: "btn btn-primary comment-btn"
 
-= render partial: "partials/comments/hard_offer_modal", locals: { job_title: job_title, job_id: job_id }
+= render partial: "partials/comments/hard_offer_modal", locals: { job_title: job_title, job_id: job_id, offer_id: params[:offer_id] }

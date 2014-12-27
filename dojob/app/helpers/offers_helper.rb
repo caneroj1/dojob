@@ -5,8 +5,7 @@ module OffersHelper
                                         offer_id: o.id,
                                         job_id: o.job_id,
                                         job_title: job.title,
-                                        offer_user: o.user_id,
-                                        accepted: job.accepted), remote: true
+                                        offer_user: o.user_id), remote: true
   end
 
   def between(offer_user, job_id)
