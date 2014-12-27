@@ -60,6 +60,14 @@ class JobsController < ApplicationController
     end
   end
 
+  def accept_job
+    job = Job.find(params.delete(:id))
+
+    accepting_id = job.user_id.eql?(current_user.id) ? params[:user_id] : current_user.id
+
+    job.update(accepted: true, accepted_by: accepting_id)
+  end
+
   protected
   # splits tags by '.' and stores them in the job's tag arr
   def parse_tags(tag_str)

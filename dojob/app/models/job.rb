@@ -2,7 +2,7 @@ class Job < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-  attr_accessible :title, :frequency, :deadline, :where, :description
+  attr_accessible :title, :frequency, :deadline, :where, :description, :accepted, :accepted_by
 
   validates :title, presence: true
   validates :frequency, presence: true

@@ -10,6 +10,6 @@
       - @offers_for_me.each do |o|
         %tr
           %td
-            %a= Job.select(:title).find(o.job_id).title
+            %a= format_offer_name(o)
           %td
             %p= o.created_at.strftime("%-m/%d/%Y")

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :jobs do
     member do
       post :create_offer, to: "jobs#create_offer"
+      post :accept,       to: "jobs#accept_job"
     end
     collection do
       post :search

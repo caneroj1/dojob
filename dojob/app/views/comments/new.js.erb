@@ -11,8 +11,8 @@ $('#hard_offer_form').on('submit', function() {
 });
 
 // disabled all accept offer buttons except for the last one
-$('.offer-accept').prop('disabled', true);
-$('.offer-accept').last().prop('disabled', false);
+$('.offer-accept').addClass('disabled');
+$('.offer-accept').last().removeClass('disabled');
 
 // save the href for the last button
 // and remove all other hrefs
@@ -38,7 +38,7 @@ jQuery(function() {
       $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
     }
     else if (payload.hard_offer) {
-      $('.offer-accept').last().prop('disabled', true).removeAttr('href'); 
+      $('.offer-accept').last().addClass('disabled').removeAttr('href');
       $('#comments').find('#comment-list').append(payload.hard_offer_content);
       $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
     }
