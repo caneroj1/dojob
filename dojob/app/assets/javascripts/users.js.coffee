@@ -2,7 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+get_accepted_jobs = ->
+  $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs");
+
 change_count_color = ->
+  $('#char-count').css('color', '#d9534f')
   $('#job-description').on 'input',  ->
     if($('#job-description').val().length >= 30)
       $('#char-count').css('color', '#00cd25')
@@ -90,6 +94,7 @@ prepare_posting_for_submit = ->
       $('#datepicker').val(date.toUTCString())
 
 $ ->
+  do get_accepted_jobs # ajax request for accepted jobs
   do upgrade_form
   do display_deadline
   do hide_deadline

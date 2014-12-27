@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   resource :handyman_survey,  only: [:new, :create, :show]
 
   # RESTful routes for users
-  resources :users
+  resources :users do
+    member do
+        get :accepted_jobs,      to: "users#accepted_jobs"
+    end
+  end
   resources :profiles, only: [:show, :edit] do
     member do
       post :mark_availability,    to: "profiles#mark_availability"
@@ -30,6 +34,7 @@ Rails.application.routes.draw do
     member do
       post :create_offer, to: "jobs#create_offer"
       post :accept,       to: "jobs#accept_job"
+      post :reject,       to: "jobs#reject_job"
     end
     collection do
       post :search

@@ -94,10 +94,6 @@ li.active {
   resize: none;
 }
 
-.remove-job {
-  float: right;
-}
-
 .control-label {
   text-align: left !important;
 }
@@ -122,4 +118,14 @@ li.active {
 
 .button-right {
   margin-left: 20px;
+}
+
+#accepted {
+  margin-top: 50px;
+}
+
+form.button_to {
+  width:0;
+  display:inline-block;
+  margin:0;
 }
