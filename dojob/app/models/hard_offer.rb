@@ -4,7 +4,8 @@ class HardOffer < ActiveRecord::Base
                   :user_id,     # int
                   :job_id,      # int
                   :username,    # string,
-                  :accepted     # boolean
+                  :accepted,    # boolean
+                  :avatar       # string
 
 
   belongs_to :job

@@ -21,6 +21,10 @@
   height: 100%;
   margin-top: -11px;
   z-index: 1;
+  font-weight:200;
+  h1 {
+    font-weight: 300;
+  }
 }
 
 .instructions {
@@ -58,7 +62,8 @@
 }
 
 .comment-pic {
-  width: 64px;
+  width: 60px;
+  height: 60px;
 }
 
 .comment-box {

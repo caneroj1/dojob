@@ -4,7 +4,8 @@ class HardOffersController < ApplicationController
                                     date_of_job: parse_date(params[:date]),
                                     user_id: params[:id],
                                     job_id: params[:job_id],
-                                    username: current_user.my_name )
+                                    username: current_user.my_name,
+                                    avatar: params[:avatar] )
 
     params[:id] = params[:id].to_i
     respond_to do |format|

@@ -6,6 +6,7 @@
         = f.text_field :offer_id, hidden: true, value: params[:offer_id]
         = f.text_field :user_id, hidden: true, value: params[:user_id]
         = f.text_field :username, hidden: true, value: current_user.my_name
+        = f.text_field :avatar, hidden: true, value: current_user.avatar
         = f.label :body, 'Enter your comment:'
         = f.text_area :body, rows: 3, class: "form-control comment-box", required: true, maxlength: 1000
     .col-md-12.text-right
