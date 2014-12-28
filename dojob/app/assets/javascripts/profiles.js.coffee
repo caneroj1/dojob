@@ -2,11 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# display_avatar_upload = ->
+  # $('#file-upload-button').on 'click', ->
+    # $('#avatar-field-field').click()
+
 avatar_upload_check = ->
   $('#avatar-file-field').change ->
     if $('#avatar-file-field').val() != ''
       $('#avatar-submit').removeAttr('disabled')
       $('#upload-name').text($('#avatar-file-field').val().replace("C:\\fakepath\\", ""))
+      $('#avatar-file-field').offset( {top: -2000, left: -2000 } )
 
 avatar_form_submit = ->
   $('#avatar-form').on 'submit', ->
@@ -95,3 +100,4 @@ $ ->
   do hours_slider_func
   do avatar_upload_check
   do avatar_form_submit
+  # do display_avatar_upload
