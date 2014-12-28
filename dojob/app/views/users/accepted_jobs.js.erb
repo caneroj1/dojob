@@ -1,0 +1,31 @@
+<% if !@accepted_jobs.empty? %>
+  <table id="accept-table" class="table-striped table">
+    <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>Accepted On</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @accepted_jobs.each do |job| %>
+        <tr class="accept-row" id=<%= "job#{job.id}" %>>
+          <td><%= link_to job.title, job_path(job) %></td>
+          <td><%= job.accepted_on.strftime("%-m/%d/%Y") %></td>
+          <td>
+            <button class="btn btn-primary">
+              <span class="glyphicon glyphicon-ok"></span>
+              Complete
+            </button>
+            <%= button_to reject_job_path(job), method: :post, remote: true, class: "btn btn-danger" do %>
+              <span class="glyphicon glyphicon-remove"></span>
+              Reject
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert-info">You have not accepted any jobs.</div>
+<% end %>

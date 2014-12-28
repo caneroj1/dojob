@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "variables";
+
 .offers {
   margin-left: 0 !important;
   margin-top: -3px !important;
@@ -19,6 +21,10 @@
   height: 100%;
   margin-top: -11px;
   z-index: 1;
+  font-weight:200;
+  h1 {
+    font-weight: 300;
+  }
 }
 
 .instructions {
@@ -56,7 +62,8 @@
 }
 
 .comment-pic {
-  width: 64px;
+  width: 60px;
+  height: 60px;
 }
 
 .comment-box {
@@ -120,4 +127,9 @@
 
 .nopad {
   padding: 0 !important;
+}
+
+.offer-accepted {
+  color: $brand-primary;
+  float: right;
 }

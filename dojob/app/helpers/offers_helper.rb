@@ -1,6 +1,6 @@
 module OffersHelper
   def format_offer_name(o)
-    job = Job.select(:title).find(o.job_id)
+    job = Job.select(:title, :accepted).find(o.job_id)
     link_to job.title, new_comment_path(user_id: current_user.id,
                                         offer_id: o.id,
                                         job_id: o.job_id,
