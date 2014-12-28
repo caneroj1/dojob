@@ -1,6 +1,8 @@
 - c_id = current_user.id
-#uid.hide= c_id 
+#uid.hide= c_id
 .col-md-10.col-md-offset-1.text-center.comments-header
+  - if job_accepted
+    .alert-info This job has been accepted.
   %h3.comment-header
     Comments on
     = link_to job_title, job_path(job_id)
@@ -13,6 +15,12 @@
         %table.comment-table
           %tr
             - if c.user_id.eql?(c_id)
-              = render partial: "partials/comments/my_comment", locals: { c: c }
+              - if c.is_offer?
+                = render partial: "partials/hard_offers/my_hard_offer", locals: { h: c }
+              - else
+                = render partial: "partials/comments/my_comment", locals: { c: c }
             - else
-              = render partial: "partials/comments/user_comment", locals: { c: c }
+              - if c.is_offer?
+                = render partial: "partials/hard_offers/user_hard_offer", locals: { h: c, accepted: job_accepted, offer_id: offer_id }
+              - else
+                = render partial: "partials/comments/user_comment", locals: { c: c }

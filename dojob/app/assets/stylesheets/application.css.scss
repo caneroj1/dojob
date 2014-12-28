@@ -55,6 +55,7 @@ body {
   vertical-align: middle;
   padding: 7px;
   color: red;
+  margin-bottom: 0 !important;
 }
 
 
@@ -77,6 +78,7 @@ body {
 .nav-td {
   padding-right: 10px;
   color: $brand-primary;
+  font-weight: 300;
 }
 
 .nav {
@@ -92,6 +94,7 @@ body {
 
 .navbar-header {
   height: 60px;
+  font-weight: 300;
 }
 
 .navlist {
@@ -114,15 +117,17 @@ body {
 }
 
 .menu-item:hover {
-  background-color: #ddd;
+  background-color: #e8e8e8;
 }
 
 .alert-info {
   padding: 10px;
   border: solid 1px #9acfea;
+  font-weight:200;
 }
 
 .alert-danger {
   padding: 10px;
   border: solid 1px #dca7a7;
+  font-weight:200;
 }

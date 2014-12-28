@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222024702) do
+ActiveRecord::Schema.define(version: 20141227173552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141222024702) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "username"
+    t.string   "avatar"
   end
 
   create_table "hard_offers", force: true do |t|
@@ -32,6 +33,10 @@ ActiveRecord::Schema.define(version: 20141222024702) do
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.boolean  "accepted"
+    t.string   "avatar"
+    t.integer  "offer_id"
   end
 
   create_table "jobs", force: true do |t|
@@ -43,6 +48,9 @@ ActiveRecord::Schema.define(version: 20141222024702) do
     t.string   "where"
     t.text     "description"
     t.integer  "user_id"
+    t.boolean  "accepted"
+    t.integer  "accepted_by"
+    t.datetime "accepted_on"
   end
 
   create_table "jobs_tags", id: false, force: true do |t|
@@ -57,6 +65,7 @@ ActiveRecord::Schema.define(version: 20141222024702) do
     t.integer  "job_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "accepted"
   end
 
   create_table "references", force: true do |t|

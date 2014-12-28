@@ -60,6 +60,32 @@ class JobsController < ApplicationController
     end
   end
 
+  def accept_job
+    job = Job.find(params.delete(:id))
+    offer = Offer.find(params.delete(:offer_id)).update(accepted: true)
+    hard_offer = HardOffer.find(params.delete(:hard_offer_id)).update(accepted: true)
+
+    accepting_id = job.user_id.eql?(current_user.id) ? params[:user_id] : current_user.id
+
+    job.update(accepted: true, accepted_by: accepting_id, accepted_on: Time.now)
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def reject_job
+    j = Job.find(params[:id])
+
+    j.update(accepted: false, accepted_by: nil, accepted_on: nil)
+    j.offers.where("accepted = ?", true).first.update(accepted: false)
+    j.hard_offers.where("accepted = ?", true).first.update(accepted: false)
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
   protected
   # splits tags by '.' and stores them in the job's tag arr
   def parse_tags(tag_str)
