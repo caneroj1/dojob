@@ -9,7 +9,7 @@ publisher = client.publish('/comments' + $('#offerid').text(), {
 
 publisher.callback(function() {
   $('#comment_body').val('');
-  $('#new_comment').find("input[type='submit']").val('Submit').prop('disabled', false)
+  $('#new_comment').find("input[type='submit']").val('Comment').prop('disabled', false)
   $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
 });
 

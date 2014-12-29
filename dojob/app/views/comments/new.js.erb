@@ -27,24 +27,30 @@ window.client = new Faye.Client('/faye');
 var uid = $('#uid').text();
 
 jQuery(function() {
-  return client.subscribe('/comments' + $('#offerid').text(), function(payload) {
-    if (payload.message) {
-      if (uid === payload.current_user_id) {
-        $('#comments').find('#comment-list').append(payload.my_message);
+  var channel = '/comments' + $('#offerid').text();
+
+  if(typeof window.subs === 'undefined' || window.subs.indexOf(channel) <= -1) {
+    if(typeof window.subs === 'undefined') window.subs = [];
+    window.subs.push(channel);
+    return client.subscribe(channel, function(payload) {
+      if (payload.message) {
+        if (uid === payload.current_user_id) {
+          $('#comments').find('#comment-list').append(payload.my_message);
+        }
+        else {
+          $('#comments').find('#comment-list').append(payload.user_message);
+        }
+        $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
       }
-      else {
-        $('#comments').find('#comment-list').append(payload.user_message);
+      else if (payload.hard_offer) {
+        $('.offer-accept').last().addClass('disabled').removeAttr('href');
+        $('#comments').find('#comment-list').append(payload.hard_offer_content);
+        $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
       }
-      $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
-    }
-    else if (payload.hard_offer) {
-      $('.offer-accept').last().addClass('disabled').removeAttr('href');
-      $('#comments').find('#comment-list').append(payload.hard_offer_content);
-      $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
-    }
-    else if (payload.accepted) {
-      $('.offer-accept').addClass('disabled');
-      $('offer-modal-button').prop('disabled', true);
-    }
-  });
+      else if (payload.accepted) {
+        $('.offer-accept').addClass('disabled');
+        $('offer-modal-button').prop('disabled', true);
+      }
+    });
+  }
 });

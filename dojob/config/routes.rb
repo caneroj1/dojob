@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   # RESTful routes for users
   resources :users do
     member do
-        get :accepted_jobs,      to: "users#accepted_jobs"
-        get :completed_jobs,     to: "users#completed_jobs"
+        get :accepted_jobs,           to: "users#accepted_jobs"
+        get :completed_jobs,          to: "users#completed_jobs"
+        get :calculate_accepted_jobs, to:"users#calculate_accepted_jobs"
     end
   end
   resources :profiles, only: [:show, :edit] do
