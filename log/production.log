@@ -1,4 +1,0 @@
-E, [2014-11-19T20:54:33.821488 #48692] ERROR -- : SQLite3::SQLException: no such table: jobs: SELECT  "jobs".* FROM "jobs"   ORDER BY "jobs"."id" ASC LIMIT 1000
-E, [2014-11-19T20:57:38.664584 #48844] ERROR -- : SQLite3::SQLException: no such table: jobs: SELECT  "jobs".* FROM "jobs"   ORDER BY "jobs"."id" ASC LIMIT 1000
-E, [2014-11-19T21:00:17.888832 #48978] ERROR -- : SQLite3::SQLException: no such table: jobs: SELECT  "jobs".* FROM "jobs"   ORDER BY "jobs"."id" ASC LIMIT 1000
-E, [2014-11-19T21:00:41.501360 #48995] ERROR -- : SQLite3::SQLException: no such table: jobs: SELECT  "jobs".* FROM "jobs"   ORDER BY "jobs"."id" ASC LIMIT 1000
