@@ -1,0 +1,25 @@
+<div class="canvas-holder">
+  <canvas id="accepted_jobs_radar" data-type="radar">
+</div>
+<script>
+var ctx = document.getElementById("accepted_jobs_radar").getContext("2d");
+
+var data =
+{
+  labels: ["Pet Care", "Tutoring", "Shopping", "Handyman", "Babysitting", "Lawn Care", "Errands", "Odd Jobs"],
+  datasets: [
+    {
+      label:                "Accepted Jobs",
+      fillColor:            "rgba(0, 205, 37, 0.60)",
+      strokeColor:          "rgba(0, 205, 37, 1)",
+      pointColor:           "rgba(0, 205, 37, 1)",
+      pointStrokeColor:     "#fff",
+      pointHighlightFill:   "#fff",
+      pointHighlightStroke: "rgba(0, 205, 37, 1)",
+      data: <%= @data.inspect %>
+
+    } ]
+};
+
+var acceptedJobsRadar = new Chart(ctx).Radar(data, {});
+</script>

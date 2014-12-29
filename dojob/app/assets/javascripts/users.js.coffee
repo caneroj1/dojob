@@ -2,6 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+calc_accepted_jobs = ->
+  $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs")
+
 get_accepted_jobs = ->
   $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs")
 
@@ -99,6 +102,7 @@ prepare_posting_for_submit = ->
 $ ->
   do get_accepted_jobs # ajax request for accepted jobs
   do get_completed_jobs # ajax request for completed jobs
+  do calc_accepted_jobs
   do upgrade_form
   do display_deadline
   do hide_deadline
