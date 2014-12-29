@@ -1,0 +1,18 @@
+%table.table#reference-table
+  %thead.reference-table
+    %tr#head-row
+      %td Reference Name
+      %td{ colspan: 2 } Contact Information
+  %tbody
+    - @references.each do |reference|
+      %tr
+        %td= format_name(reference.first_name, reference.last_name)
+        - if reference.contact_email.nil? && reference.contact_number
+          %td= format_number(reference.contact_number)
+          %td
+        - elsif reference.contact_email && reference.contact_number.nil?
+          %td= format_email(reference.contact_email)
+          %td
+        - else
+          %td= format_email(reference.contact_email)
+          %td= format_number(reference.contact_number)

@@ -1,0 +1,15 @@
+.container.offers
+  .row
+    .col-md-4.left-column
+      .well.text-center#offers-container
+        %h1 Offers
+        %hr
+        - if current_user.paid
+          = render partial: "partials/offers/paid_offers"
+        - else
+          = render partial: "partials/offers/unpaid_offers"
+    .col-md-8.right-column#comments
+      %table.instructions
+        %tr
+          %td
+            %p.text-muted.choose Choose an offer from the left and get working!

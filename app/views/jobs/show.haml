@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-md-12
+      .col-md-10.col-md-offset-1.text-center
+        %h2= @job.title
+        %hr
+      .col-md-10.col-md-offset-1
+        .row
+          .col-md-3.col-md-offset-3.text-center
+            %h4 Frequency
+          .col-md-6.text-left
+            %h4.content= format_frequency(@job)
+        .row
+          .col-md-3.col-md-offset-3.text-center
+            %h4 Location
+          .col-md-6.text-left
+            %h4.content= @job.where
+        .row
+          .col-md-3.col-md-offset-3.text-center
+            %h4 Tags
+          .col-md-3.text-left
+            %h4.content= format_tags_show(@job.tags)
+        .row
+          %hr
+          .col-md-12.text-center
+            %h4 Job Description
+          .col-md-8.col-md-offset-2
+            .well.text-center#desc
+              = @job.description
+        .row
+          .col-md-offset-4.col-md-4.text-center
+            = render partial: "partials/jobs/show_buttons"
+= render partial: "partials/jobs/offer_modal"

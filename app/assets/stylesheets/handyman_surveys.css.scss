@@ -1,0 +1,21 @@
+// Place all the styles related to the handyman_surveys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.equipment {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.equipment-text {
+  resize: vertical;
+}
+
+#header-error {
+  display: none;
+}
+
+.handyman-row {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

@@ -1,0 +1,13 @@
+$dojob-color: #00ea2a;
+$brand-primary: #00cd25;
+$dojob-title1: 40px;
+$dojob-title2: 30px;
+$danger-color: #d9534f;
+
+@mixin transition($type, $length, $end) {
+  transition: $type $length $end;
+  -moz-transition: $type $length $end;
+  -webkit-transition: $type $length $end;
+}
+
+// the color of the flat icons in one color is 4f5d73

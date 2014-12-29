@@ -1,8 +1,0 @@
-$('.offer-accept').addClass('disabled');
-$('#offer-modal-button').prop('disabled', true);
-
-var publisher = client.publish('/comments' + $('#offerid').text(), {
-  message: false,
-  hard_offer: false,
-  accepted: true
-});

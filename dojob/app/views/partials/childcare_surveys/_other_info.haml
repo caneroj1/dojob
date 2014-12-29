@@ -1,8 +1,0 @@
-.form-group
-  .col-sm-8.col-sm-offset-2.bot-margin
-    %label.control-label#age-label What ages will you babysit for?
-    #slider-range
-    = text_field_tag(:range, "4 - 14 years old", class: "form-control", id: "amount", readonly: true)
-  .col-sm-8.col-sm-offset-2.bot-margin
-    %label.control-label#child-label How many children are you comfortable supervising?
-    = select_tag(:count, make_select_string(@ccs).html_safe)

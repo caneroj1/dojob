@@ -1,0 +1,147 @@
+%table.availability-table#uav{ data: { d: current_user.id } }
+  %thead
+    .container-hours
+      %tr.header
+        %td
+          %h1.day S
+        %td
+          %h1.day M
+        %td
+          %h1.day T
+        %td
+          %h1.day W
+        %td
+          %h1.day R
+        %td
+          %h1.day F
+        %td
+          %h1.day S
+        %td#clock
+          = image_tag "clock_availability.png", class: "clock_availability"
+  %tbody
+    %tr
+      %td#su8am.slot{ class: @availability["su8am"].eql?('0') ? "unavailable" : "" }
+      %td#m8am.slot{ class: @availability["m8am"].eql?('0') ? "unavailable" : "" }
+      %td#t8am.slot{ class: @availability["t8am"].eql?('0') ? "unavailable" : "" }
+      %td#w8am.slot{ class: @availability["w8am"].eql?('0') ? "unavailable" : "" }
+      %td#r8am.slot{ class: @availability["r8am"].eql?('0') ? "unavailable" : "" }
+      %td#f8am.slot{ class: @availability["f8am"].eql?('0') ? "unavailable" : "" }
+      %td#sa8am.slot{ class: @availability["sa8am"].eql?('0') ? "unavailable" : "" }
+      %td.end 8:00 am
+    %tr
+      %td#su9am.slot{ class: @availability["su9am"].eql?('0') ? "unavailable" : "" }
+      %td#m9am.slot{ class: @availability["m9am"].eql?('0') ? "unavailable" : "" }
+      %td#t9am.slot{ class: @availability["t9am"].eql?('0') ? "unavailable" : "" }
+      %td#w9am.slot{ class: @availability["w9am"].eql?('0') ? "unavailable" : "" }
+      %td#r9am.slot{ class: @availability["r9am"].eql?('0') ? "unavailable" : "" }
+      %td#f9am.slot{ class: @availability["f9am"].eql?('0') ? "unavailable" : "" }
+      %td#sa9am.slot{ class: @availability["sa9am"].eql?('0') ? "unavailable" : "" }
+      %td.end 9:00 am
+    %tr
+      %td#su10am.slot{ class: @availability["su10am"].eql?('0') ? "unavailable" : "" }
+      %td#m10am.slot{ class: @availability["m10am"].eql?('0') ? "unavailable" : "" }
+      %td#t10am.slot{ class: @availability["t10am"].eql?('0') ? "unavailable" : "" }
+      %td#w10am.slot{ class: @availability["w10am"].eql?('0') ? "unavailable" : "" }
+      %td#r10am.slot{ class: @availability["r10am"].eql?('0') ? "unavailable" : "" }
+      %td#f10am.slot{ class: @availability["f10am"].eql?('0') ? "unavailable" : "" }
+      %td#sa10am.slot{ class: @availability["sa10am"].eql?('0') ? "unavailable" : "" }
+      %td.end 10:00 am
+    %tr
+      %td#su11am.slot{ class: @availability["su11am"].eql?('0') ? "unavailable" : "" }
+      %td#m11am.slot{ class: @availability["m11am"].eql?('0') ? "unavailable" : "" }
+      %td#t11am.slot{ class: @availability["t11am"].eql?('0') ? "unavailable" : "" }
+      %td#w11am.slot{ class: @availability["w11am"].eql?('0') ? "unavailable" : "" }
+      %td#r11am.slot{ class: @availability["r11am"].eql?('0') ? "unavailable" : "" }
+      %td#f11am.slot{ class: @availability["f11am"].eql?('0') ? "unavailable" : "" }
+      %td#sa11am.slot{ class: @availability["sa11am"].eql?('0') ? "unavailable" : "" }
+      %td.end 11:00 am
+    %tr
+      %td#su12pm.slot{ class: @availability["su12pm"].eql?('0') ? "unavailable" : "" }
+      %td#m12pm.slot{ class: @availability["m12pm"].eql?('0') ? "unavailable" : "" }
+      %td#t12pm.slot{ class: @availability["t12pm"].eql?('0') ? "unavailable" : "" }
+      %td#w12pm.slot{ class: @availability["w12pm"].eql?('0') ? "unavailable" : "" }
+      %td#r12pm.slot{ class: @availability["r12pm"].eql?('0') ? "unavailable" : "" }
+      %td#f12pm.slot{ class: @availability["f12pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa12pm.slot{ class: @availability["sa12pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 12:00 pm
+    %tr
+      %td#su1pm.slot{ class: @availability["su1pm"].eql?('0') ? "unavailable" : "" }
+      %td#m1pm.slot{ class: @availability["m1pm"].eql?('0') ? "unavailable" : "" }
+      %td#t1pm.slot{ class: @availability["t1pm"].eql?('0') ? "unavailable" : "" }
+      %td#w1pm.slot{ class: @availability["w1pm"].eql?('0') ? "unavailable" : "" }
+      %td#r1pm.slot{ class: @availability["r1pm"].eql?('0') ? "unavailable" : "" }
+      %td#f1pm.slot{ class: @availability["f1pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa1pm.slot{ class: @availability["sa1pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 1:00 pm
+    %tr
+      %td#su2pm.slot{ class: @availability["su2pm"].eql?('0') ? "unavailable" : "" }
+      %td#m2pm.slot{ class: @availability["m2pm"].eql?('0') ? "unavailable" : "" }
+      %td#t2pm.slot{ class: @availability["t2pm"].eql?('0') ? "unavailable" : "" }
+      %td#w2pm.slot{ class: @availability["w2pm"].eql?('0') ? "unavailable" : "" }
+      %td#r2pm.slot{ class: @availability["r2pm"].eql?('0') ? "unavailable" : "" }
+      %td#f2pm.slot{ class: @availability["f2pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa2pm.slot{ class: @availability["sa2pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 2:00 pm
+    %tr
+      %td#su3pm.slot{ class: @availability["su3pm"].eql?('0') ? "unavailable" : "" }
+      %td#m3pm.slot{ class: @availability["m3pm"].eql?('0') ? "unavailable" : "" }
+      %td#t3pm.slot{ class: @availability["t3pm"].eql?('0') ? "unavailable" : "" }
+      %td#w3pm.slot{ class: @availability["w3pm"].eql?('0') ? "unavailable" : "" }
+      %td#r3pm.slot{ class: @availability["r3pm"].eql?('0') ? "unavailable" : "" }
+      %td#f3pm.slot{ class: @availability["f3pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa3pm.slot{ class: @availability["sa3pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 3:00 pm
+    %tr
+      %td#su4pm.slot{ class: @availability["su4pm"].eql?('0') ? "unavailable" : "" }
+      %td#m4pm.slot{ class: @availability["m4pm"].eql?('0') ? "unavailable" : "" }
+      %td#t4pm.slot{ class: @availability["t4pm"].eql?('0') ? "unavailable" : "" }
+      %td#w4pm.slot{ class: @availability["w4pm"].eql?('0') ? "unavailable" : "" }
+      %td#r4pm.slot{ class: @availability["r4pm"].eql?('0') ? "unavailable" : "" }
+      %td#f4pm.slot{ class: @availability["f4pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa4pm.slot{ class: @availability["sa4pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 4:00 pm
+    %tr
+      %td#su5pm.slot{ class: @availability["su5pm"].eql?('0') ? "unavailable" : "" }
+      %td#m5pm.slot{ class: @availability["m5pm"].eql?('0') ? "unavailable" : "" }
+      %td#t5pm.slot{ class: @availability["t5pm"].eql?('0') ? "unavailable" : "" }
+      %td#w5pm.slot{ class: @availability["w5pm"].eql?('0') ? "unavailable" : "" }
+      %td#r5pm.slot{ class: @availability["r5pm"].eql?('0') ? "unavailable" : "" }
+      %td#f5pm.slot{ class: @availability["f5pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa5pm.slot{ class: @availability["sa5pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 5:00 pm
+    %tr
+      %td#su6pm.slot{ class: @availability["su6pm"].eql?('0') ? "unavailable" : "" }
+      %td#m6pm.slot{ class: @availability["m6pm"].eql?('0') ? "unavailable" : "" }
+      %td#t6pm.slot{ class: @availability["t6pm"].eql?('0') ? "unavailable" : "" }
+      %td#w6pm.slot{ class: @availability["w6pm"].eql?('0') ? "unavailable" : "" }
+      %td#r6pm.slot{ class: @availability["r6pm"].eql?('0') ? "unavailable" : "" }
+      %td#f6pm.slot{ class: @availability["f6pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa6pm.slot{ class: @availability["sa6pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 6:00 pm
+    %tr
+      %td#su7pm.slot{ class: @availability["su7pm"].eql?('0') ? "unavailable" : "" }
+      %td#m7pm.slot{ class: @availability["m7pm"].eql?('0') ? "unavailable" : "" }
+      %td#t7pm.slot{ class: @availability["t7pm"].eql?('0') ? "unavailable" : "" }
+      %td#w7pm.slot{ class: @availability["w7pm"].eql?('0') ? "unavailable" : "" }
+      %td#r7pm.slot{ class: @availability["r7pm"].eql?('0') ? "unavailable" : "" }
+      %td#f7pm.slot{ class: @availability["f7pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa7pm.slot{ class: @availability["sa7pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 7:00 pm
+    %tr
+      %td#su8pm.slot{ class: @availability["su8pm"].eql?('0') ? "unavailable" : "" }
+      %td#m8pm.slot{ class: @availability["m8pm"].eql?('0') ? "unavailable" : "" }
+      %td#t8pm.slot{ class: @availability["t8pm"].eql?('0') ? "unavailable" : "" }
+      %td#w8pm.slot{ class: @availability["w8pm"].eql?('0') ? "unavailable" : "" }
+      %td#r8pm.slot{ class: @availability["r8pm"].eql?('0') ? "unavailable" : "" }
+      %td#f8pm.slot{ class: @availability["f8pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa8pm.slot{ class: @availability["sa8pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 8:00 pm
+    %tr
+      %td#su9pm.slot{ class: @availability["su9pm"].eql?('0') ? "unavailable" : "" }
+      %td#m9pm.slot{ class: @availability["m9pm"].eql?('0') ? "unavailable" : "" }
+      %td#t9pm.slot{ class: @availability["t9pm"].eql?('0') ? "unavailable" : "" }
+      %td#w9pm.slot{ class: @availability["w9pm"].eql?('0') ? "unavailable" : "" }
+      %td#r9pm.slot{ class: @availability["r9pm"].eql?('0') ? "unavailable" : "" }
+      %td#f9pm.slot{ class: @availability["f9pm"].eql?('0') ? "unavailable" : "" }
+      %td#sa9pm.slot{ class: @availability["sa9pm"].eql?('0') ? "unavailable" : "" }
+      %td.end 9:00 pm

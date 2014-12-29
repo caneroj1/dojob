@@ -1,0 +1,36 @@
+- reference = Reference.find(data[:id])
+%div.ref-div{ id: "#{data[:id]}", data: { index: number } }
+  .col-md-12.text-left
+    %h4.ref-title
+      = link_to reference_path(reference.id), method: :delete, remote: true do
+        %span.glyphicon.glyphicon-remove.remove{ title: true, data: { toggle: :tooltip, "original-title" => "Remove this reference. Cannot be undone." } }
+      %span.reference-label= "Reference ##{number}"
+  .col-md-12.ref-row.text-left.ref-form
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label First Name
+          %hr.ref-hr
+        .col-sm-12
+          = best_in_place reference, :first_name, as: :input, place_holder: "First name", inner_class: "form-control", url: reference_path(data[:id])
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Last Name
+          %hr.ref-hr
+        .col-sm-12
+          = best_in_place reference, :last_name, as: :input, place_holder: "Last name", inner_class: "form-control", url: reference_path(data[:id])
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Email
+          %hr.ref-hr
+        .col-sm-12
+          = best_in_place reference, :contact_email, as: :input, place_holder: "Email", inner_class: "form-control", url: reference_path(data[:id])
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Phone
+          %hr.ref-hr
+        .col-sm-12
+          = best_in_place reference, :contact_number, as: :input, place_holder: "1234567891", inner_class: "form-control", url: reference_path(data[:id])

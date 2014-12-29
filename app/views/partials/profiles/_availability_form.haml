@@ -1,0 +1,36 @@
+= form_tag(submit_availability_profile_path, method: :post, id: "hours-form", remote: true) do
+  .form-group.text-left
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "su", checked: true)
+        Sunday
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "m")
+        Monday
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "t")
+        Tuesday
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "w")
+        Wednesday
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "r")
+        Thursday
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "f")
+        Friday
+    .col-md-12.day-btn
+      %label.radio-inline
+        = radio_button_tag(:day, "sa")
+        Saturday
+    .col-md-12#hours-slider
+      #slider-hours
+      .col-sm-12.hours-cols.text-center
+        %label.control-label#hours-lab Hours: 12pm - 6pm
+        = text_field_tag(:hours, "", hidden: true, id: "hours-inp")
+    = submit_tag "Update", class: "btn btn-primary btn-block", id: "submit_hours"

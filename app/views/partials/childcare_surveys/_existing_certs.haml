@@ -1,0 +1,17 @@
+.col-md-12.bot-margin
+  %h3#existing-certs Existing Certifications
+  %table.table.table-striped
+    %thead
+      %tr
+        %td
+          %strong Title
+        %td
+          %strong Expires
+    %tbody
+      - obj.certifications.sort { |c1, c2| c1.expiration <=> c2.expiration }
+      - obj.certifications.each do |cert|
+        %tr
+          %td=cert.title
+          %td=cert.expiration.strftime("%-m/%d/%Y")
+  - if button
+    %a.btn.btn-info#cert-btn Add Additional Certifications

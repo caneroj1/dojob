@@ -1,0 +1,11 @@
+.col-md-10.col-md-offset-1.text-center.top
+  %h2 References
+  %hr
+.col-md-10.col-md-offset-1.text-center#ref
+  - if action.eql?("edit")
+    = render partial: "partials/profiles/references_edit"
+  - else
+    - if @references.empty?
+      .alert-info No references have been uploaded.
+    - else
+      = render partial: "partials/profiles/references_display"

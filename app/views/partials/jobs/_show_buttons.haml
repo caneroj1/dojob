@@ -1,0 +1,9 @@
+- if @job.user_id.eql?(current_user.id)
+  = link_to "Edit Job", edit_job_path(@job), class: "btn btn-info btn-block"
+- else
+  - if !@job.offers.where("user_id = #{current_user.id}").empty?
+    %button.btn.btn-primary.btn-block#make-offer-btn{ disabled: true } Offer Created!
+  - elsif current_user.paid
+    %button.btn.btn-primary.btn-block#make-offer-btn{ data: { target: '#offerModal', toggle: 'modal'} } Make Offer
+  - else
+    .alert-danger You must be a subscriber to Dojob in order to find and do jobs.
