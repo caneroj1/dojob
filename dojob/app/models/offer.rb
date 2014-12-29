@@ -1,5 +1,5 @@
 class Offer < ActiveRecord::Base
-  attr_accessible :user_id, :job_id, :accepted
+  attr_accessible :user_id, :job_id, :accepted, :completed
 
   belongs_to :job
   belongs_to :user

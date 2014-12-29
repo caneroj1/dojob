@@ -3,7 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 get_accepted_jobs = ->
-  $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs");
+  $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs")
+
+get_completed_jobs = ->
+  $('#replace-completed-jobs').load("/users/" + $('#uid').text() + "/completed_jobs")
 
 change_count_color = ->
   $('#char-count').css('color', '#d9534f')
@@ -95,6 +98,7 @@ prepare_posting_for_submit = ->
 
 $ ->
   do get_accepted_jobs # ajax request for accepted jobs
+  do get_completed_jobs # ajax request for completed jobs
   do upgrade_form
   do display_deadline
   do hide_deadline

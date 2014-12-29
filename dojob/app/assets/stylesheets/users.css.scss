@@ -120,12 +120,15 @@ li.active {
   margin-left: 20px;
 }
 
-#accepted {
+#accepted, #completed {
   margin-top: 50px;
 }
 
+#completed-jobs-table {
+  margin-bottom: 50px;
+}
+
 form.button_to {
-  width:0;
   display:inline-block;
   margin:0;
 }

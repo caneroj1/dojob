@@ -4,7 +4,7 @@
       <tr>
         <th>Job Title</th>
         <th>Accepted On</th>
-        <th>Options</th>
+        <th colspan="2">Options</th>
       </tr>
     </thead>
     <tbody>
@@ -13,10 +13,10 @@
           <td><%= link_to job.title, job_path(job) %></td>
           <td><%= job.accepted_on.strftime("%-m/%d/%Y") %></td>
           <td>
-            <button class="btn btn-primary">
+            <%= button_to complete_job_path(job, completing_id: current_user.id), method: :post, remote: true, class: "btn btn-primary" do %>
               <span class="glyphicon glyphicon-ok"></span>
               Complete
-            </button>
+            <% end %>
             <%= button_to reject_job_path(job), method: :post, remote: true, class: "btn btn-danger" do %>
               <span class="glyphicon glyphicon-remove"></span>
               Reject

@@ -86,6 +86,18 @@ class JobsController < ApplicationController
     end
   end
 
+  def complete_job
+    j = Job.find(params[:id])
+
+    j.update(completed: true, completed_by: params[:completing_id], completed_on: Time.now)
+    j.offers.where("accepted = ?", true).first.update(completed: true, completed_by: params[:completing_id], completed_on: Time.now)
+    j.hard_offers.where("accepted = ?", true).first.update(completed: true, completed_by: params[:completing_id], completed_on: Time.now)
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
   protected
   # splits tags by '.' and stores them in the job's tag arr
   def parse_tags(tag_str)

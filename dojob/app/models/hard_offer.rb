@@ -6,7 +6,8 @@ class HardOffer < ActiveRecord::Base
                   :username,    # string,
                   :accepted,    # boolean
                   :avatar,      # string
-                  :offer_id     # int
+                  :offer_id,    # int
+                  :completed    # boolean
 
 
   belongs_to :job
