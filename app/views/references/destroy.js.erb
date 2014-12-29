@@ -1,0 +1,9 @@
+$('#<%= params[:id] %>').remove()
+var count = 0;
+
+$('.reference-label').each(function(index) {
+  count = index + 1;
+  $(this).text("Reference #" + count);
+})
+
+$('#curnum').val(count + 1);

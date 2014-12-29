@@ -1,0 +1,36 @@
+.container
+  .row
+    .col-md-12.text-center
+      %h1 Search for Jobs
+    .col-md-3.job-tags
+      %h3 Filter by Tags
+      %hr
+      %ul.nav.nav-pills.nav-stacked
+        %li
+          = link_to "Lawn Care", search_jobs_path(tag: "Lawn Care"), method: :post
+        %li
+          = link_to "Tutoring", search_jobs_path(tag: "Tutoring"), method: :post
+        %li
+          = link_to "Pet Care", search_jobs_path(tag: "Pet Care"), method: :post
+        %li
+          = link_to "Landscaping", search_jobs_path(tag: "Landscaping"), method: :post
+        %li
+          = link_to "Shopping", search_jobs_path(tag: "Shopping"), method: :post
+        %li
+          = link_to "Babysitting", search_jobs_path(tag: "Babysitting"), method: :post
+        %li
+          = link_to "Handyman", search_jobs_path(tag: "Handyman"), method: :post
+        %li
+          = link_to "Errands", search_jobs_path(tag: "Errands"), method: :post
+        %li
+          = link_to "Oddjobs", search_jobs_path(tag: "Oddjobs"), method: :post
+    .col-md-6.text-center.search-body
+      .col-md-12
+        %hr
+        = form_tag(search_jobs_path, method: :post) do |f|
+          .input-group
+            = text_field_tag :query, params[:query], class: "form-control", placeholder: "Search"
+            %span.input-group-btn
+              = submit_tag "Go", class: "btn btn-primary"
+      .col-md-12.text-center
+        = render partial: "partials/jobs/job_list"

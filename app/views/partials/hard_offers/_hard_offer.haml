@@ -1,0 +1,7 @@
+%li.media
+  %table.comment-table
+    %tr
+      - if params[:id].eql?(current_user.id)
+        = render partial: "partials/hard_offers/my_hard_offer", locals: { h: @hard_offer }
+      - else
+        = render partial: "partials/hard_offers/user_hard_offer", locals: { h: @hard_offer }

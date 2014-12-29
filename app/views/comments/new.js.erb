@@ -1,0 +1,56 @@
+$('#comments').html("<%= escape_javascript(render partial: 'partials/comments/all_comments', locals: { offer_id: params[:offer_id], offer_user: params[:offer_user], job_id: params[:job_id], job_title: params[:job_title], job_accepted: params[:accepted].eql?("true") } ) %>");
+$('#comments').append("<%= escape_javascript(render partial: 'partials/comments/comment', locals: { offer_id: params[:offer_id], user_id: params[:user_id], job_title: params[:job_title], job_id: params[:job_id], job_accepted: params[:accepted].eql?("true") }) %>");
+
+$('#datepicker').datepicker({
+  minDate: '-0d',
+  defaultDate: +0
+});
+
+$('#hard_offer_form').on('submit', function() {
+  return $('#hardOffer').modal('hide');
+});
+
+// disabled all accept offer buttons except for the last one
+$('.offer-accept').addClass('disabled');
+$('.offer-accept').last().removeClass('disabled');
+
+// save the href for the last button
+// and remove all other hrefs
+var last_href = $('.offer-accept').attr('href');
+$('.offer-accept').removeAttr('href');
+$('.offer-accept').last().attr('href', last_href);
+
+// scroll to the bottom of the chat window
+$(".comments-area").animate({ scrollTop: $('.comments-area')[0].scrollHeight}, 300);
+
+window.client = new Faye.Client('/faye');
+var uid = $('#uid').text();
+
+jQuery(function() {
+  var channel = '/comments' + $('#offerid').text();
+
+  if(typeof window.subs === 'undefined' || window.subs.indexOf(channel) <= -1) {
+    if(typeof window.subs === 'undefined') window.subs = [];
+    window.subs.push(channel);
+    return client.subscribe(channel, function(payload) {
+      if (payload.message) {
+        if (uid === payload.current_user_id) {
+          $('#comments').find('#comment-list').append(payload.my_message);
+        }
+        else {
+          $('#comments').find('#comment-list').append(payload.user_message);
+        }
+        $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
+      }
+      else if (payload.hard_offer) {
+        $('.offer-accept').last().addClass('disabled').removeAttr('href');
+        $('#comments').find('#comment-list').append(payload.hard_offer_content);
+        $('.comments-area').scrollTop($('.comments-area')[0].scrollHeight);
+      }
+      else if (payload.accepted) {
+        $('.offer-accept').addClass('disabled');
+        $('offer-modal-button').prop('disabled', true);
+      }
+    });
+  }
+});

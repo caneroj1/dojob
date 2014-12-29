@@ -1,0 +1,7 @@
+.container
+  .row
+    .col-md-10.col-md-offset-1
+      = render partial: "partials/profiles/header"
+      = render partial: "partials/profiles/about_me", locals: { action: "show" }
+      = render partial: "partials/profiles/references", locals: { action: "show"}
+      = render partial: "partials/profiles/availability", locals: { action: "show" }

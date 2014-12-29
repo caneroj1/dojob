@@ -1,8 +1,0 @@
-.col-md-10.col-md-offset-1.text-center.top
-  %h2= "About #{@user.my_name}"
-  %hr
-.col-md-10.col-md-offset-1.text-center
-  - if action.eql?("show")
-    = render partial: "partials/profiles/about_me_show"
-  - if action.eql?("edit")
-    = render partial: "partials/profiles/about_me_form"

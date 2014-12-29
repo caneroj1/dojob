@@ -1,0 +1,2 @@
+module HandymanSurveysHelper
+end
