@@ -193,23 +193,8 @@
   display: none;
 }
 
-.file-upload {
-  position: relative;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  span {
-    cursor: pointer;
-  }
-}
-
-.upload-avatar {
-  top: 0;
-  left: 0;
-  position: absolute;
-  padding:0;
-  margin:0;
-  opacity:0;
-  cursor: pointer;
+.file-field {
+  padding-left: 0 !important;
 }
 
 #upload-name {
@@ -236,4 +221,8 @@
 
 .edit-row {
   margin-top: 5px;
+}
+
+.file-input-name {
+  display: none;
 }
