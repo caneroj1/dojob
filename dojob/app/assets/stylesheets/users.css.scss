@@ -37,6 +37,12 @@ li.active {
   }
 }
 
+li.active {
+  a.stats {
+    background-color: $brand-primary !important;
+  }
+}
+
 .buy {
   border-color: $brand-primary !important;
   padding: 0 !important;
@@ -112,7 +118,7 @@ li.active {
   color: #d9534f;
 }
 
-.form-control[readonly] {
+.form-control[readonly], #acceptj10, #acceptj30, #acceptja, #completej10, #completej30, #completeja {
   cursor: pointer !important;
 }
 
@@ -131,4 +137,8 @@ li.active {
 form.button_to {
   display:inline-block;
   margin:0;
+}
+
+.completed-jobs-stats {
+  margin-top:25px;
 }

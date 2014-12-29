@@ -2,8 +2,36 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+stats_jobs_click = ->
+  checkExist1 = setInterval(->
+    if $("#acceptj10").length
+      $('#acceptj10').on 'click', ->
+        $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=10days")
+      $('#acceptj30').on 'click', ->
+        $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=30days")
+      $('#acceptja').on 'click', ->
+        $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=all")
+      clearInterval checkExist1
+    return
+  , 100) # check every 100ms
+
+  checkExist2 = setInterval(->
+    if $("#completej10").length
+      $('#completej10').on 'click', ->
+        $('#replace-complete-chart').load("/users/" + $('#uid').text() + "/calculate_completed_jobs?time=10days")
+      $('#completej30').on 'click', ->
+        $('#replace-complete-chart').load("/users/" + $('#uid').text() + "/calculate_completed_jobs?time=30days")
+      $('#completeja').on 'click', ->
+        $('#replace-complete-chart').load("/users/" + $('#uid').text() + "/calculate_completed_jobs?time=all")
+      clearInterval checkExist2
+    return
+  , 100) # check every 100ms
+
 calc_accepted_jobs = ->
-  $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs")
+  $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=10days")
+
+calc_completed_jobs = ->
+  $('#replace-complete-chart').load("/users/" + $('#uid').text() + "/calculate_completed_jobs?time=10days")
 
 get_accepted_jobs = ->
   $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs")
@@ -102,10 +130,15 @@ prepare_posting_for_submit = ->
 $ ->
   do get_accepted_jobs # ajax request for accepted jobs
   do get_completed_jobs # ajax request for completed jobs
+
+  # ajax requests for statistics
   do calc_accepted_jobs
+  do calc_completed_jobs
+
   do upgrade_form
   do display_deadline
   do hide_deadline
   do datepicker_for_posting
   do prepare_posting_for_submit
   do change_count_color
+  do accepted_jobs_click
