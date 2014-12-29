@@ -2,21 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# display_avatar_upload = ->
-  # $('#file-upload-button').on 'click', ->
-    # $('#avatar-field-field').click()
-
 avatar_upload_check = ->
-  $('#avatar-file-field').change ->
-    if $('#avatar-file-field').val() != ''
+  $('#avatar-file').change ->
+    if $('#avatar-file').val() != ''
       $('#avatar-submit').removeAttr('disabled')
-      $('#upload-name').text($('#avatar-file-field').val().replace("C:\\fakepath\\", ""))
-      $('#avatar-file-field').offset( {top: -2000, left: -2000 } )
+      $('#upload-name').text($('#avatar-file').val().replace("C:\\fakepath\\", ""))
 
 avatar_form_submit = ->
   $('#avatar-form').on 'submit', ->
     files_regex = /(\.|\/)(jpe?g|png)$/i
-    filename = $('#avatar-file-field').val().replace("C:\\fakepath\\", "")
+    filename = $('#avatar-file').val().replace("C:\\fakepath\\", "")
     if files_regex.test(filename)
       return true
     else
@@ -93,6 +88,7 @@ toggle_availability = ->
 
 $ ->
   if ($('#avail').data('page') == 'edit')
+    $('#avatar-file').bootstrapFileInput();
     $('[data-toggle="tooltip"]').tooltip()
     jQuery(".best_in_place").best_in_place();
     do toggle_availability
