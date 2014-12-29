@@ -14,7 +14,7 @@ elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml
 
 <h2>Screenshots of Dojob</h2>
 <p>The following is a screenshot of the main page of the application.</p>
-<img src="./app/assets/readme_imgs/main.png">
+<img src="./app/assets/images/readme_imgs/main.png">
 <br>
 
 <p>After a user logs in, they are taken to their dashboard, where they can see a list of the jobs they've posted.</p>
