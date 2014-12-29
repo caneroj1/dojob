@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def accepted_jobs
-    @accepted_jobs = Job.where('accepted_by = ? AND completed_by = ?', params[:id], nil)
+    @accepted_jobs = Job.where('accepted_by = ? AND completed_by IS ?', params[:id], nil)
     render layout: false
   end
 
@@ -30,10 +30,12 @@ class UsersController < ApplicationController
                   "Errands" => 0,
                   "Odd Jobs" => 0 }
 
-    jobs = Job.where("accepted_by = ?", current_user.id)
+    jobs = Job.where("accepted_by = ? AND completed_by IS ?", current_user.id, nil)
 
-    jobs.each do |job|
-      job.tags.each { |tag| data_hash[tag.tag_name] += 1 }
+    if !jobs.empty?
+      jobs.each do |job|
+        job.tags.each { |tag| data_hash[tag.tag_name] += 1 }
+      end
     end
 
     @data = data_hash.values
