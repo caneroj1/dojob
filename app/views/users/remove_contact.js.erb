@@ -1,0 +1,5 @@
+$('#contact<%= params[:contact_id] %>').remove()
+
+if ($('.contact-row').length === 0) {
+    $('#contacts-table').replaceWith("<div class='alert-info'>You have not added any contacts. You can add contacts by visiting user profiles and clicking the \"Add to Contacts\" button.</div>")
+}

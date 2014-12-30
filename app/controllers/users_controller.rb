@@ -20,6 +20,11 @@ class UsersController < ApplicationController
     render layout: false
   end
 
+  def contacts
+    @contacts = current_user.contacts
+    render layout: false
+  end
+
   def calculate_accepted_jobs
     data_hash = { "Pet Care" => 0,
                   "Tutoring" => 0,
@@ -70,6 +75,23 @@ class UsersController < ApplicationController
     @data = [] if all_zero?(@data)
 
     render layout: false
+  end
+
+  def add_contact
+    contact_name = User.find(params[:contact_id]).my_name
+    current_user.contacts << Contact.create(contact_id: params[:contact_id], contact_name: contact_name)
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def remove_contact
+    current_user.contacts.find_by_contact_id(params[:contact_id]).delete
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
   end
 
   private

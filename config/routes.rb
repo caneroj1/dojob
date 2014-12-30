@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations/registrations" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -17,10 +18,13 @@ Rails.application.routes.draw do
   # RESTful routes for users
   resources :users do
     member do
-        get :accepted_jobs,            to: "users#accepted_jobs"
-        get :completed_jobs,           to: "users#completed_jobs"
-        get :calculate_accepted_jobs,  to:"users#calculate_accepted_jobs"
-        get :calculate_completed_jobs, to:"users#calculate_completed_jobs"
+        get :accepted_jobs,             to: "users#accepted_jobs"
+        get :completed_jobs,            to: "users#completed_jobs"
+        get :calculate_accepted_jobs,   to: "users#calculate_accepted_jobs"
+        get :calculate_completed_jobs,  to: "users#calculate_completed_jobs"
+        get :contacts,                  to: "users#contacts"
+        post :add_contact,              to: "users#add_contact"
+        post :remove_contact,           to: "users#remove_contact"
     end
   end
   resources :profiles, only: [:show, :edit] do

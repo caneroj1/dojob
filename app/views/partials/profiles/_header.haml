@@ -10,4 +10,4 @@
       - if current_user.eql?(@user)
         = link_to "Edit Profile", edit_profile_path(@user), class: "btn btn-info"
       - else
-        %button.btn.btn-primary Add to Contacts
+        = button_to @not_in_contacts ? "Add to Contacts" : "Already a Contact", @not_in_contacts ? add_contact_user_path(id: current_user.id, contact_id: @user.id) : "", class: "btn btn-primary", remote: true, id: "contact-button", method: :post, disabled: @not_in_contacts ? false : true

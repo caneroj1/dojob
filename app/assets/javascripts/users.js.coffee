@@ -39,6 +39,9 @@ get_accepted_jobs = ->
 get_completed_jobs = ->
   $('#replace-completed-jobs').load("/users/" + $('#uid').text() + "/completed_jobs")
 
+get_contacts = ->
+  $('#replace-contacts').load("/users/" + $('#uid').text() + "/contacts")
+
 change_count_color = ->
   $('#char-count').css('color', '#d9534f')
   $('#job-description').on 'input',  ->
@@ -130,7 +133,8 @@ prepare_posting_for_submit = ->
 $ ->
   do get_accepted_jobs # ajax request for accepted jobs
   do get_completed_jobs # ajax request for completed jobs
-
+  do get_contacts
+  
   # ajax requests for statistics
   do calc_accepted_jobs
   do calc_completed_jobs

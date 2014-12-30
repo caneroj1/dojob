@@ -18,18 +18,19 @@ class User < ActiveRecord::Base
   serialize(:availability, Hash)
 
   # VALIDATIONS
-  validates :state, presence: true
-  validates :city, presence: true
-  validates :zip, presence: true, format: { with: /\A[[:digit:]]{5}\z/, message: "allows only numbers" }, length: { is: 5 }
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :address, presence: true
+  validates :state,       presence: true
+  validates :city,        presence: true
+  validates :zip,         presence: true, format: { with: /\A[[:digit:]]{5}\z/, message: "allows only numbers" }, length: { is: 5 }
+  validates :first_name,  presence: true
+  validates :last_name,   presence: true
+  validates :address,     presence: true
 
-  has_many :offers, dependent: :delete_all
-  has_many :hard_offers, dependent: :delete_all
-  has_many :jobs, dependent: :delete_all
-  has_many :references, dependent: :delete_all
-  has_many :comments
+  has_many :offers,       dependent: :delete_all
+  has_many :hard_offers,  dependent: :delete_all
+  has_many :jobs,         dependent: :delete_all
+  has_many :references,   dependent: :delete_all
+  has_many :comments,     dependent: :delete_all
+  has_many :contacts,     dependent: :delete_all
 
   def my_name
     "#{first_name} #{last_name}"
