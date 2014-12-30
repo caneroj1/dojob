@@ -8,7 +8,9 @@ module ProfilesHelper
   end
 
   def format_number(number)
-    if number
+    puts "HERE!!!"
+    puts number
+    if !number.nil? && !number.blank?
       make_human_readable(number)
     else
       "No number given"
