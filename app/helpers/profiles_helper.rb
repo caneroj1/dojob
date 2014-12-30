@@ -11,7 +11,7 @@ module ProfilesHelper
     if number
       make_human_readable(number)
     else
-    "No number given"
+      "No number given"
     end
   end
 
