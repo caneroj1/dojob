@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-job_arr = [ 'petcare', 'tutoring', 'shopping', 'construction', 'babysitting', 'gardening', 'housework']
+job_arr = [ 'pet care', 'tutoring', 'shopping', 'construction', 'babysitting', 'lawn care', 'errands', 'oddjobs']
 change_words = ->
   arr_size = job_arr.length
   counter = 0

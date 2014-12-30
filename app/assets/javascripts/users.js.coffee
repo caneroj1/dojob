@@ -141,4 +141,4 @@ $ ->
   do datepicker_for_posting
   do prepare_posting_for_submit
   do change_count_color
-  do accepted_jobs_click
+  do stats_jobs_click
