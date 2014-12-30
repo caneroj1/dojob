@@ -15,10 +15,10 @@
       %li
         = link_to "Log Out", destroy_user_session_path, method: :delete
   %li.menu-item#mid-separator
-    %a
+    %a{ data: { toggle: "tooltip", placement: "bottom" }, title: "Alerts" }
       %span.glyphicon.glyphicon-bell
   %li.menu-item
-    %a{ href: offers_path }
+    %a{ href: offers_path, data: { toggle: "tooltip", placement: "bottom" }, title: "Offers" }
       %span.glyphicon.glyphicon-envelope
 
 = form_tag(search_jobs_path, method: :post, class: "navbar-form navbar-right") do

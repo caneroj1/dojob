@@ -9,6 +9,10 @@ reverse_form = ->
       $('.nav-form-hidden').fadeOut(300, ->
         $('.nav-login-here').fadeIn(300))
 
+nav_tooltips = ->
+  $('[data-toggle="tooltip"]').tooltip()
+
 $ ->
   do navbar_form
   do reverse_form
+  do nav_tooltips
