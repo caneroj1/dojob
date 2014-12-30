@@ -1,7 +1,8 @@
 %h1= "#{current_user.first_name} #{current_user.last_name}'s Dashboard"
 %hr
+.hidden#uid=current_user.id
 .col-md-10.col-md-offset-1
   .col-md-12.my-jobs
     %h2 My Posted Jobs
-  .col-md-12.jobs-table
+  .col-md-12.jobs-table.unpaid
     = render partial: "partials/user/tab_content/jobs"

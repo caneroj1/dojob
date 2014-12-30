@@ -3,17 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 stats_jobs_click = ->
-  checkExist1 = setInterval(->
-    if $("#acceptj10").length
-      $('#acceptj10').on 'click', ->
-        $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=10days")
-      $('#acceptj30').on 'click', ->
-        $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=30days")
-      $('#acceptja').on 'click', ->
-        $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=all")
-      clearInterval checkExist1
-    return
-  , 100) # check every 100ms
+  if $('#replace-radar-chart').length > 0
+    checkExist1 = setInterval(->
+      if $("#acceptj10").length
+        $('#acceptj10').on 'click', ->
+          $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=10days")
+        $('#acceptj30').on 'click', ->
+          $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=30days")
+        $('#acceptja').on 'click', ->
+          $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=all")
+        clearInterval checkExist1
+      return
+    , 100) # check every 100ms
 
   checkExist2 = setInterval(->
     if $("#completej10").length
@@ -28,16 +29,20 @@ stats_jobs_click = ->
   , 100) # check every 100ms
 
 calc_accepted_jobs = ->
-  $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=10days")
+  if $('#replace-radar-chart').length > 0
+    $('#replace-radar-chart').load("/users/" + $('#uid').text() + "/calculate_accepted_jobs?time=10days")
 
 calc_completed_jobs = ->
-  $('#replace-complete-chart').load("/users/" + $('#uid').text() + "/calculate_completed_jobs?time=10days")
+  if $('#replace-complete-chart').length > 0
+    $('#replace-complete-chart').load("/users/" + $('#uid').text() + "/calculate_completed_jobs?time=10days")
 
 get_accepted_jobs = ->
-  $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs")
+  if $('#replace-accepted-jobs').length > 0
+    $("#replace-accepted-jobs").load("/users/" + $('#uid').text() + "/accepted_jobs")
 
 get_completed_jobs = ->
-  $('#replace-completed-jobs').load("/users/" + $('#uid').text() + "/completed_jobs")
+  if $('#replace-completed-jobs').length > 0
+    $('#replace-completed-jobs').load("/users/" + $('#uid').text() + "/completed_jobs")
 
 get_contacts = ->
   $('#replace-contacts').load("/users/" + $('#uid').text() + "/contacts")
@@ -134,7 +139,7 @@ $ ->
   do get_accepted_jobs # ajax request for accepted jobs
   do get_completed_jobs # ajax request for completed jobs
   do get_contacts
-  
+
   # ajax requests for statistics
   do calc_accepted_jobs
   do calc_completed_jobs

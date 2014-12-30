@@ -1,8 +1,12 @@
-$('.offer-accept').addClass('disabled');
-$('#offer-modal-button').prop('disabled', true);
+<% if flash[:already_accepted] %>
+  $('.comment-header').before('<div class="alert-warning">Error! This job has already been accepted.</div>');
+<% else %>
+  $('.offer-accept').addClass('disabled');
+  $('#offer-modal-button').prop('disabled', true);
 
-var publisher = client.publish('/comments' + $('#offerid').text(), {
-  message: false,
-  hard_offer: false,
-  accepted: true
-});
+  var publisher = client.publish('/comments' + $('#offerid').text(), {
+    message: false,
+    hard_offer: false,
+    accepted: true
+  });
+<% end %>

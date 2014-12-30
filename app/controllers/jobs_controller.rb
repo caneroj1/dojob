@@ -62,13 +62,17 @@ class JobsController < ApplicationController
 
   def accept_job
     job = Job.find(params.delete(:id))
-    offer = Offer.find(params.delete(:offer_id)).update(accepted: true)
-    hard_offer = HardOffer.find(params.delete(:hard_offer_id)).update(accepted: true)
+    if !job.accepted
+      offer = Offer.find(params.delete(:offer_id)).update(accepted: true)
+      hard_offer = HardOffer.find(params.delete(:hard_offer_id)).update(accepted: true)
 
-    accepting_id = job.user_id.eql?(current_user.id) ? params[:user_id] : current_user.id
+      accepting_id = job.user_id.eql?(current_user.id) ? params[:user_id] : current_user.id
 
-    job.update(accepted: true, accepted_by: accepting_id, accepted_on: Time.now)
-
+      job.update(accepted: true, accepted_by: accepting_id, accepted_on: Time.now)
+    else
+      flash[:already_accepted] = true
+    end
+    
     respond_to do |format|
       format.js { render layout: false }
     end
