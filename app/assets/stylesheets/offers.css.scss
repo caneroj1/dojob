@@ -42,6 +42,7 @@
   margin-bottom: 0 !important;
   overflow: scroll !important;
   height: 100% !important;
+  padding-bottom: 30px !important;
 }
 
 .nav-titles, .comment-header {
@@ -132,4 +133,10 @@
 .offer-accepted {
   color: $brand-primary;
   float: right;
+}
+
+.offer-name {
+  font-size: 13px;
+  color: #464646;
+  margin-bottom: 5px;
 }

@@ -7,10 +7,12 @@
         %td Job Title
         %td Posting Date
     %tbody
-      - @my_offers.each do |o|
+      - @my_offers.sort_by { |o| o.created_at }.reverse!.each do |o|
         %tr
           %td
             = format_offer_name(o)
+            %br
+            %p.offer-name= o.made_by
           %td
             %p
               = o.created_at.strftime("%-m/%d/%Y")
