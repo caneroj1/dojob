@@ -11,6 +11,8 @@
         %tr
           %td
             %a= format_offer_name(o)
+            %br
+            %p.offer-name= o.made_by
           %td
             %p
               = o.created_at.strftime("%-m/%d/%Y")
