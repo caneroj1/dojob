@@ -11,6 +11,10 @@
   display: inline-block;
 }
 
+.control-label {
+  font-weight: 200;
+}
+
 .catchphrase {
   color: $dojob-color;
   font-size: $dojob-title1;
@@ -25,6 +29,10 @@
 
 .signup-header {
   margin-top: 40px;
+}
+
+.logout-header {
+  margin-top: 0;
 }
 
 .login-header {
@@ -45,7 +53,7 @@
 }
 
 .pad {
-  margin-top: 75px;
+  margin-top: 95px;
 }
 
 .fix-pad {
@@ -76,4 +84,30 @@
   overflow: auto;
   padding-top: 65px;
   padding-bottom: 20px;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  background: rgba(0,0,0,0);
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 60px;
+  border: 1px solid #333;
+  position: static;
+  display: table;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  position: static;
+  text-align: center;
+}
+
+.inner {
+  font-size: 36px;
+  font-weight: 200;
+  color: #333;
 }

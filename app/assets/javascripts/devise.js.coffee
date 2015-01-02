@@ -6,7 +6,8 @@ advance_form = ->
       $('#formlabel').fadeIn(300))
     $('#stage1').fadeOut(300, ->
       $('#stage2').fadeIn(300))
-    $('#progress').attr('src', '/assets/sign_up_right_number.png')
+    $('#circle-right').removeClass('unfilled')
+    $('#circle-left').addClass('unfilled')
     false
 
 rewind_form = ->
@@ -16,7 +17,8 @@ rewind_form = ->
       $('#formlabel').fadeIn(300))
     $('#stage2').fadeOut(300, ->
       $('#stage1').fadeIn(300))
-    $('#progress').attr('src', '/assets/sign_up_left_number.png')
+    $('#circle-right').addClass('unfilled')
+    $('#circle-left').removeClass('unfilled')
     false
 
 $ ->

@@ -7,7 +7,19 @@
         %h1.signup Join DoJob
     .col-md-12
       .text-center
-        = image_tag "sign_up_left_number.png", id: "progress"
+        .inline#left
+          .circle#circle-left
+            .middle
+              .inner 1
+        .inline
+          #bar
+            .middle
+              #green-inside
+        .inline#right
+          .circle#circle-right.unfilled
+            .middle
+              .inner 2
+
     .col-md-6.col-xs-offset-3.text-center
       %h3#formlabel Account Information
       %hr
@@ -38,13 +50,13 @@
           %p.bg-warning This information will not be shared until a job has been arranged.
           .form-group
             .col-sm-2
-              = f.label :first_name, class: "control-label"
+              = f.label :first_name, class: "control-label name"
             .col-sm-10
               = f.text_field :first_name, autofocus: true, class: "form-control"
 
           .form-group
             .col-sm-2
-              = f.label :last_name, class: "control-label"
+              = f.label :last_name, class: "control-label name"
             .col-sm-10
               = f.text_field :last_name, autocomplete: "off", class: "form-control"
 

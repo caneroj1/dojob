@@ -5,9 +5,9 @@
         = image_tag "dojob2.png", class: "nav-img"
       = link_to "DoJob", root_path, class: "navbar-brand"
     - if notice
-      %p.navbar-left.navbar-text.nav-vert= notice
+      %p.navbar-left.navbar-text.nav-vert.notice= notice
     - if alert
-      %p.navbar-left.navbar-text.nav-vert= alert
+      %p.navbar-left.navbar-text.nav-vert.alert= alert
     - if !user_signed_in?
       - if params[:controller].eql?("registrations/registrations")
         = render partial: "partials/navbar/login"

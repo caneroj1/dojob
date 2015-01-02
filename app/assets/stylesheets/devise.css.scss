@@ -1,3 +1,14 @@
+@import "variables";
+
+.col-sm-2 {
+  text-align: right;
+}
+
+.control-label, .form-label {
+  font-weight: 200;
+}
+
+
 .signup {
   font-size: 50px;
 }
@@ -13,4 +24,66 @@
 .bg-warning {
   padding: 15px;
   margin-bottom: 20px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: $brand-primary;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  position: static;
+  display: table;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  position: static;
+  text-align: center;
+}
+
+.inner {
+  font-weight: 200;
+  font-size: 36px;
+  color: white;
+}
+
+#bar {
+  width: 400px;
+  height: 100px;
+  margin: 0;
+  display: table;
+  position: static
+}
+
+#green-inside {
+  width: 400px;
+  height: 15px;
+  background-color: #00cd25;
+  display: table-cell;
+  vertical-align:middle;
+}
+
+.inline {
+  display: inline-block;
+}
+
+#left {
+  margin-right: -5px;
+}
+
+#right {
+  margin-left: -5px;
+}
+
+.unfilled {
+  background: rgba(0,0,0,0);
+  border-color: $brand-primary;
+  border: 1px solid #00cd25;
+  .inner {
+    color: #333;
+  }
 }

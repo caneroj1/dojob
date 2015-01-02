@@ -147,3 +147,11 @@ h2, h3, h4, h5 {
 td {
   font-weight: 200;
 }
+
+.alert {
+  color: $danger !important;
+}
+
+.notice {
+  color: $brand-primary !important;
+}
