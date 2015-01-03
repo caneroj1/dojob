@@ -1,4 +1,5 @@
 <h1>Dojob</h1>
+[![Build Status](https://travis-ci.org/caneroj1/dojob.svg?branch=master)](https://travis-ci.org/caneroj1/dojob)
 <p>Dojob is a Ruby on Rails application I am working on that will allow college students to get in touch with people in the surrounding areas to perform quick jobs for easy money. Users can post jobs, and other users can accept those jobs and work on them and get paid. The following is a brief list of some of the kinds of jobs available:</p>
 <ul>
 <li>Lawncare</li>
