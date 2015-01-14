@@ -1,0 +1,11 @@
+# ignore bundle
+/.bundle
+/.capistrano
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore application configuration and secrets and database
+/config/application.yml
+/config/secrets.yml

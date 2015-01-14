@@ -45,7 +45,12 @@ namespace :deploy do
     end
   end
 
-  desc "Check that we can access everything"
+  # after we deploy, run bundle update
+  after :deploy do
+    execute(:bundle, :update)
+  end
+
+  desc "Check that we can access everything. This checks the server to see if deploy user has write permissions."
   task :check_write_permissions do
     on roles(:all) do |host|
       if test("[ -w #{fetch(:deploy_to)} ]")
@@ -54,6 +59,14 @@ namespace :deploy do
         error "#{fetch(:deploy_to)} is not writable on #{host}"
       end
     end
+  end
+
+  desc "Deploy with migrations. Invokes the deploy task and then runs the migrations."
+  task :migrations do
+    Capistrano::Application.invoke("deploy") # deploy to the server
+
+    # execute the migrations
+    execute(:rake, :db, :migrate)
   end
 
 end
