@@ -34,8 +34,18 @@ set :deploy_to, '/home/ubuntu/site/dojob'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :deploy do
+# HOOKS
+desc "Update the gems. Runs bundle:update"
+task :bundle do
+  on roles(:app) do
+    run "bundle update"
+  end
+end
 
+# update the bundle
+after("deploy", "bundle")
+
+namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -43,11 +53,6 @@ namespace :deploy do
       #   execute :rake, 'cache:clear'
       # end
     end
-  end
-
-  # after we deploy, run bundle update
-  after :deploy do
-    execute(:bundle, :update)
   end
 
   desc "Check that we can access everything. This checks the server to see if deploy user has write permissions."
@@ -63,10 +68,7 @@ namespace :deploy do
 
   desc "Deploy with migrations. Invokes the deploy task and then runs the migrations."
   task :migrations do
-    Capistrano::Application.invoke("deploy") # deploy to the server
-
-    # execute the migrations
-    execute(:rake, :db, :migrate)
+    Capistrano::Application.invoke("deploy")
+    run "rake db:migrate"
   end
-
 end
