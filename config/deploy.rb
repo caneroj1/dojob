@@ -34,11 +34,14 @@ set :deploy_to, '/home/ubuntu/site/dojob'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+# path to get to the app folder
+get_to_app = "cd /home/ubuntu/site/dojob/current;"
+
 # HOOKS
 desc "Update the gems. Runs bundle:update"
 task :bundle do
   on roles(:app) do
-    run "bundle update"
+    execute "#{get_to_app} bundle update"
   end
 end
 
@@ -55,6 +58,13 @@ namespace :deploy do
     end
   end
 
+  desc "Restart the server"
+  task :restart do
+    on roles(:app) do
+      execute("sudo nginx -s reload")
+    end
+  end
+
   desc "Check that we can access everything. This checks the server to see if deploy user has write permissions."
   task :check_write_permissions do
     on roles(:all) do |host|
@@ -68,7 +78,9 @@ namespace :deploy do
 
   desc "Deploy with migrations. Invokes the deploy task and then runs the migrations."
   task :migrations do
-    Capistrano::Application.invoke("deploy")
-    run "rake db:migrate"
+    on roles(:app) do
+      Capistrano::Application.invoke("deploy")
+      execute "#{get_to_app} rake db:migrate"
+    end
   end
 end

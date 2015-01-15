@@ -7,5 +7,5 @@
 /tmp
 
 # Ignore application configuration and secrets and database
-/config/application.yml
 /config/secrets.yml
+/config/database.yml
