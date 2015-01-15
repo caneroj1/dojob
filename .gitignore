@@ -6,6 +6,5 @@
 /log/*.log
 /tmp
 
-# Ignore application configuration and secrets and database
+# Ignore application secrets
 /config/secrets.yml
-/config/database.yml
