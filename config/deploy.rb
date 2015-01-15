@@ -41,21 +41,20 @@ path_to_app = "/home/ubuntu/site/dojob/current"
 desc "Update the gems. Runs bundle:update"
 task :bundle do
   on roles(:app) do
-    execute "cd #{path_to_app}; bundle update"
+    execute "cd #{path_to_app}; bundle update;"
   end
 end
 
 desc "Move database and secrets YAML files."
 task :move_files do
   on roles(:app) do
-    execute "cp database.yml #{path_to_app}/config/; cp secrets.yml #{path_to_app}/config/;"
+    execute "cp secrets.yml #{path_to_app}/config/;"
   end
 end
 
-# update the bundle
+# update the bundle.
+# after deploy move secrets into directory.
 after("deploy", "bundle")
-
-# after deploy move secrets and database into directory
 after("deploy", "move_files")
 
 namespace :deploy do
@@ -90,7 +89,7 @@ namespace :deploy do
   task :migrations do
     on roles(:app) do
       Capistrano::Application.invoke("deploy")
-      execute "cd #{path_to_app}; rake db:migrate"
+      execute "cd #{path_to_app}; rake db:migrate;"
     end
   end
 end
