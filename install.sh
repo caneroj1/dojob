@@ -86,12 +86,32 @@ read
 `sudo ln -s /etc/nginx/sites-available/dojob /etc/nginx/sites-enabled/dojob`
 
 # print out the last bit of configuration that needs to be done by the user
+# we need to comment out the default nginx site and specify the location of phusion and ruby
+# to nginx
 echo "\n\n*************\nThere is some minor configuration left for you to do."
 echo "Go to the file /etc/nginx/nginx.conf and do the following:"
 echo "\t1. uncomment both phusion passenger lines (the line for the ruby path and the passenger path)."
 echo "Go to the file /etc/nginx/sites-available/default and do the following:"
 echo "\t1. comment out the line that says we are listening on port 80 and the line after it."
 echo "Almost done... Press any key to advance"
+
+# we need to make the databases and then make a new user for them that works with the database.yml file
 read
+echo "Now we are going to make a new postgresql user and the databases."
+echo "Press any key to continue."
+read
+echo "Switching to user postgres."
+`sudo -i -u postgres`
+echo "Run the following command: 'createruser --interactive' The name of the user should be 'ubuntu'. It should be a superuser and it will have no password."
+echo "Ready to continue? Press any key to advance"
+read
+echo "Returning to user ubuntu."
+`exit`
+echo "Making a new database."
+`createdb dojob_development`
+echo "Done! You are nearly ready to go. Press any key to continue."
+read
+
+# restart the server and go!
 echo "Execute the following command: 'sudo nginx -s reload'"
-echo "You should be good to go!"
+echo "You should be good to go! Now you should run cap production deploy:migrations."
