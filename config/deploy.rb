@@ -35,18 +35,28 @@ set :deploy_to, '/home/ubuntu/site/dojob'
 # set :keep_releases, 5
 
 # path to get to the app folder
-get_to_app = "cd /home/ubuntu/site/dojob/current;"
+path_to_app = "/home/ubuntu/site/dojob/current"
 
 # HOOKS
 desc "Update the gems. Runs bundle:update"
 task :bundle do
   on roles(:app) do
-    execute "#{get_to_app} bundle update"
+    execute "cd #{path_to_app}; bundle update"
+  end
+end
+
+desc "Move database and secrets YAML files."
+task :move_files do
+  on roles(:app) do
+    execute "cp database.yml #{path_to_app}/config/; cp secrets.yml #{path_to_app}/config/;"
   end
 end
 
 # update the bundle
 after("deploy", "bundle")
+
+# after deploy move secrets and database into directory
+after("deploy", "move_files")
 
 namespace :deploy do
   after :restart, :clear_cache do
@@ -80,7 +90,7 @@ namespace :deploy do
   task :migrations do
     on roles(:app) do
       Capistrano::Application.invoke("deploy")
-      execute "#{get_to_app} rake db:migrate"
+      execute "cd #{path_to_app}; rake db:migrate"
     end
   end
 end
