@@ -1,10 +1,10 @@
-$('#first-name').val('')
-$('#last-name').val('')
-$('#email-field').val('')
-$('#phone-field').val('')
-$('#phone-label').css('color', '#333333')
-$('#email-label').css('color', '#333333')
-
+$('#first-name').val('');
+$('#last-name').val('');
+$('#email-field').val('');
+$('#phone-field').val('');
+$('#phone-label').css('color', '#333333');
+$('#email-label').css('color', '#333333');
+$(':checkbox').attr('checked', false);
 
 if ($('#no-refs').text() === 'You have no references. Add some below!') {
   $('#no-refs').after('<p class = "text-muted instr text-left left-pad" id="has-refs">Click on a field you would like to edit. Changes are saved automatically.</p>');

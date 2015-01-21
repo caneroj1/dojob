@@ -41,9 +41,15 @@
             %hr.ref-hr
           .col-sm-12
             = best_in_place reference, :contact_number, as: :input, place_holder: "1234567891", inner_class: "form-control", url: reference_path(reference.id), display_as: :number_display
+      .col-sm-12.tag-line.first-field
+        .col-sm-3
+          %label.control-label Tags
+          %hr.ref-hr
+        .col-sm-12
+          = reference_tags(reference.reference_tags)
 .col-md-12.text-left.top-marg#reference_form
   %h4.ref-title Add New Reference
-.col-md-12.ref-row.text-left
+.col-md-12.ref-row.text-left#form_div
   = form_tag(references_path, method: :post, remote: true, id: "new-ref-form") do
     = text_field_tag(:ref_num, current_number + 1, hidden: true, id: "curnum")
     .col-sm-3.first-field
@@ -75,4 +81,43 @@
         .col-sm-12
           = text_field_tag(:contact_number, "", placeholder: "1234567891", class: "form-control", id: "phone-field")
     .col-sm-12.text-left.top-marg
-      = submit_tag "Add", class: "btn btn-primary"
+      .col-sm-3.first-field
+        %label.control-label Add Tags
+        %hr.ref-hr
+      .col-sm-12.first-field
+        .col-sm-6.text-left.first-field
+          .checkbox
+            %label
+              = check_box_tag("Pet_Care", "Pet Care", false)
+              Pet Care
+          .checkbox
+            %label
+              = check_box_tag("Tutoring", "Tutoring", false)
+              Tutoring
+          .checkbox
+            %label
+              = check_box_tag("Shopping", "Shopping", false)
+              Shopping
+          .checkbox
+            %label
+              = check_box_tag("Handyman", "Handyman", false)
+              Handyman
+        .col-sm-6.text-left
+          .checkbox
+            %label
+              = check_box_tag("Babysitting", "Babysitting", false)
+              Babysitting
+          .checkbox
+            %label
+              = check_box_tag("Lawn_Care", "Lawn Care", false)
+              Lawn Care
+          .checkbox
+            %label
+              = check_box_tag("Errands", "Errands", false)
+              Errands
+          .checkbox
+            %label
+              = check_box_tag("Oddjobs", "Oddjobs", false)
+              Oddjobs
+    .col-sm-12.text-left.top-marg
+      = submit_tag "Add Reference", class: "btn btn-primary"

@@ -70,4 +70,12 @@ module ProfilesHelper
       image_tag(user.avatar, class: 'img-circle')
     end
   end
+
+  def reference_tags(reference_tags)
+    if reference_tags.blank?
+      content_tag(:p, "None added.")
+    else
+      content_tag(:p, reference_tags.map { |tag| tag.tag_name}.join(", ") )
+    end
+  end
 end

@@ -14,9 +14,11 @@ class ReferencesController < ApplicationController
                        contact_email:  params[:contact_email],
                        contact_number: params[:contact_number] }
 
+
     reference = Reference.create(reference_hash)
+    make_tags(reference, params)
     current_user.references << reference
-    
+
     params[:id] = reference.id
 
     respond_to do |format|
@@ -30,6 +32,13 @@ class ReferencesController < ApplicationController
 
     respond_to do |format|
       format.js { render layout: false }
+    end
+  end
+
+  private
+  def make_tags(reference, params)
+    tag_names = %w{Pet_Care Lawn_Care Babysitting Tutoring Oddjobs Errands Handyman Shopping }.each do |tag|
+        reference.reference_tags.push(ReferenceTag.new(tag_name: tag.gsub(/_/, " "))) if params.has_key?(tag)
     end
   end
 end

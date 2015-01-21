@@ -3,6 +3,7 @@
     %tr#head-row
       %td Reference Name
       %td{ colspan: 2 } Contact Information
+      %td Tags
   %tbody
     - @references.each do |reference|
       %tr
@@ -16,3 +17,4 @@
         - else
           %td= format_email(reference.contact_email)
           %td= format_number(reference.contact_number)
+        %td= reference_tags(reference.reference_tags)

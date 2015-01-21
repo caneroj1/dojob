@@ -131,7 +131,8 @@
 }
 
 .ref-row {
-  height: 82px;
+  height: auto;
+  overflow:auto;
 }
 
 .first-field, .ref-row {
@@ -225,4 +226,13 @@
 
 .file-input-name {
   display: none;
+}
+
+#form_div {
+  height: auto;
+  overflow: auto;
+}
+
+.tag-line {
+  padding-top: 5px;
 }

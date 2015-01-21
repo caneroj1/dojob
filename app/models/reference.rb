@@ -6,7 +6,7 @@ class Reference < ActiveRecord::Base
   validates :contact_number, format: { with: /\A[0-9]{10}\z/, message: "is not correct."  }, if: :number_given?
   validates :contact_email,  format: { with:  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "is not correct." }, if: :email_given?
 
-  has_many :tags
+  has_many :reference_tags
   belongs_to :user
 
   def email_given?
