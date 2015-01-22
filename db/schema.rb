@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230234906) do
+ActiveRecord::Schema.define(version: 20150122032213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "certifications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "expires"
+    t.string   "title"
+    t.string   "link"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -80,6 +88,13 @@ ActiveRecord::Schema.define(version: 20141230234906) do
     t.boolean  "accepted"
     t.boolean  "completed"
     t.string   "made_by"
+  end
+
+  create_table "reference_tags", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "reference_id"
+    t.string   "tag_name"
   end
 
   create_table "references", force: true do |t|

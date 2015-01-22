@@ -25,12 +25,13 @@ class User < ActiveRecord::Base
   validates :last_name,   presence: true
   validates :address,     presence: true
 
-  has_many :offers,       dependent: :delete_all
-  has_many :hard_offers,  dependent: :delete_all
-  has_many :jobs,         dependent: :delete_all
-  has_many :references,   dependent: :delete_all
-  has_many :comments,     dependent: :delete_all
-  has_many :contacts,     dependent: :delete_all
+  has_many :offers,         dependent: :delete_all
+  has_many :hard_offers,    dependent: :delete_all
+  has_many :jobs,           dependent: :delete_all
+  has_many :references,     dependent: :delete_all
+  has_many :comments,       dependent: :delete_all
+  has_many :contacts,       dependent: :delete_all
+  has_many :certifications, dependent: :delete_all
 
   def my_name
     "#{first_name} #{last_name}"
