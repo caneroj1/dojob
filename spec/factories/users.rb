@@ -9,8 +9,10 @@ FactoryGirl.define do
     f.email       { Faker::Internet.email }
     f.password    { Faker::Internet.password(10) }
 
-    transient do
-      invalid nil
+    factory :user_with_certifications do
+      after(:create) do |user|
+        user.certifications << FactoryGirl.create(:certification)
+      end
     end
   end
 end
