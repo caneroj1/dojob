@@ -68,6 +68,9 @@ gem 'remotipart', '~> 1.2' # asynchronous file uploads
 # for in-place editing of model attributes
 gem 'best_in_place'
 
+# for validations on remote forms
+gem 'client_side_validations'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'

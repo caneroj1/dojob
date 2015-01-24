@@ -49,8 +49,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :offers, only: [:index]
-  resources :references
+  resources :offers,         only: [:index]
+  resources :references,     only: [:update, :create, :destroy]
+  resources :certifications, only: [:update, :create, :destroy]
 
   # for when users make offers on jobs
   resource  :hard_offers, only: [:create, :show]
