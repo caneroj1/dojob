@@ -116,25 +116,39 @@
   border-radius: 0;
 }
 
-.reference-table {
+.reference-table,
+.certification-table
+{
   background-color: #fafafa;
   color: #333;
 }
 
-#reference-table, .ref-title, .control-label {
+#reference-table,
+#certification-table,
+.cert-title,
+.ref-title,
+.control-label
+{
   font-weight: 200;
 }
 
-.ref-hr {
+.ref-hr,
+.cert-hr
+{
   margin-top: 1px;
   margin-bottom: 5px;
 }
 
-.ref-row {
+.ref-row,
+.cert-row
+{
   height: 82px;
 }
 
-.first-field, .ref-row {
+.first-field,
+.ref-row,
+.cert-row
+{
   padding-left: 0 !important;
 }
 

@@ -5,6 +5,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+/tmp/cache
 # Ignore application secrets
 /config/secrets.yml

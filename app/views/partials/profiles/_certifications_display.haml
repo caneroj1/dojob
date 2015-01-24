@@ -1,0 +1,14 @@
+%table.table#certification-table
+  %thead.certification-table
+    %tr#head-row
+      %td Certification Title
+      %td Granted By
+      %td Acquired On
+      %td Expires
+  %tbody
+    - @certifications.each do |cert|
+      %tr
+        %td= cert.title
+        %td= cert.certifying_body
+        %td= cert.acquired.strftime("%-m/%d/%Y")
+        %td= cert.expires.strftime("%-m/%d/%Y")

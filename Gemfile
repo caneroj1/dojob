@@ -69,7 +69,7 @@ gem 'remotipart', '~> 1.2' # asynchronous file uploads
 gem 'best_in_place'
 
 # for validations on remote forms
-gem 'client_side_validations'
+gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations", branch: "master"
 
 group :development, :test do
 	gem 'rspec-rails'

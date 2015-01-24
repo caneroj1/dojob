@@ -55,4 +55,18 @@ RSpec.describe Certification, :type => :model do
       expect(user.certifications.count).to eq(1)
     end
   end
+
+  context "instance methods" do
+    describe '#acquire_display' do
+      it "correctly formats date" do
+        expect(certification.acquire_display).to match(date_regexp)
+      end
+    end
+
+    describe '#expire_display' do
+      it "correctly formats date" do
+        expect(certification.expire_display).to match(date_regexp)
+      end
+    end
+  end
 end

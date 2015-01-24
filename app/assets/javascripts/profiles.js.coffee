@@ -86,6 +86,25 @@ toggle_availability = ->
       data: { name: name, available: data }
     }
 
+datepicker_for_certs = ->
+  $('.datepicker').datepicker({minDate: '-0d', defaultDate: +0,
+  onClose: (dateText, inst) ->
+    $(inst.input).change().focusout()
+    return})
+
+submit_cert = ->
+  $('#new-cert-form').on 'submit', ->
+    date_arr_one = $('.new-date-ac').val().split("/")
+    date_arr_two = $('.new-date-ex').val().split("/")
+
+    # date_arr[2] has the year
+    # date_arr[0] contains the month. js starts january from 0
+    # date_arr[1] has the day
+    date_one = new Date(date_arr_one[2], date_arr_one[0] - 1, date_arr_one[1])
+    $('.new-date-ac').val(date_one.toUTCString())
+    date_two = new Date(date_arr_two[2], date_arr_two[0] - 1, date_arr_two[1])
+    $('.new-date-ex').val(date_two.toUTCString())
+
 $ ->
   if ($('#avail').data('page') == 'edit')
     $('#avatar-file').bootstrapFileInput();
@@ -96,4 +115,5 @@ $ ->
   do hours_slider_func
   do avatar_upload_check
   do avatar_form_submit
-  # do display_avatar_upload
+  do datepicker_for_certs
+  do submit_cert

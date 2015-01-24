@@ -7,4 +7,12 @@ class Certification < ActiveRecord::Base
   validates :certifying_body, presence: true
 
   belongs_to :user
+
+  def expire_display
+    expires.strftime("%-m/%d/%Y")
+  end
+
+  def acquire_display
+    acquired.strftime("%-m/%d/%Y")
+  end
 end

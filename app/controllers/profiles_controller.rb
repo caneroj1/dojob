@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @references = @user.references
+    @certifications = @user.certifications
     @availability = @user.availability
     @not_in_contacts = current_user.contacts.where("contact_id = ?", params[:id]).empty?
   end
@@ -10,6 +11,7 @@ class ProfilesController < ApplicationController
     @user = current_user
     @availability = current_user.availability
     @references = current_user.references
+    @certifications = @user.certifications
   end
 
   def mark_availability
