@@ -7,4 +7,3 @@
 /tmp
 /tmp/cache
 # Ignore application secrets
-/config/secrets.yml
