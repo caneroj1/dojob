@@ -1,0 +1,36 @@
+- certification = Certification.find(data[:id])
+%div.cert-div{ id: "#{data[:id]}", data: { index: number } }
+  .col-md-12.text-left
+    %h4.cert-title
+      = link_to certification_path(certification.id), method: :delete, remote: true do
+        %span.glyphicon.glyphicon-remove.remove{ title: true, data: { toggle: :tooltip, "original-title" => "Remove this certification. Cannot be undone." } }
+      %span.cert-label= "Certification ##{number}"
+  .col-md-12.cert-row.text-left.cert-form
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Title
+          %hr.cert-hr
+        .col-sm-12
+          = best_in_place certification, :title, as: :input, place_holder: "Title", inner_class: "form-control", url: certification_path(certification.id)
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Granting Body
+          %hr.cert-hr
+        .col-sm-12
+          = best_in_place certification, :certifying_body, as: :input, place_holder: "Granting Body", inner_class: "form-control", url: certification_path(certification.id)
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Acquired
+          %hr.cert-hr
+        .col-sm-12
+          = best_in_place certification, :acquired, as: :input, place_holder: "", inner_class: "form-control datepicker", url: certification_path(certification.id), display_as: :acquire_display
+    .col-sm-3.first-field
+      .form-group
+        .col-sm-12
+          %label.control-label Expires
+          %hr.cert-hr
+        .col-sm-12
+          = best_in_place certification, :expires, as: :input, place_holder: "", inner_class: "form-control datepicker", url: certification_path(certification.id), display_as: :expire_display

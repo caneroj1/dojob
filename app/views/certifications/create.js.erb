@@ -1,0 +1,15 @@
+$('#title').val('');
+$('#cert-body').val('');
+$('#acquire-field').val('');
+$('#expire-field').val('');
+
+if ($('#no-certs').text() === 'You have no certifications. Add some below!') {
+  $('#no-certs').after('<p class = "text-muted instr text-left left-pad" id="has-certs">Click on a field you would like to edit. Changes are saved automatically.</p>');
+  $('#no-certs').fadeOut(0, function() {
+    return $('#no-certs').remove();
+  });
+}
+
+$('#certification_form').before('<%=escape_javascript(render partial: "partials/certifications/show", locals: { data: params, number: params[:cert_num] } ) %>')
+$('#curcert').val(parseInt($('#curcert').val()) + 1)
+$('[data-toggle="tooltip"]').tooltip()

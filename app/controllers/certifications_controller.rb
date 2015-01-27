@@ -1,6 +1,8 @@
 class CertificationsController < ApplicationController
   def create
-    current_user.certifications << Certification.new(params[:certification])
+    new_cert = Certification.new(params[:certification])
+    current_user.certifications << new_cert
+    params[:id] = new_cert.id
     respond_to do |format|
       format.js { render layout: false }
     end

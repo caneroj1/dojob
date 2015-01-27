@@ -26,21 +26,21 @@
             %label.control-label Granting Body
             %hr.cert-hr
           .col-sm-12
-            = best_in_place cert, :certifying_body, as: :input, place_holder: "Last name", inner_class: "form-control", url: certification_path(cert.id)
+            = best_in_place cert, :certifying_body, as: :input, place_holder: "Granting Body", inner_class: "form-control", url: certification_path(cert.id)
       .col-sm-3
         .form-group
           .col-sm-12
             %label.control-label Acquired
             %hr.cert-hr
           .col-sm-12
-            = best_in_place cert, :acquired, as: :input, place_holder: "Email", inner_class: "form-control datepicker", url: certification_path(cert.id), display_as: :acquire_display
+            = best_in_place cert, :acquired, as: :input, place_holder: "", inner_class: "form-control datepicker", url: certification_path(cert.id), display_as: :acquire_display
       .col-sm-3
         .form-group
           .col-sm-12
             %label.control-label Expires
             %hr.cert-hr
           .col-sm-12
-            = best_in_place cert, :expires, as: :input, place_holder: "1234567891", inner_class: "form-control datepicker", url: certification_path(cert.id), display_as: :expire_display
+            = best_in_place cert, :expires, as: :input, place_holder: "", inner_class: "form-control datepicker", url: certification_path(cert.id), display_as: :expire_display
 .col-md-12.text-left.top-marg#certification_form
   %h4.cert-title Add New Certification
 .col-md-12.cert-row.text-left
